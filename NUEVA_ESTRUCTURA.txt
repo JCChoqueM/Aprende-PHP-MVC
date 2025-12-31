@@ -1,0 +1,47 @@
+ESTRUCTURA REORGANIZADA DEL PROYECTO
+=====================================
+
+MANTENER:
+---------
+/public/
+  └── index.php (SIMPLIFICADO - solo para ejercicios)
+
+/views/
+  └── layout.php (página principal de ejercicios)
+
+/includes/
+  ├── helpers.php (utilidades)
+  └── funciones.php (funciones globales)
+
+/src/
+  ├── js/ (JavaScript de ejercicios)
+  └── scss/ (estilos)
+
+/vendor/ (dependencias de Composer)
+
+/.git/ (control de versiones)
+
+ARCHIVOS RAÍZ:
+  ├── composer.json
+  ├── package.json
+  ├── gulpfile.js
+  └── .gitignore
+
+ELIMINAR (no se usan):
+----------------------
+/controllers/ (AdminController, APIController, CitaController, etc.)
+/models/ (Admin, Cita, Propiedad, Servicio, etc.)
+/classes/ (Email.php)
+/views/admin/
+/views/auth/
+/views/cita/
+/views/paginas/ (excepto si las necesitas)
+/views/propiedades/
+/views/servicios/
+/views/vendedores/
+/views/templates/
+/Router.php
+/includes/app.php
+/includes/database.php
+/servidor.bat
+

@@ -1,0 +1,249 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║                 ✅ COMENTARIOS AGREGADOS - CÓDIGO DOCUMENTADO                ║
+║                                                                                ║
+║  Archivo: views/layout.php                                                    ║
+║  Cambios: Comentarios descriptivos detallados en todo el código              ║
+║  Estado: ✅ Código más intuitivo y entendible                               ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� COMENTARIOS AGREGADOS
+
+  ✅ Variables CSS (:root)
+     • Explicación de cada color
+     • Propósito de cada variable
+     • Facilita cambios globales
+
+  ✅ Contenedor de Código
+     • Propósito: max-height 500px
+     • Estructura: Header + Wrapper
+     • Utiliza: flex layout
+
+  ✅ Header del Código
+     • Muestra: lenguaje (PHP/JS)
+     • Layout: flex horizontal
+     • Alinea: contenido a los lados
+
+  ✅ Wrapper Scrollable
+     • Permite: scroll en ambas direcciones
+     • Altura: limitada por contenedor padre
+     • Scrollbar: personalizado
+
+  ✅ Botón Copiar
+     • Feedback: color + texto + sombra
+     • Transición: 0.2s suave
+     • Fallback: para navegadores antiguos
+
+  ✅ Scrollbar Personalizado
+     • Webkit only (Chrome, Safari, Edge)
+     • Hover: cambio de color
+     • Estilo: sutil y profesional
+
+  ✅ Syntax Highlighting
+     • Colores para: keywords, strings, comments
+     • Mejora: legibilidad del código
+     • Diferenciar: tipos de elementos
+
+  ✅ Funciones JavaScript
+     • toggleCollapsible() - Abre/cierra secciones
+     • handleSubmit() - Procesa formulario
+     • copyCode() - Copia con feedback
+     • expandDiagram() - Prepara expansión
+     • DOMContentLoaded - Inicialización
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� SECCIONES COMENTADAS
+
+  Estilos CSS:
+    ✓ Variables CSS globales
+    ✓ Body y estilos generales
+    ✓ Contenedor de código (16 líneas)
+    ✓ Header del código (10 líneas)
+    ✓ Etiqueta de lenguaje (8 líneas)
+    ✓ Acciones del código (6 líneas)
+    ✓ Wrapper scrollable (33 líneas)
+    ✓ Botón copiar (28 líneas)
+    ✓ Contenedor diagrama (15 líneas)
+    ✓ Wrapper diagrama (33 líneas)
+    ✓ Syntax highlighting (18 líneas)
+
+  Funciones JavaScript:
+    ✓ toggleCollapsible() - 6 líneas comentadas
+    ✓ handleSubmit() - 12 líneas comentadas
+    ✓ clearForm() - 2 líneas comentadas
+    ✓ copyCode() - 43 líneas comentadas
+    ✓ expandDiagram() - 10 líneas comentadas
+    ✓ DOMContentLoaded - 8 líneas comentadas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� TIPOS DE COMENTARIOS USADOS
+
+  1. Sección Principal (Separador)
+     /* ========================================
+        NOMBRE DE LA SECCIÓN
+        Descripción
+        ======================================== */
+
+  2. Propiedad Explicada (Inline)
+     max-height: 500px;  /* Limita altura */
+
+  3. Explicación de Lógica
+     event.stopPropagation();  /* Evita cierre */
+
+  4. Flujo de Pasos (Multi-línea)
+     /* 1. Obtiene el código */
+     /* 2. Copia al portapapeles */
+     /* 3. Muestra feedback visual */
+
+  5. TODO/Próximas Mejoras
+     /* TODO: Implementar modal fullscreen */
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ BENEFICIOS
+
+  ��� Claridad
+     → Alguien nuevo entiende el código inmediatamente
+     → No necesita investigar para entender qué hace
+
+  ��� Mantenimiento
+     → Fácil hacer cambios sin romper funcionalidad
+     → Entender el contexto de cada decisión
+
+  ��� Debugging
+     → Más rápido encontrar dónde está el problema
+     → Entiende el flujo de ejecución
+
+  ��� Educación
+     → El código se auto-documenta
+     → Aprenderás mientras entiendes el código
+
+  ��� Profesionalismo
+     → Código bien documentado = código profesional
+     → Facilita colaboración en equipo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� CÓMO NAVEGAR EL CÓDIGO
+
+  Busca por sección (Ctrl+F):
+    • ":root {" → Variables CSS
+    • "CÓDIGO" → Contenedor de código
+    • "copyCode()" → Función copiar
+    • "SYNTAX" → Colores de sintaxis
+    • "DOMContentLoaded" → Inicialización
+
+  Busca por función:
+    • toggleCollapsible - Abre/cierra
+    • handleSubmit - Procesa ejercicio
+    • copyCode - Copia código
+    • expandDiagram - Expande imagen
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� ESTADÍSTICAS
+
+  Líneas de comentarios agregados:    ~250
+  Secciones CSS comentadas:           11
+  Funciones JavaScript comentadas:    6
+  Porcentaje de código comentado:     ~15%
+  Formato: Consistente y profesional
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� EJEMPLOS DE COMENTARIOS
+
+  Ejemplo 1: Variables CSS
+  ┌────────────────────────────────────────┐
+  │ --primary: #4f46e5;                    │
+  │     /* Indigo - Color principal */    │
+  │                                        │
+  │ --success: #10b981;                    │
+  │     /* Verde - Para botones éxito */  │
+  └────────────────────────────────────────┘
+
+  Ejemplo 2: Contenedor Flexbox
+  ┌────────────────────────────────────────┐
+  │ .code-container {                      │
+  │     display: flex;  /* Layout flex */  │
+  │     flex-direction: column;             │
+  │         /* Apila verticalmente */     │
+  │ }                                      │
+  └────────────────────────────────────────┘
+
+  Ejemplo 3: Función JavaScript
+  ┌────────────────────────────────────────┐
+  │ function copyCode(id) {                │
+  │     /* Copia al portapapeles */       │
+  │     /* Muestra feedback visual */     │
+  │     /* Restaura después 2s */         │
+  │ }                                      │
+  └────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� DOCUMENTACIÓN ADICIONAL
+
+  Nueva documentación creada:
+    • GUIA_COMENTARIOS.md (Esta documento)
+      → Explicación detallada de cada comentario
+      → Patrones usados
+      → Cómo navegar el código
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+��� QUÉ PUEDES HACER AHORA
+
+  1. Entender el código:
+     ✓ Lee los comentarios en order
+     ✓ Entiende cada sección
+     ✓ Aprende el flujo completo
+
+  2. Modificar con confianza:
+     ✓ Cambiar colores → Variables CSS
+     ✓ Ajustar altura → max-height
+     ✓ Agregar funciones → Sigue el patrón
+
+  3. Añadir nuevas características:
+     ✓ Usa comentarios como guía
+     ✓ Mantén el mismo estilo
+     ✓ Documenta tu código igual
+
+  4. Enseñar a otros:
+     ✓ Código auto-documentado
+     ✓ Fácil para principiantes
+     ✓ Explicación inline
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ CHECKLIST FINAL
+
+  ☑ Comentarios CSS añadidos
+  ☑ Comentarios JavaScript añadidos
+  ☑ Formato consistente
+  ☑ Fácil de navegar
+  ☑ Documentación creada
+  ☑ Ejemplos proporcionados
+  ☑ Guía de referencia incluida
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                      ��� ¡CÓDIGO DOCUMENTADO EXITOSAMENTE! ���
+
+                   El código es ahora intuitivo y entendible
+                    Fácil de mantener y actualizar
+                     Perfecto para aprender y enseñar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fecha: 2024
+Versión: 2.1 (Con Comentarios)
+Estado: ✅ COMPLETADO
+
+Para ver documentación detallada:
+→ GUIA_COMENTARIOS.md

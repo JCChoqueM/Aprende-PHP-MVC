@@ -1,0 +1,482 @@
+<!-- Ejemplo de Ejercicio con Código Largo - Para Testing -->
+
+Este ejemplo muestra cómo un ejercicio se vería con código muy largo que requiere scrolling. Este HTML puede insertarse en la sección de
+contenido. ESTRUCTURA ESPERADA:
+
+<div class="collapsible-section">
+  <div
+    class="collapsible-header"
+    onclick="toggleCollapsible(this)"
+  >
+    <span class="collapsible-title">💻 Ver Código PHP</span>
+    <span class="collapsible-icon">▼</span>
+  </div>
+  <div class="collapsible-content">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">PHP</span>
+        <div class="code-actions">
+          <button
+            class="copy-btn"
+            onclick="copyCode('phpCode')"
+            title="Copiar código"
+          >
+            📋 Copiar
+          </button>
+        </div>
+      </div>
+      <div class="code-wrapper">
+        <pre><code id="phpCode">
+<?php
+/**
+ * Sistema de Gestión de Usuarios
+ * Archivo: UserManager.php
+ * 
+ * Este archivo contiene la clase UserManager que se encarga de:
+ * - Validación de datos de usuario
+ * - Cálculos complejos
+ * - Procesamiento de múltiples operaciones
+ * 
+ * @author Luis José Sánchez
+ * @version 2.0
+ */
+
+class UserManager {
+    
+    private $db;
+    private $config;
+    private $logger;
+    
+    /**
+     * Constructor del UserManager
+     * 
+     * @param Database $database Conexión a la base de datos
+     * @param Config $config Configuración de la aplicación
+     */
+    public function __construct(Database $database, Config $config) {
+        $this->db = $database;
+        $this->config = $config;
+        $this->logger = new Logger('UserManager');
+    }
+    
+    /**
+     * Procesa y valida un usuario nuevo
+     * 
+     * @param array $userData Array con datos del usuario
+     * @return array Resultado del procesamiento
+     */
+    public function processUser($userData) {
+        // Validación de datos
+        $validation = $this->validateUserData($userData);
+        
+        if (!$validation['success']) {
+            return [
+                'success' => false,
+                'errors' => $validation['errors'],
+                'code' => 'VALIDATION_ERROR'
+            ];
+        }
+        
+        // Procesar datos
+        $processedData = $this->sanitizeData($userData);
+        
+        // Calcular métricas
+        $metrics = $this->calculateMetrics($processedData);
+        
+        // Guardar en base de datos
+        try {
+            $result = $this->db->insert('users', $processedData);
+            
+            $this->logger->info('Usuario creado: ' . $result['id']);
+            
+            return [
+                'success' => true,
+                'userId' => $result['id'],
+                'metrics' => $metrics,
+                'timestamp' => time()
+            ];
+        } catch (Exception $e) {
+            $this->logger->error('Error al crear usuario: ' . $e->getMessage());
+            
+            return [
+                'success' => false,
+                'error' => 'Error de base de datos',
+                'code' => 'DB_ERROR'
+            ];
+        }
+    }
+    
+    /**
+     * Valida los datos del usuario
+     */
+    private function validateUserData($data) {
+        $errors = [];
+        
+        // Validar nombre
+        if (empty($data['name']) || strlen($data['name']) < 3) {
+            $errors[] = 'El nombre debe tener al menos 3 caracteres';
+        }
+        
+        // Validar email
+        if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'El email debe ser válido';
+        }
+        
+        // Validar contraseña
+        if (empty($data['password']) || strlen($data['password']) < 8) {
+            $errors[] = 'La contraseña debe tener al menos 8 caracteres';
+        }
+        
+        return [
+            'success' => empty($errors),
+            'errors' => $errors
+        ];
+    }
+    
+    /**
+     * Sanitiza los datos del usuario
+     */
+    private function sanitizeData($data) {
+        return [
+            'name' => htmlspecialchars(trim($data['name'])),
+            'email' => strtolower(trim($data['email'])),
+            'password' => password_hash($data['password'], PASSWORD_BCRYPT),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+    }
+    
+    /**
+     * Calcula métricas del usuario
+     */
+    private function calculateMetrics($data) {
+        return [
+            'name_length' => strlen($data['name']),
+            'email_domain' => substr($data['email'], strpos($data['email'], '@') + 1),
+            'created_timestamp' => strtotime($data['created_at']),
+            'account_strength' => $this->calculateStrength($data['password'])
+        ];
+    }
+    
+    /**
+     * Calcula la fortaleza de la contraseña
+     */
+    private function calculateStrength($password) {
+        $strength = 0;
+        if (preg_match('/[a-z]/', $password)) $strength += 20;
+        if (preg_match('/[A-Z]/', $password)) $strength += 20;
+        if (preg_match('/[0-9]/', $password)) $strength += 20;
+        if (preg_match('/[^a-zA-Z0-9]/', $password)) $strength += 40;
+        return min($strength, 100);
+    }
+}
+
+// Ejemplo de uso
+$config = new Config();
+$database = new Database($config);
+$manager = new UserManager($database, $config);
+
+$userData = [
+    'name' => 'Juan Pérez',
+    'email' => 'juan@example.com',
+    'password' => 'MiContraseña123!'
+];
+
+$result = $manager->processUser($userData);
+print_r($result);
+?>
+                </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+EJEMPLO 2: JAVASCRIPT CON CÓDIGO LARGO
+
+<div class="collapsible-section">
+  <div
+    class="collapsible-header"
+    onclick="toggleCollapsible(this)"
+  >
+    <span class="collapsible-title">⚡ Ver Código JavaScript</span>
+    <span class="collapsible-icon">▼</span>
+  </div>
+  <div class="collapsible-content">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">JavaScript</span>
+        <div class="code-actions">
+          <button
+            class="copy-btn"
+            onclick="copyCode('jsCode')"
+            title="Copiar código"
+          >
+            📋 Copiar
+          </button>
+        </div>
+      </div>
+      <div class="code-wrapper">
+        <pre><code id="jsCode">
+/**
+ * Gestor de Aplicación - Sistema de Control Principal
+ * 
+ * Este módulo gestiona:
+ * - Inicialización de la aplicación
+ * - Manejo de eventos globales
+ * - Comunicación con API
+ * - Control de estado de UI
+ */
+
+class AppManager {
+    constructor(config = {}) {
+        this.config = {
+            apiUrl: config.apiUrl || '/api',
+            timeout: config.timeout || 5000,
+            retries: config.retries || 3,
+            ...config
+        };
+        
+        this.state = {
+            isLoading: false,
+            currentUser: null,
+            cache: new Map(),
+            listeners: new Map()
+        };
+        
+        this.init();
+    }
+    
+    /**
+     * Inicializa la aplicación
+     */
+    init() {
+        console.log('Inicializando AppManager...');
+        
+        // Setup global listeners
+        this.setupGlobalListeners();
+        
+        // Cargar configuración
+        this.loadConfig();
+        
+        // Restaurar estado previo
+        this.restoreState();
+        
+        console.log('AppManager iniciado correctamente');
+    }
+    
+    /**
+     * Configura los listeners globales
+     */
+    setupGlobalListeners() {
+        document.addEventListener('click', (e) => this.handleGlobalClick(e));
+        document.addEventListener('keydown', (e) => this.handleKeydown(e));
+        window.addEventListener('beforeunload', () => this.saveState());
+    }
+    
+    /**
+     * Realiza una llamada a API con reintentos
+     */
+    async fetchAPI(endpoint, options = {}) {
+        const url = `${this.config.apiUrl}${endpoint}`;
+        let lastError;
+        
+        for (let attempt = 0; attempt < this.config.retries; attempt++) {
+            try {
+                this.setLoading(true);
+                
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), this.config.timeout);
+                
+                const response = await fetch(url, {
+                    ...options,
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeout);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                this.cache.set(endpoint, data);
+                this.setLoading(false);
+                
+                return { success: true, data };
+                
+            } catch (error) {
+                lastError = error;
+                console.warn(`API call attempt ${attempt + 1} failed:`, error.message);
+                
+                // Esperar antes de reintentar
+                if (attempt < this.config.retries - 1) {
+                    await new Promise(resolve => 
+                        setTimeout(resolve, Math.pow(2, attempt) * 1000)
+                    );
+                }
+            }
+        }
+        
+        this.setLoading(false);
+        return { 
+            success: false, 
+            error: lastError?.message || 'Unknown error'
+        };
+    }
+    
+    /**
+     * Maneja clicks globales
+     */
+    handleGlobalClick(event) {
+        const target = event.target;
+        
+        // Delegación de eventos
+        if (target.matches('[data-action]')) {
+            const action = target.dataset.action;
+            const params = JSON.parse(target.dataset.params || '{}');
+            this.executeAction(action, params);
+        }
+        
+        // Cerrar menús abiertos
+        if (!target.closest('.menu')) {
+            document.querySelectorAll('.menu.open').forEach(menu => {
+                menu.classList.remove('open');
+            });
+        }
+    }
+    
+    /**
+     * Maneja teclas presionadas
+     */
+    handleKeydown(event) {
+        const handlers = {
+            'Escape': () => this.closeAllModals(),
+            'Control+S': (e) => {
+                e.preventDefault();
+                this.saveState();
+            },
+            'Control+H': (e) => {
+                e.preventDefault();
+                this.showHelp();
+            }
+        };
+        
+        const key = `${event.ctrlKey ? 'Control+' : ''}${event.key}`;
+        handlers[key]?.(event);
+    }
+    
+    /**
+     * Ejecuta una acción
+     */
+    async executeAction(action, params) {
+        const actionMap = {
+            'delete': () => this.deleteItem(params.id),
+            'edit': () => this.editItem(params.id),
+            'refresh': () => this.refreshData(),
+            'logout': () => this.logout()
+        };
+        
+        try {
+            await actionMap[action]?.();
+        } catch (error) {
+            this.showError(`Error al ejecutar: ${error.message}`);
+        }
+    }
+    
+    /**
+     * Cambia el estado de carga
+     */
+    setLoading(isLoading) {
+        this.state.isLoading = isLoading;
+        document.body.classList.toggle('loading', isLoading);
+    }
+    
+    /**
+     * Guarda el estado
+     */
+    saveState() {
+        localStorage.setItem('app-state', JSON.stringify({
+            user: this.state.currentUser,
+            cache: Array.from(this.state.cache.entries())
+        }));
+    }
+    
+    /**
+     * Restaura el estado previo
+     */
+    restoreState() {
+        const saved = localStorage.getItem('app-state');
+        if (saved) {
+            const { user, cache } = JSON.parse(saved);
+            this.state.currentUser = user;
+            this.state.cache = new Map(cache);
+        }
+    }
+    
+    /**
+     * Cierra todos los modales
+     */
+    closeAllModals() {
+        document.querySelectorAll('[role="dialog"]').forEach(modal => {
+            modal.classList.remove('open');
+        });
+    }
+    
+    /**
+     * Muestra un error
+     */
+    showError(message) {
+        console.error(message);
+        // Aquí iría lógica para mostrar notificación visual
+    }
+}
+
+// Inicializar
+const app = new AppManager({
+    apiUrl: 'https://api.example.com',
+    timeout: 10000
+});
+                </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+EJEMPLO 3: DIAGRAMA GRANDE (IMAGEN)
+
+<div class="collapsible-section">
+  <div
+    class="collapsible-header"
+    onclick="toggleCollapsible(this)"
+  >
+    <span class="collapsible-title">📊 Ver Diagrama</span>
+    <span class="collapsible-icon">▼</span>
+  </div>
+  <div class="collapsible-content">
+    <div class="diagram-container">
+      <div class="diagram-header">
+        <span class="diagram-title">Diagrama de Arquitectura del Sistema</span>
+        <button
+          class="diagram-expand-btn"
+          title="Expandir diagrama"
+        >
+          🔍 Expandir
+        </button>
+      </div>
+      <div class="diagram-content">
+        <div class="diagram-wrapper">
+          <!-- Aquí iría la imagen grande -->
+          <img
+            src="path/to/large-diagram.png"
+            alt="Arquitectura del Sistema"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+CARACTERÍSTICAS DEMOSTRADAS: ✅ Code container con header (lenguaje + botón copiar) ✅ Scrollbar personalizado para código largo ✅ Syntax
+highlighting con colores ✅ Diagram container con expand button ✅ Scroll horizontal para líneas largas ✅ Scroll vertical para muchas
+líneas ✅ Responsive en móvil ✅ Botón con feedback visual al copiar PRÓXIMAS MEJORAS: - Numeración de líneas - Minimap para código largo -
+Zoom en diagramas - Fullscreen modal - Compartir código
