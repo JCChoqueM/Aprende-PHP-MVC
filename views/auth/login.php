@@ -1,32 +1,27 @@
-<h1 class="nombre-pagina">Login</h1>
-<p class="descripcion-pagina">Inicia sesión con tus datos</p>
-<?php
-
-include_once __DIR__ . '/../templates/alertas.php';
-?>
-
-<form class="formulario" method="POST" action="/">
-    <div class="campo">
-        <label for="email">Email</label>
-        <input
-            type="email"
-            id="email"
-            placeholder="Tu Email"
-            name="email"
-            >
+<main class="contenedor seccion">
+  <h1>Iniciar Sesión</h1>
+  <?php foreach ($errores as $error) :  ?>
+    <div class="alerta error">
+      <?php echo $error; ?>
     </div>
-    <div class="campo">
-        <label for="password">Password</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Tu Password"
-            name="password">
-    </div>
-    <input type="submit" class="boton" value="Iniciar Sesión">
+  <?php endforeach;  ?>
+  <form method="POST" class="formulario contenido-centrado" action="/login">
+    <fieldset>
+      <legend>Login y Password</legend>
 
-</form>
-<div class="acciones">
-    <a href="/crear-cuenta">¿Aun no tienes una cuenta? Crear una</a>
-    <a href="/olvide">¿Olvidaste tu Password?</a>
-</div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Tu Email" />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Tu password" />
+    </fieldset>
+    <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
+  </form>
+</main>

@@ -1,6 +1,6 @@
 @use 'variables' as v;
+
 @use 'sass:color';
-/** Media Queries **/
 @mixin telefono {
   @media (min-width: v.$telefono) {
     @content;
@@ -16,35 +16,46 @@
     @content;
   }
 }
-
-@mixin boton($bgColor, $colorTexto) {
-  background-color: $bgColor;
-  padding: 1.5rem 4rem;
-  color: $colorTexto;
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: 400;
-  display: inline-block;
-  font-weight: 700;
-  border: none;
-  transition-property: background-color;
-  transition-duration: 0.3s;
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin: 5rem 0;
-
-  @include tablet {
-    width: auto;
+@mixin desktopXL {
+  @media (min-width: v.$desktopXL) {
+    @content;
   }
+}
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $espaciado;
+}
+@mixin resetear-lista() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin boton($bgColor, $display) {
+  background-color: $bgColor;
+  color: v.$blanco;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: calc(v.$separacion / 2);
+  display: $display;
+  border: none;
+
   &:hover {
-    background-color: color.adjust($bgColor, $lightness: -10%);
+    background-color: color.adjust($bgColor, $lightness: 5%);
     cursor: pointer;
   }
 }
-
-@mixin grid($columnas, $espaciado) {
-  display: grid;
-  gap: $espaciado;
-  grid-template-columns: repeat($columnas, 1fr);
-}
+/* @mixin heading($color: red, $border-radius: false) {
+  //$color es un parámetro y red es el valor por defecto
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  color: $color;
+  letter-spacing: 1px;
+  background-color: black;
+  @if $border-radius {
+    border-radius: 1rem;
+  }
+} */

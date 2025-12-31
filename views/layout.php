@@ -1,28 +1,89 @@
+<?php
+if (!isset($SESSION)) {
+    session_start();
+}
+$auth= $_SESSION['login'] ?? false;
+if(!isset($inicio)){
+    $inicio = false;
+}
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Salón</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/build/css/app.css">
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+    <title>Bienes Raices</title>
+    <link
+        rel="stylesheet"
+        href="../build/css/app.css" />
 </head>
 
 <body>
+    <!-- BLOQUE header [inicio] -->
 
-    <div class="contenedor-app">
-        <div class="imagen"></div>
+    <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
+        <div class="contenedor <?php echo $inicio ? 'contenido-header' : ''; ?> ">
+            <!-- subBloque barra [inicio] -->
+            <div class="barra">
+                <!-- subBloque2 logo BienesRaices [inicio] -->
+                <a href="/">
+                    <img
+                        src="../build/img/logo.svg"
+                        alt="Logotipo de Bienes Raices" />
+                </a>
+                <!-- !subBloque2 logo BienesRaices [fin] -->
+                <div class="mobile-menu">
+                    <img
+                        src="../build/img/barras.svg"
+                        alt="icono menu responsive" />
+                </div>
+                <!-- subBloque2 navegacion [inicio] -->
+                <div class="derecha">
+                    <img
+                        src="../build/img/dark-mode.svg"
+                        class="dark-mode-boton" />
+                    <nav class="navegacion">
+                        <a href="/nosotros"> Nosotros</a>
+                        <a href="/propiedades">Anuncio</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
+                        <?php if ($auth) : ?>
+                            <a href="/logout">Cerrar Sesión</a>
+                        <?php endif; ?>
+                    </nav>
+                </div>
+                <!-- !subBloque2 navegacion [fin] -->
+            </div>
+            <!-- !subBloque barra [fin] -->
+            <?php echo $inicio ? "<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>" : ""; ?>
 
-        <div class="app">
-            <?php echo $contenido; ?>
+
         </div>
-        <?php
-        echo $script ?? '';
-        ?>
+    </header>
+    <!-- !BLOQUE header [fin] -->
+    <?php
+    echo $contenido;
+    ?>
 
-    </div>
-
+    <footer class="footer seccion">
+        <div class="contenedor contenedor--footer">
+            <nav class="navegacion">
+                <a href="/nosotros"> Nosotros</a>
+                <a href="/propiedades">Anuncio</a>
+                <a href="/blog">Blog</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+        </div>
+        <p class="copyrigth">Todos los derechos reservados <?php echo date('Y'); ?> &copy</p>
+    </footer>
+    <script src="../build/js/modernizr.js"></script>
+    <script src="../build/js/app.js"></script>
+    <script src="../build/js/llenado.js"></script>
 </body>
 
 </html>

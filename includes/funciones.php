@@ -1,6 +1,32 @@
 <?php
+define('TEMPLATES_URL', __DIR__ . '/templates');
+define('FUNCIONES_URL', __DIR__ . '/funciones.php');
+define('CARPETA_IMAGENES', $_SERVER["DOCUMENT_ROOT"] . '/imagenes/');
+function incluirTemplate(string $nombre, bool $inicio = false)
+{
+    /* echo (TEMPLATES_URL . "/$nombre.php");  */
+    include TEMPLATES_URL . "/$nombre.php";
+    // define('TEMPLATES_URL','/templates');   
+    // include "includes/temaplates/$nombre.php";
+}
+function estaAutenticado()
+{
+    session_start();
 
-function debuguear($variable): string
+    if (!$_SESSION['login']) {
+        header('Location: /');
+    }
+}
+/* function estaAutenticado(): bool
+{
+     session_start();
+    $auth = $_SESSION['login'] ?? false;
+    if ($auth) {
+        return true;
+    }
+    return false;
+} */
+function debuguear($variable)
 {
     echo "<pre>";
     var_dump($variable);
@@ -8,32 +34,60 @@ function debuguear($variable): string
     exit;
 }
 
-// Escapa / Sanitizar el HTML
-function s($html): string
+//Escapa /sanitizar el HTML
+function sanitizarHTML($html): string
 {
-    $s = htmlspecialchars($html);
-    return $s;
+    $sanitizado = htmlspecialchars($html);
+    return $sanitizado;
 }
 
-function esUltimo(string $actual, string $proximo): bool
+//validar tipo de contenido
+function validarTipoContenido($tipo)
 {
-    if ($actual !== $proximo) {
-        return true;
-    }
-    return false;
+    $tipos = ['vendedor', 'propiedad'];
+    return in_array($tipo, $tipos);
 }
 
-//funcion que revisa que el usuario este autenticado
-function isAuth(): void
+//Muestra los mensajes
+function mostrarNotificacion($codigo)
 {
-    if (!isset($_SESSION['login'])) {
-        header('Location: /');
+    switch ($codigo) {
+        case 1:
+            return [
+                'mensaje' => 'Creado Correctamente',
+                'valor' => ''
+            ];
+        case 2:
+            return [
+                'mensaje' => 'Actualizado Correctamente',
+                'valor' => 'amarillo'
+            ];
+        case 3:
+            return [
+                'mensaje' => 'Eliminado Correctamente',
+                'valor' => 'rojo'
+            ];
+        case 4:
+            return [
+                'mensaje' => 'Mensaje Enviado correctamente',
+                'valor' => 'verde'
+            ];
+        case 5:
+            return [
+                'mensaje' => 'Error al enviar el mensaje',
+                'valor' => 'rojo'
+            ];
+        default:
+            return false;
     }
 }
 
-function isAdmin(): void
+function validarORedireccionar(string $url)
 {
-    if (!isset($_SESSION['admin'])) {
-        header('Location: /');
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!$id) {
+        header("Location: $url");
     }
+    return $id;
 }

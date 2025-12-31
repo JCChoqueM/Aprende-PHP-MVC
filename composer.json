@@ -1,7 +1,6 @@
 {
-    "name": "d-dr5/app-salon_php_mvc_js_sass",
-    "description": "cProyecto PHP 8, MVC, SQL, SASS ,GULP",
-    "type":"project",
+    "name": "d-dr5/bienes-raices-poo_php_inicio",
+    "description": "creando un proyecyo con POO",
     "authors": [
         {
             "name": "Julio Cesar Choque Mamani",
@@ -16,11 +15,14 @@
     },
     "autoload": {
         "psr-4": {
+            "Model\\" : "./models",
             "MVC\\" : "./",
             "Controllers\\" : "./controllers",
-            "Model\\" : "./models",
-            "View\\" : "./views",
-            "Classes\\" : "./classes"
+            "View\\" : "./views"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^8.0",
+        "kint-php/kint": "^6.1"
     }
 }
