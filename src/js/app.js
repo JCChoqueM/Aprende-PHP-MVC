@@ -1,79 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () {
-  eventListener();
-  darkMode();
+/*
+ * PUNTO DE ENTRADA PRINCIPAL (app.js)
+ * ======================================== 
+ * Este es el archivo principal que orquesta todos los módulos.
+ * 
+ * Funciones:
+ * 1. Importar todos los módulos necesarios
+ * 2. Esperar a que el DOM esté listo (DOMContentLoaded)
+ * 3. Inicializar todos los componentes en orden:
+ *    - Generar estructura de capítulos y ejercicios
+ *    - Configurar eventos del sidebar
+ *    - Configurar eventos de UI (formularios, colapsables)
+ *    - Activar scroll suave
+ * 
+ * Se ejecuta una sola vez cuando la página carga completamente
+ * ========================================
+ */
+
+// Importar funciones de otros módulos
+import { generateChapters } from './exercises.js';
+import { initSidebarEvents } from './sidebar.js';
+import { initUIEvents } from './ui.js';
+import { initSmoothScroll } from './utils.js';
+
+// Esperar a que el DOM esté completamente cargado antes de ejecutar
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Generar la estructura HTML de capítulos desde el array de data.js
+    generateChapters();
+
+    // 2. Inicializar los event listeners del sidebar (abrir/cerrar, etc)
+    initSidebarEvents();
+
+    // 3. Inicializar los event listeners de UI (formularios, colapsables)
+    initUIEvents();
+
+    // 4. Activar el scroll suave en toda la página
+    initSmoothScroll();
+
+    // Log de confirmación
+    console.log('✅ Aplicación inicializada correctamente');
 });
-function darkMode() {
-  const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-  /*   console.log(prefiereDarkMode.matches) */
-  if (prefiereDarkMode.matches) {
-    document.body.classList.add('dark-mode'); // añade la clase
-  } else {
-    document.body.classList.remove('dark-mode'); // quita la clase
-  }
-  prefiereDarkMode.addEventListener('change', function () {
-    if (prefiereDarkMode.matches) {
-      document.body.classList.add('dark-mode'); // añade la clase
-    } else {
-      document.body.classList.remove('dark-mode'); // quita la clase
-    }
-  });
-
-  const botonDarkMode = document.querySelector('.dark-mode-boton');
-  botonDarkMode.addEventListener('click', function () {
-    document.body.classList.toggle('dark-mode'); // añade o quita la clase
-  });
-}
-function eventListener() {
-  const mobileMenu = document.querySelector('.mobile-menu');
-  mobileMenu.addEventListener('click', navegacionResponsive);
-  //muestra campos condicionales
-  const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
-  metodoContacto.forEach((input) => input.addEventListener('click', mostrarMetodoContacto));
-}
-
-function navegacionResponsive() {
-  const navegacion = document.querySelector('.navegacion');
-
-  navegacion.classList.toggle('mostrar'); /* añade o quita la clase */
-  /*  if (navegacion.classList.contains('mostrar')) {
-   navegacion.classList.remove('mostrar');
-  } else {
-   navegacion.classList.add('mostrar');
-  } */
-}
-
-function mostrarMetodoContacto(e) {
-  const contactoDiv = document.querySelector('#contacto');
-  if (e.target.value === 'telefono') {
-    contactoDiv.innerHTML = `<label for="telefono">Número de Telefono:</label>
-      <input
-        type="tel"
-        id="telefono"
-        placeholder="Tu Telefono"
-        name="contacto[telefono]" />
-         <p>Elija la fecha y la hora para la llamada</p>
-      <label for="fecha">Fecha:</label>
-      <input
-        type="date"
-        id="fecha"
-        name="contacto[fecha]" />
-      <label for="hora">Hora:</label>
-      <input
-        type="time"
-        id="hora"
-        min="09:00"
-        max="18:00"
-        name="contacto[hora]" />
-    `;
-  } else {
-    contactoDiv.innerHTML = `
-       <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Tu Email"
-        name="contacto[email]"
-        required />
-    `;
-  }
-}

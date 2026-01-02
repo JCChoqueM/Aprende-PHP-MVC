@@ -1,0 +1,38 @@
+/*
+ * VARIABLES Y CONFIGURACIÓN GLOBAL
+ * ======================================== 
+ * Este archivo contiene todas las variables CSS (custom properties)
+ * que se usan en toda la aplicación.
+ * 
+ * Variables disponibles:
+ * - Colores temáticos (primary, secondary, success, warning, error)
+ * - Colores de fondo (main, secondary, card, code)
+ * - Colores de texto (primary, secondary)
+ * - Otros (border, espacios)
+ * 
+ * Ventaja: Cambiar la paleta de colores solo requiere editar este archivo
+ * ========================================
+ */
+
+:root {
+  /* Colores principales de la aplicación */
+  --primary: #4f46e5; /* Azul - Acciones principales, botones */
+  --primary-dark: #4338ca; /* Azul oscuro - Hover en botones primary */
+  --secondary: #06b6d4; /* Cian - Títulos, acentos */
+  --success: #10b981; /* Verde - Éxito, soluciones correctas */
+  --warning: #f59e0b; /* Naranja - Advertencias, información */
+  --error: #ef4444; /* Rojo - Errores, acciones destructivas */
+
+  /* Colores de fondo (esquema dark) */
+  --bg-main: #0f172a; /* Fondo principal de la página */
+  --bg-secondary: #1e293b; /* Fondo secundario (contenedores) */
+  --bg-card: #334155; /* Fondo de tarjetas y secciones */
+
+  /* Colores de texto */
+  --text-primary: #f1f5f9; /* Texto principal (claro) */
+  --text-secondary: #cbd5e1; /* Texto secundario (más tenue) */
+
+  /* Otros colores */
+  --border: #475569; /* Color de bordes sutiles */
+  --code-bg: #1e293b; /* Fondo para bloques de código */
+}

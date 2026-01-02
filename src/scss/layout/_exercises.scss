@@ -1,0 +1,86 @@
+/*
+ * EJERCICIOS Y CONTENIDO
+ * ======================================== 
+ * Estilos para:
+ * - Encabezados de ejercicios
+ * - Títulos con animaciones
+ * - Badges (etiquetas: capítulo, dificultad)
+ * - Descripciones de ejercicios
+ * 
+ * Componentes interactivos con efectos hover
+ * ========================================
+ */
+
+/* ========== ENCABEZADO DEL EJERCICIO ========== */
+
+/* Contenedor del encabezado */
+.exercise-header {
+  margin-bottom: 25px;
+}
+
+/* Título del ejercicio */
+.exercise-title {
+  color: var(--secondary); /* Cian */
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .exercise-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* ========== METADATA (BADGES) ========== */
+
+/* Contenedor de badges */
+.exercise-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Badge genérico (etiqueta) */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px; /* Bordes redondeados (píldora) */
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
+
+.badge:hover {
+  transform: translateY(-2px); /* Efecto de flotación */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Badge del capítulo (azul) */
+.badge-chapter {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+/* Badge de dificultad (naranja) */
+.badge-difficulty {
+  background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%);
+  color: white;
+}
+
+/* ========== DESCRIPCIÓN DEL EJERCICIO ========== */
+
+/* Caja de descripción */
+.exercise-description {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--secondary); /* Barra azul a la izquierda */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.exercise-description:hover {
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15); /* Sombra más pronunciada */
+}

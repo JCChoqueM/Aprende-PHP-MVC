@@ -1,0 +1,177 @@
+/*
+ * FORMULARIOS Y ELEMENTOS INTERACTIVOS
+ * ======================================== 
+ * Estilos para:
+ * - Secciones de formularios
+ * - Inputs y textareas
+ * - Botones de acción
+ * - Filas responsivas
+ * 
+ * Interactividad: focus, hover, states
+ * ========================================
+ */
+
+/* ========== SECCIÓN DE FORMULARIO ========== */
+
+/* Contenedor del formulario */
+.form-section {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--primary); /* Barra azul */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+@media (max-width: 768px) {
+  .form-section {
+    padding: 15px;
+  }
+}
+
+/* Título del formulario */
+.form-title {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ========== ELEMENTOS DEL FORMULARIO ========== */
+
+/* Grupo de campo (input + label) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Etiqueta del campo */
+.form-label {
+  display: block;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Input, select, textarea - estilos base */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-main);
+  border: 2px solid var(--border); /* Borde gris */
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover en inputs - cambiar borde a cian */
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: var(--secondary);
+}
+
+/* Focus en inputs - efecto azul y sombra */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary); /* Borde azul */
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15), 0 0 12px rgba(79, 70, 229, 0.1);
+  transform: translateY(-1px); /* Efecto de elevación */
+}
+
+/* Textarea - redimensionable verticamente */
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+/* ========== LAYOUT RESPONSIVO ========== */
+
+/* Fila de campos (hasta 2 columnas) */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+/* ========== BOTONES ========== */
+
+/* Botón genérico */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Botón primario (azul) */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Botón de éxito (verde) */
+.btn-success {
+  background: var(--success);
+  color: white;
+}
+
+.btn-success:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+/* Botón de error (rojo) */
+.btn-error {
+  background: var(--error);
+  color: white;
+}
+
+.btn-error:hover {
+  background: #dc2626;
+}
+
+/* ========== ACCIONES DEL FORMULARIO ========== */
+
+/* Contenedor de botones de acción */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Responsive - botones apilados en móvil */
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

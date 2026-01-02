@@ -1,0 +1,448 @@
+/*
+ * COMPONENTES AVANZADOS
+ * ======================================== 
+ * Estilos para componentes complejos:
+ * - Secciones de soluciones (PHP y JavaScript)
+ * - Bloques de código colapsables
+ * - Contenedores de código con copy button
+ * - Contenedores de diagramas
+ * - Syntax highlighting
+ * 
+ * Componentes interactivos con animaciones suaves
+ * ========================================
+ */
+
+/* ========== SECCIONES DE SOLUCIONES ========== */
+
+/* Contenedor de soluciones */
+.solution-section {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--success); /* Verde a la izquierda */
+}
+
+/* Título de soluciones */
+.solution-title {
+  color: var(--success);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Grid de 2 columnas para PHP y JavaScript */
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.solution-box {
+  background: linear-gradient(135deg, var(--bg-main) 0%, #0f172a 100%);
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(71, 85, 105, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solution-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(71, 85, 105, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.solution-box-title {
+  color: var(--secondary);
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.solution-result {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #1e293b 100%);
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  color: var(--text-primary);
+  min-height: 70px;
+  border-left: 4px solid var(--success);
+  word-wrap: break-word;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Secciones colapsables */
+.collapsible-section {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.collapsible-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.collapsible-header {
+  background: linear-gradient(135deg, var(--bg-card) 0%, #334155 100%);
+  padding: 16px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
+  border-left: 4px solid var(--warning);
+  user-select: none;
+}
+
+.collapsible-header:hover {
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  padding-left: 24px;
+}
+
+.collapsible-header.active {
+  border-left-color: var(--success);
+}
+
+.collapsible-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .collapsible-title {
+    font-size: 0.95rem;
+  }
+}
+
+.collapsible-icon {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.collapsible-header.active .collapsible-icon {
+  transform: rotate(180deg);
+  color: var(--success);
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.collapsible-content.open {
+  max-height: 2000px;
+  margin-top: 15px;
+  opacity: 1;
+  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease-out;
+}
+
+/* Contenedor de código */
+.code-container {
+  background: linear-gradient(135deg, var(--code-bg) 0%, #0f172a 100%);
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.code-container:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(71, 85, 105, 0.8);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  gap: 12px;
+}
+
+.code-lang {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.code-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.copy-btn {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+.code-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  padding: 16px;
+}
+
+.code-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.code-wrapper::-webkit-scrollbar-track {
+  background: rgba(71, 85, 105, 0.1);
+}
+
+.code-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.3);
+  border-radius: 3px;
+}
+
+.code-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.5);
+}
+
+/* Diagrama */
+.diagram-container {
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid rgba(71, 85, 105, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.diagram-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.diagram-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  flex: 1;
+}
+
+.diagram-expand-btn {
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--secondary);
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.diagram-expand-btn:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--secondary);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+}
+
+.diagram-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.diagram-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+/* Customizar scrollbar del diagrama */
+.diagram-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.diagram-wrapper::-webkit-scrollbar-track {
+  background: rgba(71, 85, 105, 0.1);
+}
+
+.diagram-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.3);
+  border-radius: 3px;
+}
+
+.diagram-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.5);
+}
+
+/* Placeholder (texto de demostración) en diagrama */
+.diagram-placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ========== SYNTAX HIGHLIGHTING ========== */
+
+/* Clases para resaltar código con colores */
+
+/* Palabras clave (rosa) */
+.syntax-keyword {
+  color: #ff79c6;
+  font-weight: 600;
+}
+
+/* Strings/cadenas (verde) */
+.syntax-string {
+  color: #50fa7b;
+}
+
+/* Comentarios (azul grisáceo) */
+.syntax-comment {
+  color: #6272a4;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Nombres de función (cian) */
+.syntax-function {
+  color: #8be9fd;
+  font-weight: 500;
+}
+
+/* Variables (amarillo) */
+.syntax-variable {
+  color: #f1fa8c;
+}
+
+/* Operadores (rosa) */
+.syntax-operator {
+  color: #ff79c6;
+}
+
+/* Números (púrpura) */
+.syntax-number {
+  color: #bd93f9;
+}
+
+/* ========== RESPONSIVE (Móvil < 768px) ========== */
+
+@media (max-width: 768px) {
+  /* Colapsables con menos margen */
+  .collapsible-section {
+    margin-bottom: 16px;
+  }
+
+  /* Código más compacto */
+  .code-container {
+    max-height: 400px;
+  }
+
+  /* Header del código adaptable */
+  .code-header {
+    flex-wrap: wrap;
+  }
+
+  /* Acciones ocupan el ancho */
+  .code-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* Botón copiar más pequeño */
+  .copy-btn {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  /* Diagrama reducido */
+  .diagram-container {
+    max-height: 450px;
+  }
+
+  .diagram-header {
+    flex-wrap: wrap;
+  }
+
+  .diagram-expand-btn {
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .diagram-wrapper {
+    min-height: 250px;
+  }
+}

@@ -1,0 +1,307 @@
+/*
+ * SIDEBAR Y NAVEGACIÓN
+ * ======================================== 
+ * Estilos de la barra lateral con:
+ * - Sidebar sticky/fijo en desktop
+ * - Acordeón de capítulos expandible
+ * - Lista de ejercicios
+ * - Overlay oscuro para móvil
+ * - Botón de colapso del índice
+ * 
+ * Responsivo: Se convierte en overlay en pantallas < 968px
+ * ========================================
+ */
+
+/* ========== SIDEBAR PRINCIPAL ========== */
+
+/* Contenedor del sidebar */
+.sidebar {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: sticky; /* Se queda fijo al scroll */
+  top: 20px; /* Espacio desde la parte superior */
+  max-height: calc(100vh - 40px); /* Máximo alto (menos margin) */
+  overflow-y: auto; /* Scroll vertical si necesario */
+  transition: all 0.3s ease;
+  min-width: 320px;
+}
+
+/* Sidebar colapsado (estado comprimido) */
+.sidebar.collapsed {
+  min-width: 50px; /* Solo el ancho de los botones */
+  padding: 20px 10px;
+}
+
+/* Ocultar contenido cuando está colapsado */
+.sidebar.collapsed .sidebar-header h3,
+.sidebar.collapsed .chapter-accordion {
+  display: none;
+}
+
+/* ========== HEADER DEL SIDEBAR ========== */
+
+/* Encabezado con título y botones */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar.collapsed .sidebar-header {
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+/* Título del sidebar */
+.sidebar-header h3 {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  margin: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sidebar.collapsed .sidebar-header h3 {
+  font-size: 0; /* Ocultar cuando está colapsado */
+  width: 0;
+  padding: 0;
+}
+
+/* ========== BOTONES DEL SIDEBAR ========== */
+
+/* Botón para colapsar/expandir el índice */
+.toggle-index-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2);
+}
+
+.toggle-index-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+.toggle-index-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+/* Icono que rota cuando se colapsa */
+.toggle-index-icon {
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .toggle-index-icon {
+  transform: rotate(180deg); /* Icono invertido */
+}
+
+/* Botón para cerrar en móvil */
+.close-sidebar-btn {
+  display: none; /* Oculto en desktop */
+  background: var(--error);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.close-sidebar-btn:hover {
+  background: #dc2626;
+}
+
+/* ========== ACORDEÓN DE CAPÍTULOS ========== */
+
+/* Lista de capítulos (acordeón) */
+.chapter-accordion {
+  list-style: none; /* Sin viñetas */
+}
+
+/* Header de cada capítulo */
+.chapter-header {
+  padding: 12px 15px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 3px solid var(--primary);
+  position: relative;
+}
+
+.chapter-header:hover {
+  background: var(--primary); /* Fondo azul al hover */
+  transform: translateX(5px); /* Desplazamiento a la derecha */
+}
+
+/* Capítulo activo (seleccionado) */
+.chapter-header.active {
+  background: var(--primary);
+  border-left-color: var(--success);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Check mark en capítulo activo */
+.chapter-header.active::before {
+  content: '✓';
+  position: absolute;
+  left: 5px;
+  color: var(--success);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Ícono del capítulo (flecha) */
+.chapter-icon {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rotar ícono cuando está activo */
+.chapter-header.active .chapter-icon {
+  transform: rotate(180deg);
+}
+
+/* ========== LISTA DE EJERCICIOS ========== */
+
+/* Contenedor de la lista de ejercicios (oculto inicialmente) */
+.exercises-list {
+  max-height: 0; /* Altura 0 por defecto */
+  overflow: hidden;
+  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 8px;
+}
+
+/* Cuando la lista está abierta */
+.exercises-list.open {
+  max-height: 500px; /* Permitir expansión */
+}
+
+/* Cada elemento de ejercicio */
+.exercise-item {
+  padding: 10px 15px 10px 30px;
+  background: var(--bg-main);
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.exercise-item:hover {
+  background: var(--bg-card);
+  border-left-color: var(--secondary);
+  transform: translateX(6px);
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.15);
+}
+
+/* Ejercicio activo/seleccionado */
+.exercise-item.active {
+  background: linear-gradient(135deg, var(--secondary) 0%, #0891b2 100%);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+  border-left-color: white;
+}
+
+/* Flecha indicadora en ejercicio activo */
+.exercise-item.active::after {
+  content: '→';
+  position: absolute;
+  right: 10px;
+  animation: slideRight 0.4s ease-out;
+}
+
+/* Animación de la flecha */
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== OVERLAY MÓVIL ========== */
+
+/* Fondo oscuro detrás del sidebar en móvil */
+.sidebar-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999; /* Debajo del sidebar */
+}
+
+.sidebar-overlay.active {
+  display: block; /* Mostrar cuando el sidebar está abierto */
+}
+
+/* ========== RESPONSIVE (Móvil < 968px) ========== */
+
+@media (max-width: 968px) {
+  /* Sidebar como overlay fijo */
+  .sidebar {
+    position: fixed;
+    left: -100%; /* Fuera de pantalla inicialmente */
+    top: 0;
+    width: 320px;
+    max-width: 85%;
+    height: 100vh; /* Altura completa */
+    max-height: 100vh;
+    z-index: 1000; /* Encima del overlay */
+    border-radius: 0; /* Sin bordes redondeados */
+    min-width: auto;
+  }
+
+  /* Cuando está abierto, deslizar a la vista */
+  .sidebar.active {
+    left: 0; /* Deslizar a la izquierda */
+  }
+
+  .sidebar.collapsed {
+    min-width: auto;
+  }
+
+  .sidebar.collapsed .toggle-index-icon {
+    transform: none;
+  }
+
+  /* Mostrar botón de cerrar en móvil */
+  .close-sidebar-btn {
+    display: block;
+  }
+}

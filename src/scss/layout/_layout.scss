@@ -1,0 +1,142 @@
+/*
+ * HEADER Y LAYOUT PRINCIPAL
+ * ======================================== 
+ * Este archivo contiene:
+ * - Estilos del header (navegación superior)
+ * - Grid layout principal (2 columnas: sidebar + content)
+ * - Animaciones de entrada (slideInDown, fadeInUp)
+ * - Estilos responsivos para móvil y tablet
+ * ========================================
+ */
+
+/* ========== HEADER ========== */
+
+/* Barra de navegación superior */
+header {
+  background: var(--bg-secondary);
+  border-bottom: 3px solid var(--primary);
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+/* Contenido del header - alineación */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Título principal */
+h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: slideInDown 0.6s ease-out; /* Animación de entrada */
+}
+
+/* Animación: deslizamiento hacia abajo */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtítulo (autor) */
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Botón de menú (solo en móvil) */
+.toggle-menu-btn {
+  display: none; /* Oculto por defecto */
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.toggle-menu-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.5);
+}
+
+.toggle-menu-btn:active {
+  transform: translateY(0);
+}
+
+/* ========== LAYOUT GRID PRINCIPAL ========== */
+
+/* Grid de 2 columnas: sidebar (izq) + contenido (der) */
+.main-grid {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Sidebar + Contenido flexible */
+  gap: 25px;
+  margin-bottom: 30px;
+  position: relative;
+  align-items: start;
+}
+
+/* Área de contenido principal */
+.content-area {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  animation: fadeInUp 0.6s ease-out 0.2s both; /* Animación de entrada */
+}
+
+/* Animación: desvanecimiento hacia arriba */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet (hasta 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .content-area {
+    padding: 20px;
+  }
+}
+
+/* Tablet grande a móvil (hasta 968px) */
+@media (max-width: 968px) {
+  /* Mostrar botón de menú */
+  .toggle-menu-btn {
+    display: block;
+  }
+
+  /* Grid de 1 sola columna (responsive) */
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
