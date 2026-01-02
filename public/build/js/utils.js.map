@@ -1,1 +1,0 @@
-{"version":3,"sources":["utils.js"],"names":["initSmoothScroll","document","documentElement","style","scrollBehavior"],"mappings":"AAGA,SAASA,mBACPC,SAASC,gBAAgBC,MAAMC,eAAiB","file":"utils.js","sourcesContent":["// ❌ ELIMINAR: export function ...\r\n// ✅ Función normal:\r\n\r\nfunction initSmoothScroll() {\r\n  document.documentElement.style.scrollBehavior = \"smooth\";\r\n}"]}

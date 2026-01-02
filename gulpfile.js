@@ -2,7 +2,7 @@ const { src, dest, watch, parallel } = require('gulp'); //funciones que nos da g
 /* SECTION css */
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
-/* const concat = require('gulp-concat'); */
+const concat = require('gulp-concat');
 /* section minizar css */
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -90,11 +90,22 @@ function versionAvif(done) {
 
 /* SECTION  javascript */
 function javascript(done) {
-  src('src/js/**/*.js')
+  src('src/js/*.js')
     /* prettier-ignore-start */
     .pipe(sourcemaps.init())
     .pipe(plumber())
-        //  .pipe(concat('bundle.js')) // final output file name
+    .pipe(concat('bundle.js')) // final output file name
+    .pipe(terser()) //minificar el js
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./public/build/js'));
+  /* prettier-ignore-end */
+  done();
+}
+function javascriptModules(done) {
+  src('src/js/modules/**/*.js')
+    /* prettier-ignore-start */
+    .pipe(sourcemaps.init())
+    .pipe(plumber())
     .pipe(terser()) //minificar el js
     .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
@@ -105,7 +116,7 @@ function javascript(done) {
 
 function dev(done) {
   watch('src/scss/**/*.scss', css);
-  watch('src/js/**/*.js', javascript);
+  watch('src/js/**/*.js', javascript, javascriptModules);
   done();
 }
 
@@ -117,6 +128,7 @@ function dev(done) {
 // Exportar las funciones para que estén disponibles al ejecutar gulp
 exports.css = css; // Exporta la función css
 exports.js = javascript; // Exporta la función css
+exports.javascriptModules = javascriptModules; // Exporta la función css
 exports.imagenes = imagenes; // Exporta la función imagenes
 exports.versionWebp = versionWebp; // Exporta la función versionWebp
 exports.versionAvif = versionAvif; // Exporta la función versionAvif
@@ -125,5 +137,5 @@ exports.dev = parallel(css, imagenes, versionWebp, versionAvif, javascript, dev)
 /* !section2 fin - hacer disponibles las funciones creadas */
 /* !SECTION fin - ejecutar varias tareas al mismo tiempo */
 // Nueva tarea que solo procesa CSS y JavaScript
-exports.devv = parallel(css, javascript, dev);
-exports.build = parallel(css, javascript);
+exports.devv = parallel(css, javascript, javascriptModules, dev);
+exports.build = parallel(css, javascript, javascriptModules);
