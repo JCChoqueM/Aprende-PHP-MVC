@@ -5,68 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprende PHP con Ejercicios - Luis José Sánchez</title>
-    
-    <!-- ========== CSS MODULES ========== -->
-    <!-- ORDEN DE IMPORTACIÓN IMPORTANTE: variables → base → layout → especializados -->
-    
-    <!-- 1. Variables CSS (Raíz)
-         📁 assets/css/variables.css (38 líneas)
-         ├─ Define: --primary, --secondary, --success, --warning, --error
-         ├─ Colores, espacios, tipografía
-         └─ Usado por: TODOS los demás CSS -->
-    <link rel="stylesheet" href="assets/css/variables.css">
-    
-    <!-- 2. Reset y Estilos Base
-         📁 assets/css/base.css (79 líneas)
-         ├─ Reset universal
-         ├─ Body, container, typography
-         ├─ Footer
-         └─ Depende de: variables.css -->
-    <link rel="stylesheet" href="assets/css/base.css">
-    
-    <!-- 3. Layout Principal (Header + Grid)
-         📁 assets/css/layout.css (142 líneas)
-         ├─ Header styling
-         ├─ .main-grid (2 columnas: sidebar + content)
-         ├─ Animaciones: slideInDown, fadeInUp
-         ├─ Media queries responsive
-         └─ Depende de: variables.css -->
-    <link rel="stylesheet" href="assets/css/layout.css">
-    
-    <!-- 4. Sidebar (Navegación)
-         📁 assets/css/sidebar.css (307 líneas)
-         ├─ .sidebar (sticky desktop, overlay móvil)
-         ├─ .chapter-accordion (acordeón expandible)
-         ├─ .exercises-list (lista de ejercicios)
-         ├─ Animaciones: slideRight, transitions
-         └─ Depende de: variables.css, layout.css -->
-    <link rel="stylesheet" href="assets/css/sidebar.css">
-    
-    <!-- 5. Ejercicios (Títulos y Badges)
-         📁 assets/css/exercises.css (86 líneas)
-         ├─ .exercise-title (cian)
-         ├─ .badge-chapter (azul), .badge-difficulty (naranja)
-         ├─ .exercise-description
-         └─ Depende de: variables.css -->
-    <link rel="stylesheet" href="assets/css/exercises.css">
-    
-    <!-- 6. Formularios (Inputs y Botones)
-         📁 assets/css/forms.css (177 líneas)
-         ├─ .form-input, .form-textarea (focus azul)
-         ├─ .btn (primary, success, error)
-         ├─ .form-actions
-         └─ Depende de: variables.css -->
-    <link rel="stylesheet" href="assets/css/forms.css">
-    
-    <!-- 7. Componentes Avanzados
-         📁 assets/css/components.css (448 líneas)
-         ├─ .solution-box (resultados)
-         ├─ .collapsible-section (acordeones)
-         ├─ .code-container (código con copy button)
-         ├─ .syntax-* (syntax highlighting)
-         ├─ Animaciones: collapseOpen, collapseClose
-         └─ Depende de: variables.css, layout.css -->
-    <link rel="stylesheet" href="assets/css/components.css">
+
+
+    <link rel="stylesheet" href="../build/css/app.css">
 </head>
 
 <body>
@@ -225,62 +166,7 @@
         <p>📚 "Aprende PHP con Ejercicios" - Luis José Sánchez</p>
     </footer>
 
-    <script type="module">
-        // Importar funciones necesarias de los módulos
-        import {
-            toggleSidebar,
-            closeSidebar,
-            toggleIndexCollapse
-        } from './assets/js/sidebar.js';
-        import {
-            toggleCollapsible,
-            handleSubmit,
-            clearForm
-        } from './assets/js/ui.js';
-        import {
-            copyCode
-        } from './assets/js/utils.js';
-        import {
-            generateChapters
-        } from './assets/js/exercises.js';
-        import {
-            initSidebarEvents
-        } from './assets/js/sidebar.js';
-        import {
-            initUIEvents
-        } from './assets/js/ui.js';
-        import {
-            initSmoothScroll
-        } from './assets/js/utils.js';
-
-        // Exportar al objeto global para uso en HTML inline handlers
-        window.toggleSidebar = toggleSidebar;
-        window.closeSidebar = closeSidebar;
-        window.toggleIndexCollapse = toggleIndexCollapse;
-        window.toggleCollapsible = toggleCollapsible;
-        window.handleSubmit = handleSubmit;
-        window.clearForm = clearForm;
-        window.copyCode = copyCode;
-
-        // Ejecutar la inicialización cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            // DOM aún se está cargando
-            document.addEventListener('DOMContentLoaded', () => {
-                generateChapters();
-                initSidebarEvents();
-                initUIEvents();
-                initSmoothScroll();
-                console.log('✅ Aplicación inicializada correctamente');
-            });
-        } else {
-            // DOM ya está completamente cargado
-            generateChapters();
-            initSidebarEvents();
-            initUIEvents();
-            initSmoothScroll();
-            console.log('✅ Aplicación inicializada correctamente');
-        }
-    </script>
+  <script src="../build/js/bundle.js"></script>
 </body>
 
 </html>
