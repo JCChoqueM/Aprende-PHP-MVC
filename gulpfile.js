@@ -2,7 +2,7 @@ const { src, dest, watch, parallel } = require('gulp'); //funciones que nos da g
 /* SECTION css */
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
-const concat = require('gulp-concat');
+/* const concat = require('gulp-concat'); */
 /* section minizar css */
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -94,7 +94,7 @@ function javascript(done) {
     /* prettier-ignore-start */
     .pipe(sourcemaps.init())
     .pipe(plumber())
-         .pipe(concat('bundle.js')) // final output file name
+        //  .pipe(concat('bundle.js')) // final output file name
     .pipe(terser()) //minificar el js
     .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
