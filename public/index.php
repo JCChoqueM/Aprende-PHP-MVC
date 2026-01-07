@@ -2,16 +2,16 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
-use Controllers\LoginController;
-use Controllers\PaginasController;
+
+use Controllers\Tema1Controller;
 use Controllers\PortadaController;
-use Controllers\VendedorController;
-use Controllers\PropiedadController;
+
 
 $router = new Router();
 
 
 $router->get('/', [PortadaController::class, 'index']);
+$router->get('/tema1/ejercicio1', [Tema1Controller::class, 'index']);
 
 
 $router->comprobarRutas();

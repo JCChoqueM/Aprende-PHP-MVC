@@ -6,12 +6,12 @@ use MVC\Router;
 
 
 
-class PaginasController
+class Tema1Controller
 {
    public static function index(Router $router)
    {
 
-      $router->render("paginas/index", [
+      $router->render("tema1/ejercicio1", [
  
       ]);
    }
