@@ -4,7 +4,6 @@ namespace MVC;
 
 class Router
 {
-
     public $rutasGET = [];
     public $rutasPOST = [];
     public function get($url, $fn)
@@ -18,7 +17,6 @@ class Router
 
     public function comprobarRutas()
     {
-
         $urlActual = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
         if ($metodo === 'GET') {
@@ -40,9 +38,6 @@ class Router
         foreach ($datos as $key => $value) {
             $$key = $value;
         }
-   
-  
-
 
         ob_start();
         include_once __DIR__ . "/views/$view.php";
