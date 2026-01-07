@@ -16,10 +16,13 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div>
-                    <h1>📘 Aprende PHP con Ejercicios</h1>
-                    <p class="subtitle">Autor: Luis José Sánchez</p>
-                </div>
+                <a href="/" class="logo">
+                    <div>
+                        <h1>📘 Aprende PHP con Ejercicios</h1>
+                        <p class="subtitle">Autor: Luis José Sánchez</p>
+                    </div>
+                </a>
+
                 <button class="toggle-menu-btn" onclick="toggleSidebar()">☰ Menú</button>
             </div>
         </div>
@@ -40,6 +43,7 @@
     </footer>
 
     <script src="../build/js/bundle.js"></script>
+    <script src="../build/js/sidebar.js"></script>
 </body>
 
 </html>

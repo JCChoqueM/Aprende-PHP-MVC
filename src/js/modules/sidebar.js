@@ -3,8 +3,6 @@
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     initSidebar();
-    restoreIndexCollapseState();
-    initSidebarEvents();
 });
 
 function initSidebar() {
@@ -16,9 +14,6 @@ function initSidebar() {
     
     // Inicializar búsqueda
     initSearch();
-    
-    // Desplegar todos los temas al inicio
-    expandAllTemas();
 }
 
 // Actualizar estadísticas en el header
@@ -111,71 +106,4 @@ function filterExercises(searchTerm) {
 function refreshCache() {
     const currentUrl = window.location.href.split('?')[0];
     window.location.href = currentUrl + '?refresh_cache=1';
-}
-
-// Desplegar todos los temas al inicio
-function expandAllTemas() {
-    const temas = document.querySelectorAll('.tema');
-    temas.forEach(tema => {
-        const tituloElement = tema.querySelector('.tema-titulo');
-        const ejerciciosContainer = tema.querySelector('.ejercicios');
-        
-        if (tituloElement && ejerciciosContainer) {
-            tituloElement.classList.remove('collapsed');
-            ejerciciosContainer.classList.remove('collapsed');
-        }
-    });
-}
-
-// ========== FUNCIONES RESPONSIVE ==========
-
-// Toggle sidebar (abrir/cerrar en móvil)
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebarOverlay");
-    
-    if (sidebar) sidebar.classList.toggle("active");
-    if (overlay) overlay.classList.toggle("active");
-}
-
-// Cerrar sidebar
-function closeSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebarOverlay");
-    
-    if (sidebar) sidebar.classList.remove("active");
-    if (overlay) overlay.classList.remove("active");
-}
-
-// Toggle colapsar índice (minimizar sidebar)
-function toggleIndexCollapse() {
-    const sidebar = document.getElementById("sidebar");
-    if (!sidebar) return;
-    
-    sidebar.classList.toggle("collapsed");
-    const isCollapsed = sidebar.classList.contains("collapsed");
-    localStorage.setItem("indexCollapsed", isCollapsed);
-}
-
-// Restaurar estado colapsado del índice
-function restoreIndexCollapseState() {
-    const isCollapsed = localStorage.getItem("indexCollapsed") === "true";
-    const sidebar = document.getElementById("sidebar");
-    
-    if (isCollapsed && sidebar) {
-        sidebar.classList.add("collapsed");
-    }
-}
-
-// Inicializar eventos del sidebar
-function initSidebarEvents() {
-    // Cerrar sidebar con tecla Escape
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            const sidebar = document.getElementById("sidebar");
-            if (sidebar && sidebar.classList.contains("active")) {
-                closeSidebar();
-            }
-        }
-    });
 }

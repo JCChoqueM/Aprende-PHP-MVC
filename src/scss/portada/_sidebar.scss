@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 15px;
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.search-box:focus {
+  outline: 2px solid rgba(255, 255, 255, 1);
+}
+
+.stats {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
+}
+
+.cache-info {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cache-refresh {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.2s;
+}
+
+.cache-refresh:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tema {
+  margin-bottom: 15px;
+}
+
+.tema-titulo {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tema-titulo:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+.tema-count {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.tema-titulo::after {
+  content: '▼';
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.tema-titulo.collapsed::after {
+  transform: rotate(-90deg);
+}
+
+.ejercicios {
+  margin-top: 8px;
+  padding-left: 10px;
+  max-height: 2000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.ejercicios.collapsed {
+  max-height: 0;
+}
+
+.ejercicio-link {
+  display: block;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 4px 0;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ejercicio-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  padding-left: 20px;
+}
+
+.ejercicio-link.active {
+  background: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+.ejercicio-link.hidden {
+  display: none;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+.content h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.content p {
+  color: #666;
+  line-height: 1.6;
+}
+.logo {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.logo:hover h1 {
+  text-decoration: underline;
+}
