@@ -8,9 +8,9 @@ use MVC\Router;
 
 class PortadaController
 {
-   public static function index(Router $router)
+   public static function portada(Router $router)
    {
 
-      $router->render("portada/index", []);
+      $router->render("portada/portada", []);
    }
 }
