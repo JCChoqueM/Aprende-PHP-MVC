@@ -20,6 +20,11 @@
             "Controllers\\" : "./controllers",
             "View\\" : "./views"
         }
+    },
+    "config": {
+        "platform": {
+            "php": "8.3"
+        }
     }
  
 }
