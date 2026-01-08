@@ -20,9 +20,6 @@
             "Controllers\\" : "./controllers",
             "View\\" : "./views"
         }
-    },
-    "require-dev": {
-        "kint-php/kint": "^6.1",
-        "symfony/var-dumper": "^7.3"
     }
+ 
 }
