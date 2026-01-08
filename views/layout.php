@@ -30,7 +30,7 @@
 
     <div class="container">
         <div class="main-grid">
-            <!-- <?php include_once __DIR__ . '/sidebar/sidebar.php'; ?> -->
+            <?php include_once __DIR__ . '/sidebar/sidebar.php'; ?>
             <?php
             echo $contenido;
             ?>
