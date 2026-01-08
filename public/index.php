@@ -9,7 +9,7 @@ use Controllers\PortadaController;
 $router = new Router();
 
 $router->get('/', [PortadaController::class, 'portada']);
-$router->get('/tema1/ejercicio1', [Tema1Controller::class, 'ejercicio1']);
+// $router->get('/tema1/ejercicio1', [Tema1Controller::class, 'ejercicio1']);
 
 
 $router->comprobarRutas();
