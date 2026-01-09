@@ -2,7 +2,7 @@
 // sidebar.php
 
 // Directorio base: views/ (un nivel arriba de sidebar/)
-$baseDir = dirname(__DIR__, 2);
+$baseDir = dirname(__DIR__, 1);
 
 // Archivo de caché
 $cacheFile = __DIR__ . '/cache_indice.json';
