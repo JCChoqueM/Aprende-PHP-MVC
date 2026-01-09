@@ -30,12 +30,11 @@
 
     <div class="container">
         <div class="main-grid">
-            <?php include_once __DIR__ . '/sidebar/sidebar.php'; ?>
+            <?php include_once __DIR__ . '/templates/sidebar/sidebar.php'; ?>
             <?php
             echo $contenido;
             ?>
-
-        </div>
+</div>
     </div>
 
     <footer>

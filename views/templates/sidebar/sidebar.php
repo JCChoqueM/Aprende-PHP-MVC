@@ -2,7 +2,7 @@
 // sidebar.php
 
 // Directorio base: views/ (un nivel arriba de sidebar/)
-$baseDir = dirname(__DIR__);
+$baseDir = dirname(__DIR__, 2);
 
 // Archivo de caché
 $cacheFile = __DIR__ . '/cache_indice.json';
@@ -25,27 +25,27 @@ if ($temasData === null) {
     $temasData = [];
     $temas = array_filter(glob($baseDir . '/*'), 'is_dir');
     sort($temas);
-    
+
     foreach ($temas as $tema) {
         $temaName = basename($tema);
-        
+
         // Solo carpetas que empiecen con "tema"
         if (strpos($temaName, 'tema') !== 0) {
             continue;
         }
-        
+
         // Buscar archivos PHP en el tema
         $ejercicios = glob($tema . '/*.php');
         sort($ejercicios);
-        
+
         $ejerciciosArray = [];
         foreach ($ejercicios as $ejercicio) {
             $ejerciciosArray[] = basename($ejercicio, '.php');
         }
-        
+
         $temasData[$temaName] = $ejerciciosArray;
     }
-    
+
     // Guardar en caché
     file_put_contents($cacheFile, json_encode($temasData, JSON_PRETTY_PRINT));
     $cacheAge = 0;
@@ -64,6 +64,7 @@ if (isset($_GET['refresh_cache']) && file_exists($cacheFile)) {
 ?>
 
 </head>
+
 <body>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -77,30 +78,30 @@ if (isset($_GET['refresh_cache']) && file_exists($cacheFile)) {
                 <button class="cache-refresh" onclick="refreshCache()">🔄</button>
             </div>
         </div>
-        
+
         <?php
         // Generar HTML del menú (todos los ejercicios precargados)
         foreach ($temasData as $temaName => $ejercicios) {
             $ejerciciosCount = count($ejercicios);
             $isActiveTema = strpos($currentPath, "/$temaName/") !== false;
             $collapsedClass = $isActiveTema ? '' : 'collapsed';
-            
+
             echo '<div class="tema">';
             echo '<div class="tema-titulo ' . $collapsedClass . '" onclick="toggleTema(this)">';
             echo '<span>' . ucfirst(str_replace('_', ' ', $temaName)) . '</span>';
             echo '<span class="tema-count">' . $ejerciciosCount . '</span>';
             echo '</div>';
             echo '<div class="ejercicios ' . $collapsedClass . '">';
-            
+
             foreach ($ejercicios as $ejercicioName) {
                 $url = "/$temaName/$ejercicioName";
                 $activeClass = (strpos($currentPath, $url) !== false) ? 'active' : '';
-                
+
                 echo '<a href="' . htmlspecialchars($url) . '" class="ejercicio-link ' . $activeClass . '" data-search="' . strtolower($ejercicioName) . '">';
                 echo '📝 ' . ucfirst(str_replace('_', ' ', $ejercicioName));
                 echo '</a>';
             }
-            
+
             echo '</div>';
             echo '</div>';
         }
@@ -115,6 +116,6 @@ if (isset($_GET['refresh_cache']) && file_exists($cacheFile)) {
             cacheAge: <?php echo $cacheAge; ?>
         };
     </script>
-    
-    
+
+
 </body>
