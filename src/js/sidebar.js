@@ -1,181 +1,185 @@
 // sidebar.js
 
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initSidebar();
+    restoreTemaStates();
     restoreIndexCollapseState();
     initSidebarEvents();
 });
 
+/* ================= INICIALIZACIÓN ================= */
+
 function initSidebar() {
-    // Actualizar estadísticas
     updateStats();
-    
-    // Actualizar información del caché
     updateCacheTime();
-    
-    // Inicializar búsqueda
     initSearch();
-    
-    // Desplegar todos los temas al inicio
-    expandAllTemas();
 }
 
-// Actualizar estadísticas en el header
+/* ================= HEADER ================= */
+
 function updateStats() {
     const statsElement = document.getElementById('statsText');
     if (statsElement && typeof sidebarData !== 'undefined') {
-        statsElement.textContent = `${sidebarData.totalTemas} temas • ${sidebarData.totalEjercicios} ejercicios`;
+        statsElement.textContent =
+            `${sidebarData.totalTemas} temas • ${sidebarData.totalEjercicios} ejercicios`;
     }
 }
 
-// Mostrar edad del caché
 function updateCacheTime() {
-    if (typeof sidebarData === 'undefined') return;
-    
+    if (typeof sidebarData === 'undefined' || sidebarData.cacheAge === undefined) return;
+
     const cacheAge = sidebarData.cacheAge;
     const minutes = Math.floor(cacheAge / 60);
     const hours = Math.floor(minutes / 60);
-    let timeText = '';
-    
+
+    let timeText = 'recién actualizado';
     if (hours > 0) {
         timeText = `${hours}h ${minutes % 60}m`;
     } else if (minutes > 0) {
         timeText = `${minutes}m`;
-    } else {
-        timeText = 'recién actualizado';
     }
-    
+
     const cacheTimeElement = document.getElementById('cacheTime');
     if (cacheTimeElement) {
         cacheTimeElement.textContent = `Caché: ${timeText}`;
     }
 }
 
-// Toggle tema (expandir/colapsar)
+/* ================= TEMAS ================= */
+
 function toggleTema(element) {
-    element.classList.toggle('collapsed');
     const ejercicios = element.nextElementSibling;
-    if (ejercicios) {
-        ejercicios.classList.toggle('collapsed');
+    const tema = element.closest('.tema');
+
+    element.classList.toggle('collapsed');
+    ejercicios?.classList.toggle('collapsed');
+
+    if (tema) {
+        const temaId = tema.dataset.tema;
+        const isCollapsed = element.classList.contains('collapsed');
+        localStorage.setItem(`tema-${temaId}`, isCollapsed);
     }
 }
 
-// Inicializar búsqueda en tiempo real
+function restoreTemaStates() {
+    const temas = document.querySelectorAll('.tema');
+
+    temas.forEach(tema => {
+        const temaId = tema.dataset.tema;
+        const isCollapsed = localStorage.getItem(`tema-${temaId}`) === 'true';
+
+        const titulo = tema.querySelector('.tema-titulo');
+        const ejercicios = tema.querySelector('.ejercicios');
+
+        if (titulo && ejercicios) {
+            if (isCollapsed) {
+                titulo.classList.add('collapsed');
+                ejercicios.classList.add('collapsed');
+            } else {
+                titulo.classList.remove('collapsed');
+                ejercicios.classList.remove('collapsed');
+            }
+        }
+    });
+
+    // Asegurar que el tema activo esté abierto
+    const activeLink = document.querySelector('.ejercicio-link.active');
+    if (activeLink) {
+        const tema = activeLink.closest('.tema');
+        const titulo = tema?.querySelector('.tema-titulo');
+        const ejercicios = tema?.querySelector('.ejercicios');
+
+        titulo?.classList.remove('collapsed');
+        ejercicios?.classList.remove('collapsed');
+    }
+}
+
+/* ================= BÚSQUEDA ================= */
+
 function initSearch() {
     const searchBox = document.getElementById('searchBox');
     if (!searchBox) return;
-    
-    searchBox.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        filterExercises(searchTerm);
+
+    searchBox.addEventListener('input', function (e) {
+        filterExercises(e.target.value.toLowerCase().trim());
     });
 }
 
-// Filtrar ejercicios según término de búsqueda
 function filterExercises(searchTerm) {
     const temas = document.querySelectorAll('.tema');
-    
+
     temas.forEach(tema => {
-        const tituloElement = tema.querySelector('.tema-titulo');
-        const ejerciciosContainer = tema.querySelector('.ejercicios');
-        const links = ejerciciosContainer.querySelectorAll('.ejercicio-link');
-        
+        const titulo = tema.querySelector('.tema-titulo');
+        const ejercicios = tema.querySelector('.ejercicios');
+        const links = ejercicios.querySelectorAll('.ejercicio-link');
+
         if (searchTerm === '') {
-            // Restaurar estado original
             links.forEach(link => link.classList.remove('hidden'));
             tema.style.display = 'block';
-        } else {
-            // Expandir tema para búsqueda
-            tituloElement.classList.remove('collapsed');
-            ejerciciosContainer.classList.remove('collapsed');
-            
-            let hasVisible = false;
-            links.forEach(link => {
-                const text = link.dataset.search || link.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    link.classList.remove('hidden');
-                    hasVisible = true;
-                } else {
-                    link.classList.add('hidden');
-                }
-            });
-            
-            // Ocultar tema si no tiene ejercicios visibles
-            tema.style.display = hasVisible ? 'block' : 'none';
+            restoreTemaStates();
+            return;
         }
+
+        titulo.classList.remove('collapsed');
+        ejercicios.classList.remove('collapsed');
+
+        let hasVisible = false;
+
+        links.forEach(link => {
+            const text = link.dataset.search || link.textContent.toLowerCase();
+            const match = text.includes(searchTerm);
+
+            link.classList.toggle('hidden', !match);
+            if (match) hasVisible = true;
+        });
+
+        tema.style.display = hasVisible ? 'block' : 'none';
     });
 }
 
-// Refrescar caché
+/* ================= CACHE ================= */
+
 function refreshCache() {
-    const currentUrl = window.location.href.split('?')[0];
-    window.location.href = currentUrl + '?refresh_cache=1';
+    const baseUrl = window.location.href.split('?')[0];
+    window.location.href = `${baseUrl}?refresh_cache=1`;
 }
 
-// Desplegar todos los temas al inicio
-function expandAllTemas() {
-    const temas = document.querySelectorAll('.tema');
-    temas.forEach(tema => {
-        const tituloElement = tema.querySelector('.tema-titulo');
-        const ejerciciosContainer = tema.querySelector('.ejercicios');
-        
-        if (tituloElement && ejerciciosContainer) {
-            tituloElement.classList.remove('collapsed');
-            ejerciciosContainer.classList.remove('collapsed');
-        }
-    });
-}
+/* ================= SIDEBAR RESPONSIVE ================= */
 
-// ========== FUNCIONES RESPONSIVE ==========
-
-// Toggle sidebar (abrir/cerrar en móvil)
 function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebarOverlay");
-    
-    if (sidebar) sidebar.classList.toggle("active");
-    if (overlay) overlay.classList.toggle("active");
+    document.getElementById('sidebar')?.classList.toggle('active');
+    document.getElementById('sidebarOverlay')?.classList.toggle('active');
 }
 
-// Cerrar sidebar
 function closeSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebarOverlay");
-    
-    if (sidebar) sidebar.classList.remove("active");
-    if (overlay) overlay.classList.remove("active");
+    document.getElementById('sidebar')?.classList.remove('active');
+    document.getElementById('sidebarOverlay')?.classList.remove('active');
 }
 
-// Toggle colapsar índice (minimizar sidebar)
+/* ================= COLAPSAR ÍNDICE ================= */
+
 function toggleIndexCollapse() {
-    const sidebar = document.getElementById("sidebar");
+    const sidebar = document.getElementById('sidebar');
     if (!sidebar) return;
-    
-    sidebar.classList.toggle("collapsed");
-    const isCollapsed = sidebar.classList.contains("collapsed");
-    localStorage.setItem("indexCollapsed", isCollapsed);
+
+    sidebar.classList.toggle('collapsed');
+    localStorage.setItem(
+        'indexCollapsed',
+        sidebar.classList.contains('collapsed')
+    );
 }
 
-// Restaurar estado colapsado del índice
 function restoreIndexCollapseState() {
-    const isCollapsed = localStorage.getItem("indexCollapsed") === "true";
-    const sidebar = document.getElementById("sidebar");
-    
-    if (isCollapsed && sidebar) {
-        sidebar.classList.add("collapsed");
+    const sidebar = document.getElementById('sidebar');
+    if (localStorage.getItem('indexCollapsed') === 'true') {
+        sidebar?.classList.add('collapsed');
     }
 }
 
-// Inicializar eventos del sidebar
+/* ================= EVENTOS ================= */
+
 function initSidebarEvents() {
-    // Cerrar sidebar con tecla Escape
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            const sidebar = document.getElementById("sidebar");
-            if (sidebar && sidebar.classList.contains("active")) {
-                closeSidebar();
-            }
-        }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeSidebar();
     });
 }

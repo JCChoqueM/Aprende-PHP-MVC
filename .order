@@ -2,8 +2,8 @@ models
 views
 controllers
 includes
-public
 src
+public
 classes
 Router.php
 package.json

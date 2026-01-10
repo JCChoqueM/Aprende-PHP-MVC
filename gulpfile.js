@@ -116,7 +116,8 @@ function javascriptModules(done) {
 
 function dev(done) {
   watch('src/scss/**/*.scss', css);
-  watch('src/js/**/*.js', javascript, javascriptModules);
+  watch('src/js/*.js', javascript);                    // ← Solo raíz
+  watch('src/js/modules/**/*.js', javascriptModules);  // ← Solo módulos
   done();
 }
 
