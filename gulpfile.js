@@ -13,9 +13,9 @@ const sourcemaps = require('gulp-sourcemaps');
 /* !SECTION fin css */
 
 /* SECTION Imagenes */
-const cache = require('gulp-cache');
+const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp').default; //funcion que se encarga de convertir imagenes en webp se debe poner .default ya que su funcion en node_modules-->index.js tiene "export default function gulpWebp(options) { "
+const webp = require('gulp-webp').default; //funcion que se encarga de convertir imagenes en webp se debe pone .default ya que su funcion en node_modules-->index.js tiene "export default function gulpWebp(options) { "
 const avif = require('gulp-avif');
 /* !SECTION Imagenes */
 
@@ -41,17 +41,19 @@ function imagenes(done) {
     optimizationLevel: 3,
   };
   /* !section fin - opciones */
+  const destPath = './public/build/img';
   src('src/img/**/*.{png,jpg,svg}')
     /* prettier-ignore-start */
-    .pipe(cache(imagemin(opciones)))
-    .pipe(dest('./public/build/img'));
+    .pipe(newer(destPath)) // Solo procesa imágenes nuevas o modificadas
+    .pipe(imagemin(opciones))
+    .pipe(dest(destPath));
   /* prettier-ignore-end */
   done();
 }
 /* !SECTION fin - Imagenes */
 
 /* SECTION javaScript */
-const terser = require('gulp-terser-js');
+const terser = require('gulp-terser');
 /* !SECTION fin - javaScript */
 
 /* SECTION versionWebp  */
@@ -92,11 +94,9 @@ function versionAvif(done) {
 function javascript(done) {
   src('src/js/*.js')
     /* prettier-ignore-start */
-    .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(concat('bundle.js')) // final output file name
     .pipe(terser()) //minificar el js
-    .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
   /* prettier-ignore-end */
   done();
@@ -104,10 +104,8 @@ function javascript(done) {
 function javascriptModules(done) {
   src('src/js/modules/**/*.js')
     /* prettier-ignore-start */
-    .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(terser()) //minificar el js
-    .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
   /* prettier-ignore-end */
   done();
@@ -116,8 +114,8 @@ function javascriptModules(done) {
 
 function dev(done) {
   watch('src/scss/**/*.scss', css);
-  watch('src/js/*.js', javascript);                    // ← Solo raíz
-  watch('src/js/modules/**/*.js', javascriptModules);  // ← Solo módulos
+  watch('src/js/*.js', javascript); // Solo archivos en la raíz de src/js/
+  watch('src/js/modules/**/*.js', javascriptModules); // Solo módulos
   done();
 }
 
