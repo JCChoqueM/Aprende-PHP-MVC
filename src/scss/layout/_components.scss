@@ -86,6 +86,18 @@
   line-height: 1.6;
   font-size: 0.95rem;
 }
+.solution-result table {
+    width: 100%;            /* la tabla no se saldrá de la caja */
+    border-collapse: collapse;
+}
+
+.solution-result th,
+.solution-result td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    text-align: left;
+}
+
 
 /* Secciones colapsables */
 .collapsible-section {

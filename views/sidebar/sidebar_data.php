@@ -26,5 +26,5 @@ function generarIndice(array $cantidades): array
 return generarIndice([
     12,
     11,
-    19
+    19,29,15,34,9,5,4,3,2,4
 ]);
