@@ -94,9 +94,11 @@ function versionAvif(done) {
 function javascript(done) {
   src('src/js/*.js')
     /* prettier-ignore-start */
+    .pipe(sourcemaps.init()) 
     .pipe(plumber())
     .pipe(concat('bundle.js')) // final output file name
     .pipe(terser()) //minificar el js
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
   /* prettier-ignore-end */
   done();
@@ -104,8 +106,10 @@ function javascript(done) {
 function javascriptModules(done) {
   src('src/js/modules/**/*.js')
     /* prettier-ignore-start */
+    .pipe(sourcemaps.init()) 
     .pipe(plumber())
     .pipe(terser()) //minificar el js
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('./public/build/js'));
   /* prettier-ignore-end */
   done();
