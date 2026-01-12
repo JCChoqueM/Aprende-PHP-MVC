@@ -34,7 +34,7 @@
             <?php
             echo $contenido;
             ?>
-</div>
+        </div>
     </div>
 
     <footer>
@@ -42,7 +42,7 @@
     </footer>
 
     <script src="../build/js/bundle.js"></script>
-    <script src="../build/js/sidebar.js"></script>
+
 </body>
 
 </html>

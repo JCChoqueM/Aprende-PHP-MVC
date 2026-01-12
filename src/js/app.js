@@ -2,7 +2,7 @@
 // ✅ Solo el código de inicialización:
 
 document.addEventListener("DOMContentLoaded", () => {
-  generateChapters();
+
   initSidebarEvents();
   initUIEvents();
   initSmoothScroll();

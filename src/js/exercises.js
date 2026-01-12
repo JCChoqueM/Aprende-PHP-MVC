@@ -3,44 +3,6 @@
 // ❌ ELIMINAR: export function ...
 // ✅ Solo funciones normales (chapters ya está definido globalmente en data.js)
 
-function generateChapters() {
-  const accordion = document.getElementById("chapterAccordion");
-  
-  chapters.forEach(chapter => {
-    const li = document.createElement("li");
-    
-    const header = document.createElement("div");
-    header.className = "chapter-header";
-    header.id = "chapter-" + chapter.id;
-    header.innerHTML = `<span>📖 Cap ${chapter.id}: ${chapter.name}</span><span class="chapter-icon">▼</span>`;
-    header.onclick = (e) => {
-      e.stopPropagation();
-      toggleChapter(chapter.id, header);
-    };
-    
-    const exercisesList = document.createElement("div");
-    exercisesList.className = "exercises-list";
-    exercisesList.id = "exercises-" + chapter.id;
-    
-    chapter.exercises.forEach((exercise, index) => {
-      const exerciseItem = document.createElement("div");
-      exerciseItem.className = "exercise-item";
-      exerciseItem.id = `exercise-${chapter.id}-${index + 1}`;
-      exerciseItem.textContent = exercise;
-      exerciseItem.onclick = (e) => {
-        e.stopPropagation();
-        loadExercise(chapter.id, index + 1, exerciseItem);
-      };
-      exercisesList.appendChild(exerciseItem);
-    });
-    
-    li.appendChild(header);
-    li.appendChild(exercisesList);
-    accordion.appendChild(li);
-  });
-  
-  restoreIndexCollapseState();
-}
 
 function toggleChapter(chapterId, headerElement) {
   const exercisesList = document.getElementById("exercises-" + chapterId);
