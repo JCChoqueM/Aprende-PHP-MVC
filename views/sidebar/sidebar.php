@@ -25,6 +25,10 @@ foreach ($temasData as $tema) {
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h2>📚 Índice de Ejercicios</h2>
+               <button class="toggle-index-btn" onclick="toggleIndexCollapse()" title="Colapsar/Expandir índice">
+                        <span class="toggle-index-icon">◀</span>
+                    </button>
+                    <button class="close-sidebar-btn" onclick="closeSidebar()">✕</button>
             <input type="text" class="search-box" id="searchBox" placeholder="Buscar ejercicios...">
             <div class="stats">
                 <span id="statsText"><?php echo $totalTemas; ?> temas • <?php echo $totalEjercicios; ?> ejercicios</span>
