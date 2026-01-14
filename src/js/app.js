@@ -6,5 +6,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebarEvents();
   initUIEvents();
   initSmoothScroll();
-  console.log("✅ Aplicación inicializada prera correctamente");
+  console.log("✅ Aplicación inicializda correctamente");
 });
