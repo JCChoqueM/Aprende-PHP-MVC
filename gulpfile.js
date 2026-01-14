@@ -1,144 +1,90 @@
-const { src, dest, watch, parallel } = require('gulp'); //funciones que nos da gulp
-/* SECTION css */
-const sass = require('gulp-sass')(require('sass'));
-const plumber = require('gulp-plumber');
-const concat = require('gulp-concat');
-/* section minizar css */
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
-/* !section fin - minizar css */
+// src() → tomar archivos de entrada (js, scss, imágenes) para procesar
+// dest() → guardar los archivos procesados en la carpeta de salida
+// symlink() → crear enlaces simbólicos en lugar de copiar archivos
+// lastRun() → procesar solo los archivos que cambiaron desde la última ejecución
+// series() → ejecutar tareas en orden, una después de otra
+// parallel() → ejecutar tareas al mismo tiempo, sin esperar a la otra
+// watch() → observar cambios en archivos y ejecutar tareas automáticamente
+// task() → registrar tareas manualmente (útil en compatibilidad o legacy)
+// tree() → mostrar el árbol de tareas y sus dependencias
+// Vinyl → objeto interno que representa cada archivo en el flujo de Gulp
+// Vinyl.isVinyl() → comprobar si un objeto es un archivo Vinyl
+// Vinyl.isCustomProp() → verificar propiedades especiales agregadas a un Vinyl
 
-/* !SECTION fin css */
+import { src, dest, watch, series } from 'gulp' // Funciones principales de Gulp
+import path from 'path'                 // Manejo seguro de rutas (multiplataforma)
+import fs from 'fs'                     // Acceso al sistema de archivos
+import { glob } from 'glob'             // Búsqueda de archivos por patrones
+import * as dartSass from 'sass'         // Motor oficial de Sass (Dart Sass)
+import gulpSass from 'gulp-sass'         // Integración de Sass con Gulp
+import terser from 'gulp-terser'         // Minificación de JavaScript
+import sharp from 'sharp'                // Optimización y conversión de imágenes
 
-/* SECTION Imagenes */
-const newer = require('gulp-newer');
-const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp').default; //funcion que se encarga de convertir imagenes en webp se debe pone .default ya que su funcion en node_modules-->index.js tiene "export default function gulpWebp(options) { "
-const avif = require('gulp-avif');
-/* !SECTION Imagenes */
 
-/* SECTION funcion que transforma .scss a css */
-function css(done) {
-  src('src/scss/**/*.scss') //Identifica el archivo .scss a compilar
-    /* prettier-ignore-start */
-    .pipe(sourcemaps.init()) //inicializa el mapa de sourcemaps
-    .pipe(plumber())
-    .pipe(sass().on('error', sass.logError)) //Compilar el archivo .scss
-    .pipe(postcss([autoprefixer(), cssnano()])) //minificar el css
-    .pipe(sourcemaps.write('.')) //almacena el mapa de sourcemaps en el mismo directorio que el archivo css
-    .pipe(dest('./public/build/css')); //almacenarla en el disco duro
-  /* prettier-ignore-end */
-  done(); // callback
-}
-/* !SECTION fin - funcion que transforma .scss a css */
+const sass = gulpSass(dartSass)
 
-/* SECTION Imagenes */
-function imagenes(done) {
-  /* section opciones */
-  const opciones = {
-    optimizationLevel: 3,
-  };
-  /* !section fin - opciones */
-  const destPath = './public/build/img';
-  src('src/img/**/*.{png,jpg,svg}')
-    /* prettier-ignore-start */
-    .pipe(newer(destPath)) // Solo procesa imágenes nuevas o modificadas
-    .pipe(imagemin(opciones))
-    .pipe(dest(destPath));
-  /* prettier-ignore-end */
-  done();
-}
-/* !SECTION fin - Imagenes */
-
-/* SECTION javaScript */
-const terser = require('gulp-terser');
-/* !SECTION fin - javaScript */
-
-/* SECTION versionWebp  */
-//REGISTRAR  o crear nueva tarea
-function versionWebp(done) {
-  /* section opciones de calidad que se pasaran a .pipe(webp()) */
-  const opciones = {
-    quality: 50,
-  };
-  /* !section fin - opciones de calidad que se pasaran a .pipe(webp()) */
-  src('src/img/**/*.{png,jpg}') //{jpg,png}formatos a buscar
-    /* prettier-ignore-start */
-    .pipe(webp(opciones)) //convierte las imagenes en webp en memoria
-    .pipe(dest('./public/build/img')); // almacena las imagenes en el disco duro generado por .pipe(webp(opciones))
-  /* prettier-ignore-end */
-  done();
-}
-/* !SECTION fin - versionWebp  */
-
-/* SECTION versionAvif  */
-//REGISTRAR  o crear nueva tarea
-function versionAvif(done) {
-  /* section opciones de calidad que se pasaran a .pipe(webp()) */
-  const opciones = {
-    quality: 50,
-  };
-  /* !section fin - opciones de calidad que se pasaran a .pipe(webp()) */
-  src('src/img/**/*.{png,jpg}') //{jpg,png}formatos a buscar
-    /* prettier-ignore-start */
-    .pipe(avif(opciones)) //convierte las imagenes en webp en memoria
-    .pipe(dest('./public/build/img')); // almacena las imagenes en el disco duro generado por .pipe(webp(opciones))
-  /* prettier-ignore-end */
-  done();
-}
-/* !SECTION fin - versionAvif  */
-
-/* SECTION  javascript */
-function javascript(done) {
-  src('src/js/*.js')
-    /* prettier-ignore-start */
-    .pipe(sourcemaps.init()) 
-    .pipe(plumber())
-    .pipe(concat('bundle.js')) // final output file name
-    .pipe(terser()) //minificar el js
-    .pipe(sourcemaps.write('.'))
-    .pipe(dest('./public/build/js'));
-  /* prettier-ignore-end */
-  done();
-}
-function javascriptModules(done) {
-  src('src/js/modules/**/*.js')
-    /* prettier-ignore-start */
-    .pipe(sourcemaps.init()) 
-    .pipe(plumber())
-    .pipe(terser()) //minificar el js
-    .pipe(sourcemaps.write('.'))
-    .pipe(dest('./public/build/js'));
-  /* prettier-ignore-end */
-  done();
-}
-/* !SECTION fin - javascript */
-
-function dev(done) {
-  watch('src/scss/**/*.scss', css);
-  watch('src/js/*.js', javascript); // Solo archivos en la raíz de src/js/
-  watch('src/js/modules/**/*.js', javascriptModules); // Solo módulos
-  done();
+const paths = {
+    scss: 'src/scss/**/*.scss',
+    js: 'src/js/**/*.js'
 }
 
-/* SECTION  ejecutar varias tareas al mismo tiempo */
-// hay 2 opciones series o parallel
-//series una tarea se ejecuta despues de la otra en forma secuencial
-//parallel todas las funciones se ejecutan al mismo tiempo
-/* section2 hacer disponibles las funciones creadas */
-// Exportar las funciones para que estén disponibles al ejecutar gulp
-exports.css = css; // Exporta la función css
-exports.js = javascript; // Exporta la función css
-exports.javascriptModules = javascriptModules; // Exporta la función css
-exports.imagenes = imagenes; // Exporta la función imagenes
-exports.versionWebp = versionWebp; // Exporta la función versionWebp
-exports.versionAvif = versionAvif; // Exporta la función versionAvif
-exports.dev = parallel(css, imagenes, versionWebp, versionAvif, javascript, dev); // Exporta la función dev que ejecuta versionWebp y dev en paralelo dev a la misma ves trae a la funcion  css
-// Exporta la función dev que ejecuta versionWebp y dev en paralelo dev a la misma ves trae a la funcion  css
-/* !section2 fin - hacer disponibles las funciones creadas */
-/* !SECTION fin - ejecutar varias tareas al mismo tiempo */
-// Nueva tarea que solo procesa CSS y JavaScript
-exports.devv = parallel(css, javascript, javascriptModules, dev);
-exports.build = parallel(css, javascript, javascriptModules);
+export function css( done ) {
+    src(paths.scss, {sourcemaps: true})
+        .pipe( sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError) )
+        .pipe( dest('./public/build/css', {sourcemaps: '.'}) );
+    done()
+}
+
+export function js( done ) {
+    src(paths.js)
+      .pipe(terser())
+      .pipe(dest('./public/build/js'))
+    done()
+}
+
+export async function imagenes(done) {
+    const srcDir = './src/img';
+    const buildDir = './public/build/img';
+    const images =  await glob('./src/img/**/*')
+
+    images.forEach(file => {
+        const relativePath = path.relative(srcDir, path.dirname(file));
+        const outputSubDir = path.join(buildDir, relativePath);
+        procesarImagenes(file, outputSubDir);
+    });
+    done();
+}
+
+function procesarImagenes(file, outputSubDir) {
+    if (!fs.existsSync(outputSubDir)) {
+        fs.mkdirSync(outputSubDir, { recursive: true })
+    }
+    const baseName = path.basename(file, path.extname(file))
+    const extName = path.extname(file)
+
+    if (extName.toLowerCase() === '.svg') {
+        // If it's an SVG file, move it to the output directory
+        const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
+    fs.copyFileSync(file, outputFile);
+    } else {
+        // For other image formats, process them with sharp
+        const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
+        const outputFileWebp = path.join(outputSubDir, `${baseName}.webp`);
+        const outputFileAvif = path.join(outputSubDir, `${baseName}.avif`);
+        const options = { quality: 80 };
+
+        sharp(file).jpeg(options).toFile(outputFile);
+        sharp(file).webp(options).toFile(outputFileWebp);
+        sharp(file).avif().toFile(outputFileAvif);
+    }
+}
+
+export function dev() {
+    watch( paths.scss, css );
+    watch( paths.js, js );
+    watch('src/img/**/*.{png,jpg}', imagenes)
+}
+
+export default series( js, css, imagenes, dev )

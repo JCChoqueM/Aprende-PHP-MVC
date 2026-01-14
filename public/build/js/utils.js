@@ -1,0 +1,1 @@
+function initSmoothScroll(){document.documentElement.style.scrollBehavior="smooth"}
