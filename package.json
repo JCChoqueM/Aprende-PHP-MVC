@@ -6,6 +6,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "imagen": "gulp imagen",
+    "build": "gulp build",
     "dev": "gulp"
   },
   "license": "ISC",

@@ -19,13 +19,14 @@ import * as dartSass from 'sass'         // Motor oficial de Sass (Dart Sass)
 import gulpSass from 'gulp-sass'         // Integración de Sass con Gulp
 import terser from 'gulp-terser'         // Minificación de JavaScript
 import sharp from 'sharp'                // Optimización y conversión de imágenes
-
+import concat from 'gulp-concat'
 
 const sass = gulpSass(dartSass)
 
 const paths = {
     scss: 'src/scss/**/*.scss',
-    js: 'src/js/**/*.js'
+    js: 'src/js/*.js',
+    jsmodules: 'src/js/modules/**/*.js'
 }
 
 export function css(done) {
@@ -39,6 +40,13 @@ export function css(done) {
 
 export function js(done) {
     src(paths.js, { sourcemaps: true })
+        .pipe(concat('bundle.js'))
+        .pipe(terser())
+        .pipe(dest('./public/build/js', { sourcemaps: '.' }))
+    done()
+}
+export function jsModules(done) {
+    src(paths.jsmodules, { sourcemaps: true })
         .pipe(terser())
         .pipe(dest('./public/build/js', { sourcemaps: '.' }))
     done()
@@ -84,7 +92,10 @@ function procesarImagenes(file, outputSubDir) {
 export function dev() {
     watch(paths.scss, css);
     watch(paths.js, js);
+    watch(paths.jsmodules, jsModules);
     watch('src/img/**/*.{png,jpg}', imagenes)
 }
 
-export default series(js, css, imagenes, dev)
+export const imagen = series(imagenes);
+export const build = series(css, js, jsModules);
+export default series(js, css, jsModules, imagenes, dev)

@@ -1,1 +1,0 @@
-{"version":3,"file":"utils.js","names":["initSmoothScroll","document","documentElement","style","scrollBehavior"],"sources":["utils.js"],"mappings":"AAGA,SAASA,mBACPC,SAASC,gBAAgBC,MAAMC,eAAiB,QAClD","ignoreList":[]}
