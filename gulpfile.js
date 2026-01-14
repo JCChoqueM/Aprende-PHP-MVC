@@ -98,4 +98,4 @@ export function dev() {
 
 export const imagen = series(imagenes);
 export const build = series(css, js, jsModules);
-export default series(js, css, jsModules, imagenes, dev)
+export default series(css, js, jsModules, imagenes, dev)
