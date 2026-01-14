@@ -1,1 +1,0 @@
-{"version":3,"file":"saratoga.js","names":["camila","params","console","log"],"sources":["saratoga.js"],"mappings":"AAAA,SAASA,OAAOC,GACZC,QAAQC,IAAIH,OAChB","ignoreList":[],"sourcesContent":["function camila(params) {\r\n    console.log(camila);\r\n}"]}

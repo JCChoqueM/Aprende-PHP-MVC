@@ -1,7 +1,7 @@
 // src() → tomar archivos de entrada (js, scss, imágenes) para procesar
 // dest() → guardar los archivos procesados en la carpeta de salida
 // symlink() → crear enlaces simbólicos en lugar de copiar archivos
-// lastRun() → procesar solo los archivos que cambiaron desde la última ejecución
+// lastRun() → procesar solo los archivos que cambiaron desde la última ejecución  src(paths.js, { since: lastRun(js) })
 // series() → ejecutar tareas en orden, una después de otra
 // parallel() → ejecutar tareas al mismo tiempo, sin esperar a la otra
 // watch() → observar cambios en archivos y ejecutar tareas automáticamente
@@ -11,7 +11,7 @@
 // Vinyl.isVinyl() → comprobar si un objeto es un archivo Vinyl
 // Vinyl.isCustomProp() → verificar propiedades especiales agregadas a un Vinyl
 
-import { src, dest, watch, series } from 'gulp' // Funciones principales de Gulp
+import { src, dest, watch, series, lastRun } from 'gulp' // Funciones principales de Gulp
 import path from 'path'                 // Manejo seguro de rutas (multiplataforma)
 import fs from 'fs'                     // Acceso al sistema de archivos
 import { glob } from 'glob'             // Búsqueda de archivos por patrones
@@ -28,26 +28,26 @@ const paths = {
     js: 'src/js/**/*.js'
 }
 
-export function css( done ) {
-    src(paths.scss, {sourcemaps: true})
-        .pipe( sass({
+export function css(done) {
+    src(paths.scss, { sourcemaps: true })
+        .pipe(sass({
             outputStyle: 'compressed'
-        }).on('error', sass.logError) )
-        .pipe( dest('./public/build/css', {sourcemaps: '.'}) );
+        }).on('error', sass.logError))
+        .pipe(dest('./public/build/css', { sourcemaps: '.' }));
     done()
 }
 
-export function js( done ) {
-    src(paths.js)
-      .pipe(terser())
-      .pipe(dest('./public/build/js'))
+export function js(done) {
+    src(paths.js, { sourcemaps: true })
+        .pipe(terser())
+        .pipe(dest('./public/build/js', { sourcemaps: '.' }))
     done()
 }
 
 export async function imagenes(done) {
     const srcDir = './src/img';
     const buildDir = './public/build/img';
-    const images =  await glob('./src/img/**/*')
+    const images = await glob('./src/img/**/*')
 
     images.forEach(file => {
         const relativePath = path.relative(srcDir, path.dirname(file));
@@ -67,7 +67,7 @@ function procesarImagenes(file, outputSubDir) {
     if (extName.toLowerCase() === '.svg') {
         // If it's an SVG file, move it to the output directory
         const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
-    fs.copyFileSync(file, outputFile);
+        fs.copyFileSync(file, outputFile);
     } else {
         // For other image formats, process them with sharp
         const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
@@ -82,9 +82,9 @@ function procesarImagenes(file, outputSubDir) {
 }
 
 export function dev() {
-    watch( paths.scss, css );
-    watch( paths.js, js );
+    watch(paths.scss, css);
+    watch(paths.js, js);
     watch('src/img/**/*.{png,jpg}', imagenes)
 }
 
-export default series( js, css, imagenes, dev )
+export default series(js, css, imagenes, dev)
