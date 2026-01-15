@@ -7,7 +7,7 @@
     <title>Aprende PHP con Ejercicios - Luis José Sánche</title>
 
 
-    <link rel="stylesheet" href="../build/css/app.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>build/css/app.css">
 </head>
 
 <body>
@@ -41,7 +41,8 @@
         <p>📚 "Aprende PHP con Ejercicios" - Luis José Sánchez</p>
     </footer>
 
-    <script src="../build/js/bundle.js"></script>
+    <script src="<?= BASE_URL ?>build/js/bundle.js"></script>
+    <script src="<?= BASE_URL ?>build/js/api.js"></script>
 
 </body>
 

@@ -1,36 +1,50 @@
-async function consultarAPI() {
-    try {
-        const url = 'api/servicios';
-        const resultado = await fetch(url);
-        const servicios = await resultado.json();
-        mostrarServicios(servicios);
-    } catch (error) {
-        console.log(error);
+document.addEventListener('DOMContentLoaded', function () {
+    const { tema, ejercicio } = obtenerTemaEjercicio();
+
+    if (tema && ejercicio) {
+        iniciarApp(tema, ejercicio); // PASAMOS los valores
     }
+});
+
+function iniciarApp(tema, ejercicio) {
+    consultarAPI(tema, ejercicio);
+}
+
+
+const $id = id => document.getElementById(id);
+
+async function consultarAPI(tema, ejercicio) {
+  const contenedor = $id('jsResult');
+  contenedor.textContent = 'Cargando...';
+
+  const url = `/api/tema/${tema}/ejercicio/${ejercicio}`;
+  
+  try {
+    const resultado = await fetch(url);
+    const data = await resultado.json();
+    mostrarServicios(data);
+  } catch (error) {
+    contenedor.textContent = 'Error al cargar los datos';
+    console.error(error);
+  }
 }
 function mostrarServicios(servicios) {
-    servicios.forEach((servicio) => {
-        const { id, nombre, precio } = servicio;
 
-        const nombreServicio = document.createElement('P');
-        nombreServicio.classList.add('nombre-servicio');
-        nombreServicio.textContent = nombre;
 
-        const precioServicio = document.createElement('P');
-        precioServicio.classList.add('precio-servicio');
-        precioServicio.textContent = `$${precio}`;
+    // uso
+    $id('jsResult').textContent = servicios.mensaje;
 
-        const servicioDiv = document.createElement('DIV');
-        servicioDiv.classList.add('servicio');
-        servicioDiv.dataset.idServicio = id;
+}
+function obtenerTemaEjercicio() {
+    // /tema/1/ejercicio/2
+    const path = window.location.pathname; // "/tema/1/ejercicio/2"
+    const partes = path.split('/').filter(p => p !== ''); // ["tema","1","ejercicio","2"]
+    
+    const temaIndex = partes.indexOf('tema');
+    const ejercicioIndex = partes.indexOf('ejercicio');
 
-        servicioDiv.onclick = function () {
-            seleccionarServicio(servicio);
-        };
+    const tema = temaIndex !== -1 ? partes[temaIndex + 1] : null;
+    const ejercicio = ejercicioIndex !== -1 ? partes[ejercicioIndex + 1] : null;
 
-        servicioDiv.appendChild(nombreServicio);
-        servicioDiv.appendChild(precioServicio);
-
-        document.querySelector('#servicios').appendChild(servicioDiv);
-    });
+    return { tema, ejercicio };
 }

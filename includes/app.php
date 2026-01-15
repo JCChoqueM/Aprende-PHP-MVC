@@ -6,6 +6,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 require 'funciones.php';
 require 'database.php';
+define('BASE_URL', '/'); // local
 
 //Conectarnos a la base de Datos
 $db = conectarDB();

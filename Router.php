@@ -6,10 +6,12 @@ class Router
 {
     public $rutasGET = [];
     public $rutasPOST = [];
+    
     public function get($url, $fn)
     {
         $this->rutasGET[$url] = $fn;
     }
+    
     public function post($url, $fn)
     {
         $this->rutasPOST[$url] = $fn;
@@ -19,28 +21,48 @@ class Router
     {
         $urlActual = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
-        if ($metodo === 'GET') {
-            $fn = $this->rutasGET[$urlActual] ?? null;
+
+        $rutas = $metodo === 'GET' ? $this->rutasGET : $this->rutasPOST;
+
+        foreach ($rutas as $ruta => $fn) {
+            $pattern = preg_replace('/\{[a-zA-Z]+\}/', '([a-zA-Z0-9_-]+)', $ruta);
+            $pattern = "#^" . $pattern . "$#";
+
+            if (preg_match($pattern, $urlActual, $matches)) {
+                array_shift($matches);
+                call_user_func_array($fn, array_merge([$this], $matches));
+                return;
+            }
         }
-        if ($metodo === 'POST') {
-            $fn = $this->rutasPOST[$urlActual] ?? null;
-        }
-        if ($fn) {
-            call_user_func($fn, $this);
-        } else {
-            echo "Página no encontrada o rutas no válidas";
-        }
+
+        echo "Página no encontrada o rutas no válidas";
     }
 
-    //muestra una vista
+    // Muestra una vista de forma segura
     public function render($view, $datos = [])
     {
-        foreach ($datos as $key => $value) {
-            $$key = $value;
+        // FIX 1: Prevenir Path Traversal manteniendo subdirectorios válidos
+        // Eliminar secuencias peligrosas pero permitir / para subdirectorios
+        $view = str_replace(['../', '..\\', '\\'], '', $view);
+        $view = ltrim($view, '/'); // Eliminar / inicial si existe
+        
+        // FIX 2: Construir ruta completa y verificar que existe
+        $viewPath = __DIR__ . "/views/$view.php";
+        
+        // Verificar que la ruta resuelva dentro del directorio views
+        $realViewPath = realpath($viewPath);
+        $realViewsDir = realpath(__DIR__ . "/views");
+        
+        if (!$realViewPath || strpos($realViewPath, $realViewsDir) !== 0) {
+            die("Vista no encontrada");
         }
+        
+        // FIX 3: Extraer variables de forma segura
+        // Usar extract() con EXTR_OVERWRITE para compatibilidad total
+        extract($datos, EXTR_OVERWRITE);
 
         ob_start();
-        include_once __DIR__ . "/views/$view.php";
+        include_once $viewPath;
         $contenido = ob_get_clean();
         include_once __DIR__ . '/views/layout.php';
     }

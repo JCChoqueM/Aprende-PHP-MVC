@@ -6,6 +6,46 @@ use MVC\Router;
 //asdfas
 class Tema1Controller
 {
+   public static function getEjercicio(Router $router, $tema, $ejercicio)
+   {
+      // Generar un identificador único
+
+      $key = "tema{$tema}_ejercicio{$ejercicio}";
+
+      // Mapear a funciones independientes
+      $logicas = [
+         'tema1_ejercicio1' => [self::class, 'ejercicio1_1'],
+         'tema10_ejercicio2' => [self::class, 'ejercicio1_1'],
+         // ...
+      ];
+
+      if (isset($logicas[$key])) {
+         call_user_func($logicas[$key], $router); // llama a la función correspondiente
+      } else {
+         echo json_encode(['error' => 'Ejercicio no encontrado']);
+      }
+   }
+
+   private static function ejercicio1_1($router)
+   {
+      $datos = [
+         'tema' => 'Tema 1',
+         'ejercicio' => 'Ejercicio1',
+         'descripcion' => 'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP2.'
+      ];
+      $resultado = "Mi nombre es Julio Cesar Choque Mamani del curso de programacion web";
+
+      $router->render("content/content", [
+         'datos' => $datos,
+         'resultado' => $resultado
+      ]);
+   }
+
+   private static function ejercicio1_2()
+   {
+      $data = ['mensaje' => 'Hola desde ejercicio 1.2'];
+      echo json_encode($data);
+   }
    public static function ejercicio1(Router $router)
    {
 

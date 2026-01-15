@@ -8,7 +8,7 @@
 
         <div class="solution-box">
             <div class="solution-box-title">⚡ JavaScript</div>
-            <div class="solution-result" id="jsResult">Esperando ejecución...</div>
+            <div class="solution-result" id="jsResult"></div>
         </div>
     </div>
 </div>

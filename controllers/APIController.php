@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Cita;
+use MVC\Router;
 use Model\Servicio;
 use Model\CitaServicio;
 
@@ -10,38 +11,39 @@ class APIController
 {
   public static function index()
   {
-    $servicios = Servicio::all();
 
-    echo json_encode($servicios);
+
+    echo json_encode(['mensaje' => 'API Funcionando']);
+  }
+  public static function getEjercicio(Router $router, $tema, $ejercicio)
+  {
+    // Generar un identificador único
+
+    $key = "tema{$tema}_ejercicio{$ejercicio}";
+
+    // Mapear a funciones independientes
+    $logicas = [
+      'tema1_ejercicio1' => [self::class, 'ejercicio1_1'],
+      'tema1_ejercicio2' => [self::class, 'ejercicio1_2'],
+      // ...
+    ];
+
+    if (isset($logicas[$key])) {
+      call_user_func($logicas[$key], $router); // llama a la función correspondiente
+    } else {
+      echo json_encode(['error' => 'Ejercicio no encontrado']);
+    }
   }
 
-  // public static function guardar()
-  // {
-  //   //Almacenar la Cita y devolvemos el ID
-  //   $cita = new Cita($_POST);
-  //   $resultado = $cita->guardar();
-  //   $id = $resultado['id'];
-  //   //Almacena los Servicios con el ID de la Cita
-  //   $idServicios = explode(",", $_POST['servicios']);
-  //   foreach ($idServicios as $idServicio) {
-  //     $args = [
-  //       'citas_id' => $id,
-  //       'servicios_id' => $idServicio
-  //     ];
-  //     $citaServicio = new CitaServicio($args);
-  //     $citaServicio->guardar();
-  //   }
-  //   //Retornamos una respuesta
-  //   echo json_encode(['resultado' => $resultado]);
-  // }
+  private static function ejercicio1_1($router)
+  {
+    $data = ['mensaje' => 'Hola desde ejercicio 1.1'];
+    echo json_encode($data);
+  }
 
-  // public static function eliminar()
-  // {
-  //   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  //     $id = $_POST['id'];
-  //     $cita = Cita::find($id);
-  //     $cita->eliminar();
-  //     header('Location:' . $_SERVER['HTTP_REFERER']);
-  //   }
-  // }
+  private static function ejercicio1_2()
+  {
+    $data = ['mensaje' => 'Hola desde ejercicio 1.2'];
+    echo json_encode($data);
+  }
 }
