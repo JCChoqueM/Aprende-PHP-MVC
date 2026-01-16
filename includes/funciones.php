@@ -91,3 +91,12 @@ function validarORedireccionar(string $url)
     }
     return $id;
 }
+
+function obtenerClaseDesdeRuta(string $ruta): string {
+    $partes = explode('/', ltrim($ruta, '/')); // ['tema2','ejercicio4']
+    
+    $tema = ucfirst(strtolower($partes[0]));
+    $ejercicio = ucfirst(strtolower($partes[1]));
+
+    return "\\Ejercicios\\$tema\\$ejercicio";
+}

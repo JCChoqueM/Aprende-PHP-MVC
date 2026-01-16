@@ -2,7 +2,7 @@
 
 namespace Ejercicios\Tema1;
 
-class Ejercicio2
+class Ejercicio1
 {
     public static function resolver(): array
     {

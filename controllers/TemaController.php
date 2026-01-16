@@ -4,15 +4,18 @@ namespace Controllers;
 
 use MVC\Router;
 
-
-
-
 class TemaController
 {
    public static function getEjercicio(Router $router, $tema, $ejercicio)
    {
-      $class = "ejercicios\\tema{$tema}\\Ejercicio{$ejercicio}";
-dd($class,$tema,$ejercicio,$router);
+     // dd("Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}");
+      //$class = "Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
+    // $class = Ejercicios\Tema1\Ejercicio1::class;
+    // $class = \Ejercicios\Tema1\Ejercicio1::class;
+    // $class = '\Ejercicios\Tema1\\Ejercicio1';
+    $class= obtenerClaseDesdeRuta($tema);
+    //dd($tema,$class);
+
 
       if (!class_exists($class)) {
          echo "Ejercicio no encontrado";
