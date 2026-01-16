@@ -1,5 +1,5 @@
 <?php
-namespace Ejercicios\Tema1;
+namespace Ejercicios;
 
 class Ejercicio1
 {

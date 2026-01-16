@@ -27,10 +27,11 @@ class Router
         foreach ($rutas as $ruta => $fn) {
             $pattern = preg_replace('/\{[a-zA-Z]+\}/', '([a-zA-Z0-9_-]+)', $ruta);
             $pattern = "#^" . $pattern . "$#";
+            
 
             if (preg_match($pattern, $urlActual, $matches)) {
-                array_shift($matches);
                 call_user_func_array($fn, array_merge([$this], $matches));
+        
                 return;
             }
         }
