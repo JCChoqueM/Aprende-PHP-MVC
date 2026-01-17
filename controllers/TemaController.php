@@ -9,6 +9,7 @@ class TemaController
    public static function getEjercicio(Router $router, $URL, $tema, $ejercicio)
    {
       $class = ("Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}");
+      debuguear($class);
       //$class = "Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
       // $class = Ejercicios\Tema1\Ejercicio1::class;
       // $class = \Ejercicios\Tema1\Ejercicio1::class;
