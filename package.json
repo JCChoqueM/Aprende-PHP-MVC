@@ -7,11 +7,13 @@
   "type": "module",
   "scripts": {
     "imagen": "gulp imagen",
+    "bs": "browser-sync start --proxy 'http://aprende-php-mvc.test/' --files 'public/css/*.css, public/js/*.js, src/img/**/*.{png,jpg}, **/*.php' --no-notify --open",
     "build": "gulp build",
     "dev": "gulp"
   },
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^3.0.4",
     "glob": "^13.0.0",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",

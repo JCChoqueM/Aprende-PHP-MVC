@@ -8,7 +8,7 @@
             <!-- TEXTO -->
             <div class="home-hero-text">
                 <h2 class="home-title">
-                    Aprende2 PHP con 2Ej2ercicio2s
+                    Aprende2 PH2P c2on2 2Ej2erc2icio2s
                 </h2>
 
                 <p class="home-subtitle">
