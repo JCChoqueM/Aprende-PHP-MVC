@@ -9,7 +9,7 @@ require 'database.php';
 define('BASE_URL', '/'); // local
 
 //Conectarnos a la base de Datos
-$db = conectarDB();
+//$db = conectarDB();
 
 
-ActiveRecord::setDB($db);
+//ActiveRecord::setDB($db);
