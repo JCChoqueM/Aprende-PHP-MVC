@@ -9,7 +9,7 @@ class TemaController
    public static function getEjercicio(Router $router, $URL, $tema, $ejercicio)
    {
       $class = ("\\Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}");
-   
+
       //$class = "Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
       // $class = Ejercicios\Tema1\Ejercicio1::class;
       // $class = \Ejercicios\Tema1\Ejercicio1::class;
@@ -21,11 +21,14 @@ class TemaController
 
 
       if (!class_exists($class)) {
-         echo "Ejercicio no encontrado";
+         echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
          return;
       }
 
-      $data = $class::resolver();
+      $data = [
+         'resultado' => $class::resolver(),
+         'datos' => $class::metadata(),
+      ];
 
       $router->render('content/content', $data);
    }
