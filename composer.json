@@ -19,7 +19,7 @@
       "MVC\\": "./",
       "Controllers\\": "./controllers",
       "View\\": "./views",
-      "Ejercicios\\": "./ejercicios"
+      "Ejercicios\\": "./Ejercicios"
     }
   },
   "require-dev": {

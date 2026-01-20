@@ -30,7 +30,7 @@ class Router
             $pattern = "#^" . $pattern . "$#";
      
             if (preg_match($pattern, $urlActual, $matches)) {
-        
+    
                 call_user_func_array($fn, array_merge([$this], $matches));
         
                 return;
