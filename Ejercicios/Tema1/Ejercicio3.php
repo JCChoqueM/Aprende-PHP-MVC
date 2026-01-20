@@ -2,7 +2,7 @@
 
 namespace Ejercicios\Tema1;
 
-class Ejercicio1
+class Ejercicio3
 {
     public static function resolver(): array
     {
@@ -26,16 +26,16 @@ class Ejercicio1
         $table .= "</table>";
 
         return [
-            'resultado' => 'Mi nombre es Julio Cesar Choque Mamani'
+            'resultado' => $table
         ];
     }
     public static function metadata(): array
     {
         return [
-            'tema' => 'Tema 1',
-            'ejercicio' => 'Ejercicio 1',
+            'tema' => 'Tema 3',
+            'ejercicio' => 'Ejercicio 3',
             'descripcion' =>
-            'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.'
+            'Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta ' . htmlspecialchars('<table>') . ' de HTML.'
         ];
     }
 }
