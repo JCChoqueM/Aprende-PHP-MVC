@@ -32,7 +32,7 @@
         <div class="main-grid">
             <?php include_once __DIR__ . '/sidebar/sidebar.php'; ?>
             <?php
-            echo $contenido;
+           echo $contenido;
             ?>
         </div>
     </div>

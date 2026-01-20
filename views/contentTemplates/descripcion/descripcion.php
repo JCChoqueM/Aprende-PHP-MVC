@@ -1,12 +1,12 @@
   <div class="exercise-header">
       <div class="exercise-meta">
-          <span class="badge badge-chapter" id="chapterBadge"><?php echo $tema; ?></span>
+          <span class="badge badge-chapter" id="chapterBadge"></span>
       </div>
-      <h2 class="exercise-title" id="exerciseTitle"><?php echo $ejercicio ?></h2>
+      <h2 class="exercise-title" id="exerciseTitle"></h2>
   </div>
 
   <div class="exercise-description" id="exerciseDescription">
 
       <p><strong>📝 Enunciado:</strong></p>
-      <p><?php echo $enunciado ?></p>
+      <p></p>
   </div>

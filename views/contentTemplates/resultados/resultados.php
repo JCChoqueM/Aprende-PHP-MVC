@@ -3,7 +3,8 @@
     <div class="solution-grid">
         <div class="solution-box">
             <div class="solution-box-title">🐘 PHP</div>
-            <div class="solution-result" id="phpResult"><?php echo $resultado['resultado']?></div>
+            <div class="solution-result" id="phpResult"> <?= htmlspecialchars($resultado->render()) ?>
+</div>
         </div>
 
         <div class="solution-box">
