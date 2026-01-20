@@ -16,13 +16,9 @@ class Ejercicio5
             'resultado' => $resultado
         ];
     }
-    public static function metadata(): array
+    public static function enunciado(): string
     {
-        return [
-            'tema' => 'Tema 5',
-            'ejercicio' => 'Ejercicio 5',
-            'descripcion' =>
-            'Escribe un programa que utilice las variables $x y $y. Asignales los valores 144 y 999 respectivamente. A continuación, muestra por pantalla el valor de cada variable, la suma, la resta, la división y la multiplicación.'
-        ];
+        return
+            'Escribe un programa que utilice las variables $x y $y. Asignales los valores 144 y 999 respectivamente. A continuación, muestra por pantalla el valor de cada variable, la suma, la resta, la división y la multiplicación.';
     }
 }

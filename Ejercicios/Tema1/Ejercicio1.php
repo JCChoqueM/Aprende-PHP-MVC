@@ -10,13 +10,9 @@ class Ejercicio1
             'resultado' => 'Mi nombre es Julio Cesar Choque Mamani'
         ];
     }
-    public static function metadata(): array
+    public static function enunciado(): string
     {
-        return [
-            'tema' => 'Tema 1',
-            'ejercicio' => 'Ejercicio 1',
-            'descripcion' =>
-            'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.'
-        ];
+        return
+            'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
     }
 }

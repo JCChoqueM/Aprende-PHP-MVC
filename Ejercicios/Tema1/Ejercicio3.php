@@ -29,13 +29,9 @@ class Ejercicio3
             'resultado' => $table
         ];
     }
-    public static function metadata(): array
+    public static function enunciado(): string
     {
-        return [
-            'tema' => 'Tema 3',
-            'ejercicio' => 'Ejercicio 3',
-            'descripcion' =>
-            'Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta ' . htmlspecialchars('<table>') . ' de HTML.'
-        ];
+        return
+            'Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta ' . htmlspecialchars('<table>') . ' de HTML.';
     }
 }

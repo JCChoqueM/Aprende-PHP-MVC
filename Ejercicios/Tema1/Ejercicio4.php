@@ -52,13 +52,9 @@ class Ejercicio4
             'resultado' => $resultado
         ];
     }
-    public static function metadata(): array
+    public static function enunciado(): string
     {
-        return [
-            'tema' => 'Tema 4',
-            'ejercicio' => 'Ejercicio 4',
-            'descripcion' =>
-            'Escribe un programa que muestre tu horario de clase mediante una tabla. Aunque se puede hacer íntegramente en HTML (igual que los ejercicios anteriores), ve intercalando código HTML y PHP para familiarizarte con éste último.'
-        ];
+        return
+            'Escribe un programa que muestre tu horario de clase mediante una tabla. Aunque se puede hacer íntegramente en HTML (igual que los ejercicios anteriores), ve intercalando código HTML y PHP para familiarizarte con éste último.';
     }
 }

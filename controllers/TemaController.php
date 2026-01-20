@@ -24,11 +24,13 @@ class TemaController
          echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
          return;
       }
-
       $data = [
+         'tema' => "Tema {$tema}",
+         'ejercicio' => "Ejercicio {$ejercicio}",
+         'enunciado' => $class::enunciado(),
          'resultado' => $class::resolver(),
-         'datos' => $class::metadata(),
       ];
+
 
       $router->render('content/content', $data);
    }
