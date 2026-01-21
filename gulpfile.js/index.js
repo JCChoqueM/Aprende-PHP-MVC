@@ -20,7 +20,8 @@ export function servidor(done) {
             'public/build/**/*.js',
             'public/build/img/**/*',
             'views/**/*.php',
-            'src/**/*.php'
+            'src/**/*.php',
+            '**/*.php'
         ],
         notify: false,
         open: false,
