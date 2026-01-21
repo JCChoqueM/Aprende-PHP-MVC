@@ -13,7 +13,8 @@
     "imagen": "gulp imagen",
     "build": "gulp build",
     "dev": "gulp",
-    "watch": "gulp dev"
+    "watch": "gulp dev",
+    "server": "gulp servidor"
   },
   "license": "ISC",
   "devDependencies": {
