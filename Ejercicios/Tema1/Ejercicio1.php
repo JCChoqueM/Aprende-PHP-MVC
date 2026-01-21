@@ -2,17 +2,18 @@
 
 namespace Ejercicios\Tema1;
 
+use Ejercicios\Resultado\ResultadoTexto;
+
 class Ejercicio1
 {
-    public static function resolver(): array
+    public static function resolver(): ResultadoTexto
     {
-        return [
-            'resultado' => 'Mi nombre es Julio Cesar Choque Mamani'
-        ];
+        // Devuelve un objeto que sabe cómo renderizarse en HTML
+        return new ResultadoTexto("Mi nombre es Julio Cesar Choque Mamani");
     }
+
     public static function enunciado(): string
     {
-        return
-            'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
+        return 'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
     }
 }

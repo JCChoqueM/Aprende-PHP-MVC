@@ -2,9 +2,11 @@
 
 namespace Ejercicios\Tema1;
 
+use Ejercicios\Resultado\ResultadoTabla;
+
 class Ejercicio3
 {
-    public static function resolver(): array
+    public static function resolver(): ResultadoTabla
     {
         $translations = [
             ["Dog", "Perro"],
@@ -18,20 +20,15 @@ class Ejercicio3
             ["Moon", "Luna"],
             ["Tree", "Árbol"]
         ];
-        $table = "<table border='1'>";
-        $table .= "<tr><th>English</th><th>Español</th></tr>";
-        foreach ($translations as $item) {
-            $table .= "<tr><td>{$item[0]}</td><td>{$item[1]}</td></tr>";
-        }
-        $table .= "</table>";
 
-        return [
-            'resultado' => $table
-        ];
+        // Insertamos encabezado
+        $tablaCompleta = array_merge([["English", "Español"]], $translations);
+
+        return new ResultadoTabla($tablaCompleta);
     }
+
     public static function enunciado(): string
     {
-        return
-            'Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta ' . htmlspecialchars('<table>') . ' de HTML.';
+        return 'Escribe un programa que muestre por pantalla 10 palabras en inglés junto a su correspondiente traducción al castellano. Las palabras deben estar distribuidas en dos columnas. Utiliza la etiqueta <table> de HTML.';
     }
 }

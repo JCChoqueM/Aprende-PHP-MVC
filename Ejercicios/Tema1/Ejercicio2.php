@@ -2,17 +2,21 @@
 
 namespace Ejercicios\Tema1;
 
+use Ejercicios\Resultado\ResultadoHTML;
+
 class Ejercicio2
 {
-    public static function resolver(): array
+    public static function resolver(): ResultadoHTML
     {
-        return [
-            'resultado' => 'Mi nombre es Julio Cesar Choque Mamani. <br> Mi direccion es la calle 1 y sargento flores. <br> Mi numero de telefono es el 999999999.'
-        ];
+        $contenido = "Mi nombre es Julio Cesar Choque Mamani. <br>" .
+                     "Mi dirección es la calle 1 y Sargento Flores. <br>" .
+                     "Mi número de teléfono es 999999999.";
+
+        return new ResultadoHTML($contenido);
     }
+
     public static function enunciado(): string
     {
-        return
-            'Modifica el programa anterior para que muestre tu dirección y tu número de teléfono. Cada dato se debe mostrar en una línea diferente. Mezcla de alguna forma las salidas por pantalla, utilizando tanto HTML como PHP.';
+        return 'Modifica el programa anterior para que muestre tu dirección y tu número de teléfono. Cada dato se debe mostrar en una línea diferente. Mezcla de alguna forma las salidas por pantalla, utilizando tanto HTML como PHP.';
     }
 }

@@ -32,7 +32,7 @@
         <div class="main-grid">
             <?php include_once __DIR__ . '/sidebar/sidebar.php'; ?>
             <?php
-           echo $contenido;
+            echo $contenido;
             ?>
         </div>
     </div>
@@ -42,7 +42,8 @@
     </footer>
 
     <script src="<?= BASE_URL ?>build/js/bundle.js"></script>
-    <script src="<?= BASE_URL ?>build/js/api.js"></script>
+    <script src="<?= BASE_URL ?>build/js/modules/api.js"></script>
+
 
 </body>
 

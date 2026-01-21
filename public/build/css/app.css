@@ -903,6 +903,18 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+#tabla1 {
+  border: 2px solid rgb(0, 255, 34);
+}
+
+.mi-tabla th {
+  padding: 15px;
+}
+
+.mi-td {
+  text-align: center;
+}
+
 /* @mixin heading($color: red, $border-radius: false) {
   //$color es un parámetro y red es el valor por defecto
   text-transform: uppercase;

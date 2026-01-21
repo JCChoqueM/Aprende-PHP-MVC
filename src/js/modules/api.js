@@ -24,7 +24,7 @@ async function consultarAPI(tema, ejercicio) {
     const data = await resultado.json();
     mostrarServicios(data);
   } catch (error) {
-    contenedor.textContent = 'Error al cargar los datos';
+    contenedor.textContent = 'Error al cargar los datos.';
     console.error(error);
   }
 }
