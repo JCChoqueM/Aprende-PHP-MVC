@@ -20,7 +20,7 @@
 
 /* Título del ejercicio */
 .exercise-title {
-  color: rgb(0, 255, 34); /* Cian */
+  color: var(--secondary); /* Cian */
   font-size: 1.8rem;
   margin-bottom: 10px;
 }

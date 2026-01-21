@@ -83,13 +83,13 @@ export {
     js,
     jsModules,
     imagenes,
-    
+
     // Limpieza
     clean,
     cleanCSS,
     cleanJS,
     cleanImg,
-    
+
     // Servidor
     servidor,
     reload

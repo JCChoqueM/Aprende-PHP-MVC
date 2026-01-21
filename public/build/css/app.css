@@ -99,7 +99,7 @@ footer {
 
 /* Título de soluciones */
 .solution-title {
-  color: black;
+  color: var(--success);
   font-size: 1.3rem;
   margin-bottom: 20px;
   display: flex;
@@ -539,7 +539,7 @@ footer {
 
 /* Título del ejercicio */
 .exercise-title {
-  color: rgb(0, 255, 34); /* Cian */
+  color: var(--secondary); /* Cian */
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
@@ -904,7 +904,7 @@ h1 {
   }
 }
 #tabla1 {
-  border: 2px solid rgb(94, 201, 44);
+  border: 2px solid rgb(86, 44, 201);
 }
 
 .mi-tabla th {
