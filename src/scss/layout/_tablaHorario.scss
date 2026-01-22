@@ -1,0 +1,270 @@
+/* ========================================
+   🎨 TABLA DE HORARIO UNIVERSITARIO
+   ======================================== */
+
+.horario-universitario {
+    /* 📐 DIMENSIONES Y ESPACIADO */
+    width: 100%;
+    margin: 2rem 0;
+    
+    /* 🎨 APARIENCIA GENERAL */
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    
+    /* ═══════════════════════════════════
+       📌 TÍTULOS (CAPTIONS)
+       ═══════════════════════════════════ */
+    
+    caption {
+        padding: 0.8rem;
+        background: #667eea;        // 🎨 COLOR DE FONDO
+        color: white;               // 🎨 COLOR DE TEXTO
+        font-weight: 600;
+        text-align: center;
+        font-size: 1.1rem;
+        
+        /* Primer título (más grande) */
+        &:first-of-type {
+            font-size: 1.5rem;      // 🔤 TÍTULO PRINCIPAL
+            padding: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        /* Último título con línea inferior */
+        &:last-of-type {
+            border-bottom: 3px solid #5a67d8;
+        }
+    }
+    
+    
+    /* ═══════════════════════════════════
+       📋 ENCABEZADOS (TH)
+       ═══════════════════════════════════ */
+    
+    th {
+        padding: 1rem 0.5rem;
+        background: #2d3748;        // 🎨 COLOR DE FONDO
+        color: white;               // 🎨 COLOR DE TEXTO
+        border: 2px solid #1a202c;
+        text-align: center;
+        font-size: 1rem;            // 🔤 TAMAÑO
+        font-weight: 600;
+        vertical-align: middle;
+        
+        /* Columna "hora" */
+        &:first-child {
+            background: #1a202c;
+            font-weight: 700;
+        }
+    }
+    
+    
+    /* ═══════════════════════════════════
+       📊 CELDAS DE DATOS (TD)
+       ═══════════════════════════════════ */
+    
+    td {
+        padding: 1rem 0.8rem;       // 📏 MÁS ESPACIO
+        border: 2px solid #cbd5e0;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 0.95rem;         // 🔤 TEXTO MÁS GRANDE
+        line-height: 1.6;           // 📏 MÁS ESPACIO ENTRE LÍNEAS
+        color: #2d3748;             // 🎨 COLOR DEL TEXTO (más oscuro)
+        
+        /* Columna de hora */
+        &:first-child {
+            background: #edf2f7;
+            font-weight: 700;
+            color: #1a202c;         // 🎨 NEGRO para mejor contraste
+            white-space: nowrap;
+            font-size: 1rem;
+        }
+    }
+    
+    
+    /* ═══════════════════════════════════
+       🎨 FILAS ALTERNADAS
+       ═══════════════════════════════════ */
+    
+    tbody tr:nth-child(even) {
+        td:not(:first-child) {
+            background-color: #f7fafc; // 🎨 GRIS CLARO
+        }
+    }
+    
+    
+    /* ═══════════════════════════════════
+       ✨ EFECTO HOVER - POR FILA COMPLETA
+       ═══════════════════════════════════ */
+    
+    tbody tr:hover {
+        td {
+            background-color: #fef3c7 !important; // 🎨 AMARILLO SUAVE
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        /* Mantener la columna hora con su color */
+        td:first-child {
+            background-color: #fde68a !important; // 🎨 AMARILLO MÁS INTENSO
+        }
+    }
+    
+    
+    /* ═══════════════════════════════════
+       🚫 CELDAS VACÍAS
+       ═══════════════════════════════════ */
+    
+    td:empty,
+    td:has(br:only-child) {
+        background: #f9fafb !important;
+        background-image: 
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,.02) 10px,
+                rgba(0,0,0,.02) 20px
+            );
+    }
+}
+
+
+/* ========================================
+   📱 RESPONSIVE - TABLETS (768px - 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .horario-universitario {
+        caption {
+            font-size: 1rem;
+            padding: 0.6rem;
+            
+            &:first-of-type {
+                font-size: 1.2rem;
+                padding: 0.9rem;
+            }
+        }
+        
+        th,
+        td {
+            padding: 0.8rem 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+
+/* ========================================
+   📱 RESPONSIVE - MÓVILES (hasta 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .horario-universitario {
+        margin: 1rem 0;
+        font-size: 0.85rem;
+        
+        caption {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            
+            &:first-of-type {
+                font-size: 1.1rem;
+                padding: 0.7rem;
+            }
+        }
+        
+        th,
+        td {
+            padding: 0.6rem 0.4rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        /* Bordes más delgados */
+        border: 2px solid #cbd5e0 !important;
+        
+        th,
+        td {
+            border: 1px solid #cbd5e0 !important;
+        }
+    }
+}
+
+
+/* ========================================
+   📱 RESPONSIVE - MÓVILES PEQUEÑOS (hasta 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+    .horario-universitario {
+        font-size: 0.75rem;
+        
+        caption {
+            font-size: 0.8rem;
+            padding: 0.4rem;
+            line-height: 1.3;
+            
+            &:first-of-type {
+                font-size: 0.95rem;
+                padding: 0.6rem;
+            }
+        }
+        
+        th,
+        td {
+            padding: 0.5rem 0.3rem;
+            font-size: 0.7rem;
+        }
+        
+        /* Scroll horizontal */
+        overflow-x: auto;
+        display: block;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+/* ========================================
+   🖨️ MODO IMPRESIÓN
+   ======================================== */
+
+@media print {
+    .horario-universitario {
+        box-shadow: none;
+        border: 2px solid #000 !important;
+        
+        caption {
+            background: #f0f0f0 !important;
+            color: #000 !important;
+            border: 1px solid #000;
+        }
+        
+        th {
+            background: #e0e0e0 !important;
+            color: #000 !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        td {
+            color: #000 !important;
+            
+            &:first-child {
+                background: #f5f5f5 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        /* Sin hover en impresión */
+        tbody tr:hover td {
+            background-color: inherit !important;
+        }
+    }
+}
