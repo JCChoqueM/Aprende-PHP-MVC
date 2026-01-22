@@ -19,7 +19,7 @@
        ═══════════════════════════════════ */
     
     caption {
-        padding: 0.8rem;
+        padding: 0.2rem;
         background: #667eea;        // 🎨 COLOR DE FONDO
         color: white;               // 🎨 COLOR DE TEXTO
         font-weight: 600;
@@ -29,7 +29,7 @@
         /* Primer título (más grande) */
         &:first-of-type {
             font-size: 1.5rem;      // 🔤 TÍTULO PRINCIPAL
-            padding: 1.2rem;
+            padding: 0rem;
             font-weight: 700;
             border-radius: 8px 8px 0 0;
         }
@@ -46,10 +46,10 @@
        ═══════════════════════════════════ */
     
     th {
-        padding: 1rem 0.5rem;
-        background: #2d3748;        // 🎨 COLOR DE FONDO
+        padding: 0.2rem 0.5rem;
+        background: #1057d3;        // 🎨 COLOR DE FONDO
         color: white;               // 🎨 COLOR DE TEXTO
-        border: 2px solid #1a202c;
+        border: 2px solid #7894b3;
         text-align: center;
         font-size: 1rem;            // 🔤 TAMAÑO
         font-weight: 600;
@@ -57,7 +57,7 @@
         
         /* Columna "hora" */
         &:first-child {
-            background: #1a202c;
+            background: #1057d3;
             font-weight: 700;
         }
     }

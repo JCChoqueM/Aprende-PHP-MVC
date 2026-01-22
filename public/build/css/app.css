@@ -932,7 +932,7 @@ h1 {
      ═══════════════════════════════════ */
 }
 .horario-universitario caption {
-  padding: 0.8rem;
+  padding: 0.2rem;
   background: #667eea;
   color: white;
   font-weight: 600;
@@ -942,7 +942,7 @@ h1 {
 }
 .horario-universitario caption:first-of-type {
   font-size: 1.5rem;
-  padding: 1.2rem;
+  padding: 0rem;
   font-weight: 700;
   border-radius: 8px 8px 0 0;
 }
@@ -958,10 +958,10 @@ h1 {
      ═══════════════════════════════════ */
 }
 .horario-universitario th {
-  padding: 1rem 0.5rem;
-  background: #2d3748;
+  padding: 0.2rem 0.5rem;
+  background: #1057d3;
   color: white;
-  border: 2px solid #1a202c;
+  border: 2px solid #7894b3;
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
@@ -969,7 +969,7 @@ h1 {
   /* Columna "hora" */
 }
 .horario-universitario th:first-child {
-  background: #1a202c;
+  background: #1057d3;
   font-weight: 700;
 }
 .horario-universitario {
