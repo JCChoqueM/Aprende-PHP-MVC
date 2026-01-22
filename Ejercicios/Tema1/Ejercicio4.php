@@ -20,7 +20,7 @@ class Ejercicio4 implements EjercicioInterface
             '7º sementre',
             '8º sementre'
         ];
-        
+
         // ===== PRIMER MÓDULO =====
         $modulo1 = new ResultadoHorario(
             'Primer Modulo',
@@ -56,7 +56,7 @@ class Ejercicio4 implements EjercicioInterface
                 ]
             ]
         );
-        
+
         // ===== SEGUNDO MÓDULO =====
         $modulo2 = new ResultadoHorario(
             'Segundo Modulo',
@@ -92,7 +92,7 @@ class Ejercicio4 implements EjercicioInterface
                 ]
             ]
         );
-        
+
         // ===== TERCER MÓDULO =====
         $modulo3 = new ResultadoHorario(
             'Tercer Módulo',
@@ -128,13 +128,13 @@ class Ejercicio4 implements EjercicioInterface
                 ]
             ]
         );
-        
+
         // Retornar las 3 tablas envueltas en ResultadoMultiple
         return new ResultadoMultiple($modulo1, $modulo2, $modulo3);
     }
 
     public static function enunciado(): string
     {
-        return 'Crea tres tablas de horarios universitarios mostrando las materias de 8 semestres distribuidas en tres módulos del año académico 2021. Cada módulo tiene dos bloques de tiempo (19:00-20:30 y 20:30-22:00).';
+        return 'Escribe un programa que muestre tu horario de clase mediante una tabla. Aunque se puede hacer íntegramente en HTML (igual que los ejercicios anteriores), ve intercalando código HTML y PHP para familiarizarte con éste último.';
     }
 }
