@@ -7,13 +7,18 @@ use Ejercicios\Resultado\ResultadoTexto;
 
 class Ejercicio9 implements EjercicioInterface
 {
-    public static function enunciado(): string
+    public static function resolver(): ResultadoTexto
     {
-        return 'Prueba de renderizado básico';
+        $euro = 166.386;
+        $peseta = 2;
+
+        $contenido = $peseta . " pesetas es = " . ($peseta / $euro) . " euros";
+
+        return new ResultadoTexto($contenido);
     }
 
-    public static function resolver(): mixed
+    public static function enunciado(): string
     {
-        return new ResultadoTexto("Hola\nMundo");
+        return 'Realiza un conversor de pesetas a euros. La cantidad en pesetas que se quiere convertir deberá estar almacenada en una variable.';
     }
 }
