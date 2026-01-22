@@ -2,9 +2,10 @@
 
 namespace Ejercicios\Tema1;
 
+use Ejercicios\Contracts\EjercicioInterface;
 use Ejercicios\Resultado\ResultadoTabla;
 
-class Ejercicio3
+class Ejercicio3 implements EjercicioInterface
 {
     public static function resolver(): ResultadoTabla
     {
