@@ -7,9 +7,9 @@
   "type": "module",
   "scripts": {
     "imagen": "gulp imagen",
-    "bs": "browser-sync start --proxy 'http://aprende-php-mvc.test/' --files 'public/build/css/*.css, public/build/js/*.js, src/img/**/*.{png,jpg}, **/*.php' --no-notify --open",
     "build": "gulp build",
-    "dev": "gulp"
+    "dev": "gulp",
+    "servidor": "gulp servidor"
   },
   "license": "ISC",
   "devDependencies": {

@@ -801,7 +801,7 @@ header {
 
 /* Título principal */
 h1 {
-  color: var(--primary);
+  color: red;
   font-size: 2rem;
   margin-bottom: 5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -928,8 +928,8 @@ h1 {
   background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   /* ═══════════════════════════════════
-     📌 TÍTULOS (CAPTIONS)
-     ═══════════════════════════════════ */
+       📌 TÍTULOS (CAPTIONS)
+       ═══════════════════════════════════ */
 }
 .horario-universitario caption {
   padding: 0.2rem;
@@ -954,8 +954,8 @@ h1 {
 }
 .horario-universitario {
   /* ═══════════════════════════════════
-     📋 ENCABEZADOS (TH)
-     ═══════════════════════════════════ */
+       📋 ENCABEZADOS (TH)
+       ═══════════════════════════════════ */
 }
 .horario-universitario th {
   padding: 0.2rem 0.5rem;
@@ -974,8 +974,8 @@ h1 {
 }
 .horario-universitario {
   /* ═══════════════════════════════════
-     📊 CELDAS DE DATOS (TD)
-     ═══════════════════════════════════ */
+       📊 CELDAS DE DATOS (TD)
+       ═══════════════════════════════════ */
 }
 .horario-universitario td {
   padding: 1rem 0.8rem;
@@ -996,16 +996,16 @@ h1 {
 }
 .horario-universitario {
   /* ═══════════════════════════════════
-     🎨 FILAS ALTERNADAS
-     ═══════════════════════════════════ */
+       🎨 FILAS ALTERNADAS
+       ═══════════════════════════════════ */
 }
 .horario-universitario tbody tr:nth-child(even) td:not(:first-child) {
   background-color: #f7fafc;
 }
 .horario-universitario {
   /* ═══════════════════════════════════
-     ✨ EFECTO HOVER - POR FILA COMPLETA
-     ═══════════════════════════════════ */
+       ✨ EFECTO HOVER - POR FILA COMPLETA
+       ═══════════════════════════════════ */
 }
 .horario-universitario tbody tr:hover td {
   background-color: #fef3c7 !important;
@@ -1020,8 +1020,8 @@ h1 {
 }
 .horario-universitario {
   /* ═══════════════════════════════════
-     🚫 CELDAS VACÍAS
-     ═══════════════════════════════════ */
+       🚫 CELDAS VACÍAS
+       ═══════════════════════════════════ */
 }
 .horario-universitario td:empty,
 .horario-universitario td:has(br:only-child) {

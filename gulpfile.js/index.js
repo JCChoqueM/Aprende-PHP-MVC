@@ -15,6 +15,7 @@ import { paths } from './config/paths.js';
 import { css } from './tasks/css.js';
 import { js, jsModules } from './tasks/js.js';
 import { imagenes } from './tasks/imagenes.js';
+import { servidor } from './tasks/servidor.js';
 
 // Tarea de observación
 export function dev() {
@@ -25,7 +26,7 @@ export function dev() {
 }
 
 // Exportar tareas individuales
-export { css, js, jsModules, imagenes };
+export { css, js, jsModules, imagenes, servidor };
 
 // Tareas compuestas
 export const imagen = series(imagenes);
