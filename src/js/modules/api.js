@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const { tema, ejercicio } = obtenerTemaEjercicio();
 
+
     if (tema && ejercicio) {
         iniciarApp(tema, ejercicio); // PASAMOS los valores
     }
@@ -17,11 +18,12 @@ async function consultarAPI(tema, ejercicio) {
   const contenedor = $id('jsResult');
   contenedor.textContent = 'Cargando...';
 
-  const url = `/api/tema/${tema}/ejercicio/${ejercicio}`;
-  
+  const url = `/api/tema1/ejercicio1`;
+  console.log(url);
   try {
     const resultado = await fetch(url);
     const data = await resultado.json();
+    console.log(data);
     mostrarServicios(data);
   } catch (error) {
     contenedor.textContent = 'Error al cargar los datos.';
@@ -36,15 +38,19 @@ function mostrarServicios(servicios) {
 
 }
 function obtenerTemaEjercicio() {
-    // /tema/1/ejercicio/2
-    const path = window.location.pathname; // "/tema/1/ejercicio/2"
-    const partes = path.split('/').filter(p => p !== ''); // ["tema","1","ejercicio","2"]
+    const path = window.location.pathname; // "/tema1/ejercicio2"
     
-    const temaIndex = partes.indexOf('tema');
-    const ejercicioIndex = partes.indexOf('ejercicio');
+    // Buscar "tema" seguido de números y "ejercicio" seguido de números
+    const regex = /tema(\d+)\/ejercicio(\d+)/;
+    const match = path.match(regex);
 
-    const tema = temaIndex !== -1 ? partes[temaIndex + 1] : null;
-    const ejercicio = ejercicioIndex !== -1 ? partes[ejercicioIndex + 1] : null;
-
-    return { tema, ejercicio };
+    if (match) {
+        return {
+            tema: parseInt(match[1], 10),
+            ejercicio: parseInt(match[2], 10)
+        };
+    } else {
+        return { tema: null, ejercicio: null };
+    }
 }
+

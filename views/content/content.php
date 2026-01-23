@@ -4,8 +4,8 @@
 
     <?php
     // Si existe una variable $incluirFormulario = true, incluimos el formulario
-    if (!empty($incluirFormulario)) {
-        include_once __DIR__ . '/../contentTemplates/formularios/formulario.php';
+    if (!empty($incluirFormulario['formulario'])) {
+        include_once __DIR__ . '/../contentTemplates/formularios/'.($incluirFormulario['nombreFormulario']).'.php';
     }
     ?>
 

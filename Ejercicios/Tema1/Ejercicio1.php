@@ -17,4 +17,8 @@ class Ejercicio1 implements EjercicioInterface
     {
         return 'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
     }
+      public static function formulario(): array
+    {
+        return ['formulario'=>false];
+    }
 }

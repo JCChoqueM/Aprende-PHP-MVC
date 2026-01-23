@@ -28,7 +28,8 @@ class TemaController
          'tema' => "Tema {$tema}",
          'ejercicio' => "Ejercicio {$ejercicio}",
          'enunciado' => $class::enunciado(),
-         'resultado' => $class::resolver(),
+         'resultado' => $class::resolver($router),
+         'incluirFormulario' => $class::formulario(),
       ];
 
 
