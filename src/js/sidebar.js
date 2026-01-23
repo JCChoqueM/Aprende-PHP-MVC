@@ -51,26 +51,38 @@ function toggleTema(element) {
     const ejercicios = element.nextElementSibling;
     const tema = element.closest('.tema');
 
+    const isCollapsed = !element.classList.contains('collapsed'); // true si se colapsa ahora
+
     element.classList.toggle('collapsed');
     ejercicios?.classList.toggle('collapsed');
 
     if (tema) {
         const temaId = tema.dataset.tema;
-        const isCollapsed = element.classList.contains('collapsed');
-        localStorage.setItem(`tema-${temaId}`, isCollapsed);
+        localStorage.setItem(`tema-${temaId}`, isCollapsed ? 'true' : 'false');
     }
 }
+
 
 function restoreTemaStates() {
     const temas = document.querySelectorAll('.tema');
 
     temas.forEach(tema => {
         const temaId = tema.dataset.tema;
-        const isCollapsed = localStorage.getItem(`tema-${temaId}`) === 'true';
-
         const titulo = tema.querySelector('.tema-titulo');
         const ejercicios = tema.querySelector('.ejercicios');
 
+        // Leer estado guardado en localStorage
+        const stored = localStorage.getItem(`tema-${temaId}`);
+
+        let isCollapsed = true; // por defecto colapsado
+
+        if (stored === 'true') {
+            isCollapsed = true;  // colapsado
+        } else if (stored === 'false') {
+            isCollapsed = false; // abierto
+        }
+
+        // Aplicar clases
         if (titulo && ejercicios) {
             if (isCollapsed) {
                 titulo.classList.add('collapsed');
@@ -82,17 +94,23 @@ function restoreTemaStates() {
         }
     });
 
-    // Asegurar que el tema activo esté abierto
+    // Abrir solo tema activo si existe y no tiene estado guardado
     const activeLink = document.querySelector('.ejercicio-link.active');
     if (activeLink) {
         const tema = activeLink.closest('.tema');
-        const titulo = tema?.querySelector('.tema-titulo');
-        const ejercicios = tema?.querySelector('.ejercicios');
+        const temaId = tema.dataset.tema;
 
-        titulo?.classList.remove('collapsed');
-        ejercicios?.classList.remove('collapsed');
+        if (!localStorage.getItem(`tema-${temaId}`)) {
+            const titulo = tema.querySelector('.tema-titulo');
+            const ejercicios = tema.querySelector('.ejercicios');
+
+            titulo?.classList.remove('collapsed');
+            ejercicios?.classList.remove('collapsed');
+        }
     }
 }
+
+
 
 /* ================= BÚSQUEDA ================= */
 
@@ -183,3 +201,16 @@ function initSidebarEvents() {
         if (e.key === 'Escape') closeSidebar();
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Detectar si la URL no es la raíz
+    const path = window.location.pathname;
+    if (path !== '/' && path !== '/index.php') {
+        // Desplazarse al content-area
+        const contentArea = document.getElementById('content-area');
+        if (contentArea) {
+            // Scroll instantáneo
+            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+});

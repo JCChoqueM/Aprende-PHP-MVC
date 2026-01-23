@@ -10,6 +10,8 @@ export function servidor(done) {
     bs.init({
         proxy: 'http://aprende-php-mvc.test/',
         port: 3000,
+        open:true,
+        //ui: false,
 
         // Archivos a observar
         files: [

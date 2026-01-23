@@ -1,4 +1,4 @@
-<main class="content-area">
+<main class="content-area" id="content-area">
 
     <?php include_once __DIR__ . '/../contentTemplates/descripcion/descripcion.php'; ?>
 
