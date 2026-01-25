@@ -12,7 +12,7 @@ class Ejercicio1
     {
    
         // Devuelve un objeto que sabe cómo renderizarse en HTML
-        return new ResultadoTexto("Mi nombre es Julio Cesar Choque Mamani");
+        return new ResultadoTexto("Mi nombre Tema2Ejercicio1");
     }
 
     public static function enunciado(): string
