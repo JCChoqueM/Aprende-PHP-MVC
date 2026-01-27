@@ -14,12 +14,7 @@ $router->get('/', [IndexController::class, 'index']);
 $router->get('/tema{tema}/ejercicio{ejercicio}', [TemaController::class, 'getEjercicio']);
 $router->get('/respuesta', [APIController::class, 'index']);
 
-$router->post('/api/tema1/ejercicio1', [APIController::class, 'getEjercicio2']);
-//si estas en 
-
-//$router->get('/', ['Controllers\IndexController', 'index']);
+$router->get('/api/tema{tema}/ejercicio{ejercicio}', [APIController::class, 'getEjercicio2']);
 
 
-
-// Comprobar rutas
 $router->comprobarRutas();

@@ -18,12 +18,12 @@ async function consultarAPI(tema, ejercicio) {
   const contenedor = $id('jsResult');
   contenedor.textContent = 'Cargando...';
 
-  const url = `/api/tema1/ejercicio1`;
+  const url = `/api/tema${tema}/ejercicio${ejercicio}`;
   console.log(url);
   try {
     const resultado = await fetch(url);
     const data = await resultado.json();
-    console.log(data);
+    console.log('soy del data',data.mensaje);
     mostrarServicios(data);
   } catch (error) {
     contenedor.textContent = 'Error al cargar los datos.';

@@ -10,16 +10,6 @@ class TemaController
    {
       $class = ("\\Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}");
 
-      //$class = "Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
-      // $class = Ejercicios\Tema1\Ejercicio1::class;
-      // $class = \Ejercicios\Tema1\Ejercicio1::class;
-      // $class = '\Ejercicios\Tema1\\Ejercicio1';
-
-      //$class= obtenerClaseDesdeRuta($tema);
-
-      //dd($tema,$class);
-
-
       if (!class_exists($class)) {
          echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
          return;
