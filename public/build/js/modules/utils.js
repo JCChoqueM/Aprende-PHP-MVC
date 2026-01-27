@@ -1,0 +1,1 @@
+export function obtenerParametrosRuta(){const e=window.location.pathname.match(/tema(\d+)\/ejercicio(\d+)/);return e?{tema:Number(e[1]),ejercicio:Number(e[2])}:null}export function debounce(e,t){let n=null;return function(){clearTimeout(n),n=setTimeout(e,t)}}//# sourceMappingURL=utils.js.map

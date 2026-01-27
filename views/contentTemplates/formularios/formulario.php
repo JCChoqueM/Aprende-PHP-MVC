@@ -4,11 +4,21 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label" for="input1"><?= $incluirFormulario['dato1'] ?></label>
-                                <input type="text" id="input1" class="form-input" placeholder="<?= $incluirFormulario['placeholder1'] ?>">
+                                <input 
+                                type="text" 
+                                id="input1" 
+                                name="campo1"
+                                class="form-input" 
+                                placeholder="<?= $incluirFormulario['placeholder1'] ?>">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="input2"><?= $incluirFormulario['dato2'] ?></label>
-                                <input type="text" id="input2" class="form-input" placeholder="<?= $incluirFormulario['placeholder2'] ?>">
+                                <input 
+                                type="text" 
+                                id="input2" 
+                                name="campo2"
+                                class="form-input" 
+                                placeholder="<?= $incluirFormulario['placeholder2'] ?>">
                             </div>
                         </div>
 

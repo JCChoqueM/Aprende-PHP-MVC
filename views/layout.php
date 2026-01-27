@@ -42,7 +42,9 @@
     </footer>
 
     <script src="<?= BASE_URL ?>build/js/bundle.js"></script>
-    <script src="<?= BASE_URL ?>build/js/modules/api.js"></script>
+
+    <script type="module" src="<?= BASE_URL ?>build/js/modules/app.js"></script>
+
 
 
 </body>
