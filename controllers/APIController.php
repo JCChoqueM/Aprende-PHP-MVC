@@ -19,14 +19,10 @@ class APIController
   {
 
     $key = "tema{$tema}_ejercicio{$ejercicio}";
+    $metodo = "ejercicio{$tema}_{$ejercicio}";
 
     $logicas = [
-      'tema1_ejercicio1' => [self::class, 'ejercicio1_1'],
-      'tema1_ejercicio2' => [self::class, 'ejercicio1_2'],
-
-      'tema2_ejercicio1' => [self::class, 'ejercicio2_1'],
-      'tema2_ejercicio2' => [self::class, 'ejercicio2_2'],
-      // ...
+      $key => [self::class, $metodo],
     ];
 
     if (isset($logicas[$key])) {
@@ -60,6 +56,11 @@ class APIController
   private static function ejercicio2_2($router)
   {
     $data = ['mensaje' => 'tema22 ejercicio22'];
+    echo json_encode($data);
+  }
+  private static function ejercicio2_3($router)
+  {
+    $data = ['mensaje' => 'tema33 ejercicio33'];
     echo json_encode($data);
   }
 }

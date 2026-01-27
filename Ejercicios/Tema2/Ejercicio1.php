@@ -10,7 +10,6 @@ class Ejercicio1
 {
     public static function resolver($router): ResultadoTexto
     {
-   
         // Devuelve un objeto que sabe cómo renderizarse en HTML
         return new ResultadoTexto("Mi nombre Tema2Ejercicio1");
     }
