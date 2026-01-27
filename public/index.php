@@ -13,7 +13,8 @@ $router = new Router();
 $router->get('/', [IndexController::class, 'index']);
 $router->get('/tema{tema}/ejercicio{ejercicio}', [TemaController::class, 'getEjercicio']);
 $router->get('/respuesta', [APIController::class, 'index']);
-$router->get('/api/tema1/ejercicio1', [APIController::class, 'getEjercicio']);
+
+$router->post('/api/tema1/ejercicio1', [APIController::class, 'getEjercicio2']);
 //si estas en 
 
 //$router->get('/', ['Controllers\IndexController', 'index']);
