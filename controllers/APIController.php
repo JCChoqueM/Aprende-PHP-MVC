@@ -50,14 +50,18 @@ class APIController
   }
   private static function ejercicio2_1($router)
   {
+
+  $multiplicando = $_POST['campo1'];
+  $multiplicador = $_POST['campo2'];
+  $producto = $multiplicando * $multiplicador;
     
 
-    $data = ['mensaje' => $_POST['campo2']];
+    $data = ['mensaje' => $producto];
     echo json_encode($data);
   }
   private static function ejercicio2_2($router)
   {
-    $data = ['mensaje' => $_POST['campo2']];
+    $data = ['mensaje' => 'simantrofucio'];
     echo json_encode($data);
   }
   private static function ejercicio2_3($router)
