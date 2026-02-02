@@ -14,12 +14,24 @@ class TemaController
          echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
          return;
       }
+
+      // Determinar si el ejercicio tiene formulario
+      $incluirFormulario = false;
+
+      if (method_exists($class, 'formulario')) {
+         $incluirFormulario = $class::formulario();
+      }
+      // Determinar si el ejercicio tiene resolver
+      $resultado = '';
+      if (method_exists($class, 'resolver')) {
+         $resultado = $class::resolver($router);
+      }
       $data = [
          'tema' => "Tema {$tema}",
          'ejercicio' => "Ejercicio {$ejercicio}",
          'enunciado' => $class::enunciado(),
-         'resultado' => $class::resolver($router),
-         'incluirFormulario' => $class::formulario(),
+         'resultado' => $resultado,
+         'incluirFormulario' => $incluirFormulario,
       ];
 
 

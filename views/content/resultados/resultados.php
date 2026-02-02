@@ -3,8 +3,11 @@
     <div class="solution-grid">
         <div class="solution-box">
             <div class="solution-box-title">🐘 PHP</div>
-            <div class="solution-result" id="phpResult"> <?= $resultado->render() ?>
-</div>
+            <div class="solution-result" id="phpResult">
+                <?php if (!empty($resultado)) : ?>
+                    <?= $resultado->render() ?>
+                <?php endif; ?>
+            </div>
         </div>
 
         <div class="solution-box">

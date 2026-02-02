@@ -6,14 +6,8 @@ use MVC\Router;
 use Ejercicios\Resultado\ResultadoTexto;
 use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio1 
+class Ejercicio1
 {
-    public static function resolver($router): ResultadoTexto
-    {
-        // Devuelve un objeto que sabe cómo renderizarse en HTML
-        return new ResultadoTexto("Mi nombre Tema2Ejercicio1");
-    }
-
     public static function enunciado(): string
     {
         return 'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
