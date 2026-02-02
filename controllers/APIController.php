@@ -2,71 +2,37 @@
 
 namespace Controllers;
 
-use Model\Cita;
 use MVC\Router;
-use Model\Servicio;
-use Model\CitaServicio;
 
 class APIController
 {
-  public static function index()
-  {
+    public static function ejercicioAPI(Router $router, $URL, $tema, $ejercicio)
+    {
+        $class = "\\Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
 
+        // Validar clase
+        if (!class_exists($class)) {
+            self::jsonError('Ejercicio no encontrado');
+            return;
+        }
 
-    echo json_encode(['mensaje' => 'API Funcionando']);
-  }
-  public static function getEjercicio2(Router $router,  $URL, $tema, $ejercicio)
-  {
+        // Validar método procesar
+        if (!method_exists($class, 'procesar')) {
+            self::jsonError('Este ejercicio no tiene procesamiento API');
+            return;
+        }
 
-    $key = "tema{$tema}_ejercicio{$ejercicio}";
-    $metodo = "ejercicio{$tema}_{$ejercicio}";
+        // Ejecutar lógica del ejercicio
+        $resultado = $class::procesar($router);
 
-    $logicas = [
-      $key => [self::class, $metodo],
-    ];
-
-    if (isset($logicas[$key])) {
-      call_user_func($logicas[$key], $router); // siempre pasar router
-    } else {
-      echo json_encode(['error' => 'Ejercicio no encontrado']);
+        echo json_encode($resultado);
     }
-  }
 
-
-  private static function ejercicio1_1($router)
-  {
-    $data = [
-      'mensaje' => 'Hola desde ejercicio que te importa',
-      'router' => $router,
-
-    ];
-    echo json_encode($data);
-  }
-
-  private static function ejercicio1_2($router)
-  {
-    $data = ['mensaje' => 'Hola desde ejercicio 1.2'];
-    echo json_encode($data);
-  }
-  private static function ejercicio2_1($router)
-  {
-
-  $multiplicando = $_POST['campo1'];
-  $multiplicador = $_POST['campo2'];
-  $producto = $multiplicando * $multiplicador;
-    
-
-    $data = ['mensaje' => $producto];
-    echo json_encode($data);
-  }
-  private static function ejercicio2_2($router)
-  {
-    $data = ['mensaje' => 'simantrofucio'];
-    echo json_encode($data);
-  }
-  private static function ejercicio2_3($router)
-  {
-    $data = ['mensaje' => 'tema33 ejercicio33'];
-    echo json_encode($data);
-  }
+    private static function jsonError(string $mensaje): void
+    {
+        echo json_encode([
+            'error' => true,
+            'mensaje' => $mensaje
+        ]);
+    }
 }

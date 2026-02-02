@@ -10,7 +10,7 @@ export class FormularioEjercicio {
     constructor(formulario, parametrosRuta) {
         this.formulario = formulario;
         this.parametrosRuta = parametrosRuta;
-        this.elementoResultado = document.getElementById("jsResult");
+        this.elementoResultado = document.getElementById("phpResult");
         
         // Crear versión con debounce del método enviar
         this.enviarConRetraso = debounce(() => this.enviar(), 4000);

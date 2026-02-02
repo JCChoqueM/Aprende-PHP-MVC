@@ -8,9 +8,18 @@ use Ejercicios\Contracts\EjercicioInterface;
 
 class Ejercicio1
 {
+    public static function procesar(Router $router): array
+    {
+        $multiplicando = $_POST['campo1'] ?? 0;
+        $multiplicador = $_POST['campo2'] ?? 0;
+
+        return [
+            'mensaje' => $multiplicando * $multiplicador
+        ];
+    }
     public static function enunciado(): string
     {
-        return 'Escribe un programa que muestre tu nombre por pantalla. Utiliza código PHP.';
+        return 'Realiza un programa que pida dos números y luego muestre el resultado de su multiplicación.';
     }
     public static function formulario(): array
     {

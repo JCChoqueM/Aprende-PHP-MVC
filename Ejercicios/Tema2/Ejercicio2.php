@@ -1,17 +1,13 @@
 <?php
 
 namespace Ejercicios\Tema2;
-
+use MVC\Router;
 use Ejercicios\Contracts\EjercicioInterface;
 use Ejercicios\Resultado\ResultadoTexto;
 
-class Ejercicio2 implements EjercicioInterface
+class Ejercicio2 //implements EjercicioInterface
 {
-    public static function resolver(): ResultadoTexto
-    {
-        // Devuelve un objeto que sabe cómo renderizarse en HTML
-        return new ResultadoTexto("Mi nombre es Julio Cesar Choque Mamani");
-    }
+   
 
     public static function enunciado(): string
     {

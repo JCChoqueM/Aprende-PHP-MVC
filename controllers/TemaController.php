@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use MVC\Router;
-
 class TemaController
 {
    public static function getEjercicio(Router $router, $URL, $tema, $ejercicio)
