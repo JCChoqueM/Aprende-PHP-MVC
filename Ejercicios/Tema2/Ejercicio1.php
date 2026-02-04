@@ -12,9 +12,10 @@ class Ejercicio1
     {
         $multiplicando = $_POST['campo1'] ?? 0;
         $multiplicador = $_POST['campo2'] ?? 0;
+        $producto = $multiplicando * $multiplicador;
 
         return [
-            'mensaje' => $multiplicando * $multiplicador
+            'mensaje' => "El producto de: $multiplicando x $multiplicador = $producto",
         ];
     }
     public static function enunciado(): string
@@ -24,8 +25,8 @@ class Ejercicio1
     public static function formulario(): array
     {
         return [
-            'formulario' => true,
-            'nombreFormulario' => 'formulario',
+            'formulario' => false,
+            'nombreFormulario' => 'formulario2',
             'dato1' => 'multiplicando',
             'placeholder1' => 'Ingrese el primer numero',
             'dato2' => 'multiplicador',
