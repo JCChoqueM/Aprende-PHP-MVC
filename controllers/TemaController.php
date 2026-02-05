@@ -15,17 +15,24 @@ class TemaController
          return;
       }
 
-      // Determinar si el ejercicio tiene formulario
-      $incluirFormulario = false;
+      // Configuración del formulario
+      $incluirFormulario = [
+         'formularioBool' => false,
+         'nombreFormulario' => '',
+      ];
 
       if (method_exists($class, 'formulario')) {
          $incluirFormulario = $class::formulario();
       }
-      // Determinar si el ejercicio tiene resolver
+
+      // El resultado se maneja solo para ejercicios sin formulario (con resolver)
       $resultado = '';
+      
       if (method_exists($class, 'resolver')) {
-         $resultado = $class::resolver($router);
+         $resultado = $class::resolver();
       }
+      // Si tiene procesar(), el resultado viene de la API, no aquí
+
       $data = [
          'tema' => "Tema {$tema}",
          'ejercicio' => "Ejercicio {$ejercicio}",
@@ -33,7 +40,6 @@ class TemaController
          'resultado' => $resultado,
          'incluirFormulario' => $incluirFormulario,
       ];
-
 
       $router->render('content/content', $data);
    }

@@ -25,7 +25,7 @@ class Ejercicio1
     public static function formulario(): array
     {
         return [
-            'formulario' => false,
+            'formularioBool' => true,
             'nombreFormulario' => 'formulario2',
             'dato1' => 'multiplicando',
             'placeholder1' => 'Ingrese el primer numero',

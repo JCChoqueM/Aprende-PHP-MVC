@@ -26,7 +26,7 @@ deberá introducir por teclado.';
     public static function formulario(): array
     {
         return [
-            'formulario' => true,
+            'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
             'dato1' => 'Convertir',
             'placeholder1' => 'Ingrese el valor de Dolares que desea convertir',
