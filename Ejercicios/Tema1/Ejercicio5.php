@@ -2,12 +2,13 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoHTML;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio5 implements EjercicioInterface
+class Ejercicio5 extends EjercicioBase
 {
-    public static function resolver(): ResultadoHTML
+    protected static function obtenerResultado(): ResultadoHTML
     {
         $x = 144;
         $y = 999;

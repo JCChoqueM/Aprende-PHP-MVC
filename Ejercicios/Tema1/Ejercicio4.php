@@ -2,13 +2,14 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoHorario;
 use Ejercicios\Resultado\ResultadoMultiple;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio4 implements EjercicioInterface
+class Ejercicio4 extends EjercicioBase
 {
-    public static function resolver(): ResultadoMultiple
+   protected static function obtenerResultado(): ResultadoMultiple
     {
         $semestres = [
             '1º sementre',

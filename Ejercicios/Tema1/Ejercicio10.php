@@ -2,12 +2,13 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoHTML;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio10 implements EjercicioInterface
+class Ejercicio10 extends EjercicioBase
 {
-    public static function resolver(): ResultadoHTML
+      protected static function obtenerResultado(): ResultadoHTML
 {
     $contenido = '<pre>';
     $contenido .= '    *' . PHP_EOL;

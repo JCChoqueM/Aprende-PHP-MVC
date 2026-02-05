@@ -2,12 +2,13 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoHTML;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio7 implements EjercicioInterface
+class Ejercicio7 extends EjercicioBase
 {
-    public static function resolver(): ResultadoHTML
+       protected static function obtenerResultado(): ResultadoHTML
     {
         $nombre = "Mi nombre es BrowserSync. <br>";
         $direccion = "Mi direccion es : Ejercicio\Tema1\Ejercicio7. <br>";

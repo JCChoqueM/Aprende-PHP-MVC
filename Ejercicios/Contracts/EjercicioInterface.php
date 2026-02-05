@@ -4,7 +4,13 @@ namespace Ejercicios\Contracts;
 
 interface EjercicioInterface
 {
-    public static function enunciado(): string;
-
-    public static function resolver(): mixed;
+    /**
+     * Retorna todos los datos necesarios para renderizar el ejercicio
+     * incluyendo metadata de tema y ejercicio
+     * 
+     * @param int $tema Número del tema
+     * @param int $ejercicio Número del ejercicio
+     * @return array Todos los datos para la vista
+     */
+    public static function obtenerData(int $tema, int $ejercicio): array;
 }

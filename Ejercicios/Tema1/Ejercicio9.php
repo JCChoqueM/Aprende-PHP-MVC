@@ -2,12 +2,13 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoTexto;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio9 implements EjercicioInterface
+class Ejercicio9 extends EjercicioBase
 {
-    public static function resolver(): ResultadoTexto
+       protected static function obtenerResultado(): ResultadoTexto
     {
         $euro = 166.386;
         $peseta = 2;

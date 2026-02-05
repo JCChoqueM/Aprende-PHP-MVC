@@ -6,41 +6,18 @@ use MVC\Router;
 
 class TemaController
 {
-   public static function getEjercicio(Router $router, $URL, $tema, $ejercicio)
-   {
-      $class = ("\\Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}");
+    public static function getEjercicio(Router $router, $URL, int $tema, int $ejercicio)
+    {
+        $class = "\\Ejercicios\\Tema{$tema}\\Ejercicio{$ejercicio}";
 
-      if (!class_exists($class)) {
-         echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
-         return;
-      }
+        if (!class_exists($class)) {
+            echo "El Tema{$tema} Ejercicio{$ejercicio} no fue encontrado";
+            return;
+        }
 
-      // Configuración del formulario
-      $incluirFormulario = [
-         'formularioBool' => false,
-         'nombreFormulario' => '',
-      ];
+        // El ejercicio construye TODA su data, incluyendo metadata
+        $data = $class::obtenerData($tema, $ejercicio);
 
-      if (method_exists($class, 'formulario')) {
-         $incluirFormulario = $class::formulario();
-      }
-
-      // El resultado se maneja solo para ejercicios sin formulario (con resolver)
-      $resultado = '';
-      
-      if (method_exists($class, 'resolver')) {
-         $resultado = $class::resolver();
-      }
-      // Si tiene procesar(), el resultado viene de la API, no aquí
-
-      $data = [
-         'tema' => "Tema {$tema}",
-         'ejercicio' => "Ejercicio {$ejercicio}",
-         'enunciado' => $class::enunciado(),
-         'resultado' => $resultado,
-         'incluirFormulario' => $incluirFormulario,
-      ];
-
-      $router->render('content/content', $data);
-   }
+        $router->render('content/content', $data);
+    }
 }

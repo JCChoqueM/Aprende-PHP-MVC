@@ -2,34 +2,39 @@
 
 namespace Ejercicios\Tema2;
 
-use MVC\Router;
-use Ejercicios\Contracts\EjercicioInterface;
-use Ejercicios\Resultado\ResultadoTexto;
+use Ejercicios\EjercicioBase;
 
-class Ejercicio2 //implements EjercicioInterface
+class Ejercicio2 extends EjercicioBase
 {
+    protected static function enunciado(): string
+    {
+        return 'Realiza un conversor de Dolares a Bolivianos. La cantidad en dolares se introduce por teclado.';
+    }
 
-    public static function procesar(Router $router): array
-    {
-        $boliviano = 6.96;
-        $dolar =  $_POST['campo1'] ?? 0;;
-        $contenido = $dolar . " dolares es = " . ($dolar * $boliviano) . " bolivianos";
-        return [
-            'mensaje' => $contenido,
-        ];
-    }
-    public static function enunciado(): string
-    {
-        return 'Realiza un conversor de Dolares a Bolivianos. Ahora la cantidad en euros que se quiere convertir se
-deberá introducir por teclado.';
-    }
-    public static function formulario(): array
+    protected static function obtenerConfiguracionFormulario(): array
     {
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
             'dato1' => 'Convertir',
             'placeholder1' => 'Ingrese el valor de Dolares que desea convertir',
+        ];
+    }
+
+    // obtenerResultado() retorna '' por defecto de la clase base
+    // porque el resultado vendrá de la API
+
+    /**
+     * Este método lo llama la API cuando se procesa el formulario
+     */
+    public static function procesar(): array
+    {
+        $boliviano = 6.96;
+        $dolar = $_POST['campo1'] ?? 0;
+        $contenido = $dolar . " dolares = " . ($dolar * $boliviano) . " bolivianos";
+        
+        return [
+            'mensaje' => $contenido,
         ];
     }
 }

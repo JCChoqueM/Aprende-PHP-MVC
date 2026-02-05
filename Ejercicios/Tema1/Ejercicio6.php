@@ -2,12 +2,13 @@
 
 namespace Ejercicios\Tema1;
 
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoTexto;
+use Ejercicios\Contracts\EjercicioInterface;
 
-class Ejercicio6 implements EjercicioInterface
+class Ejercicio6 extends EjercicioBase
 {
-    public static function resolver(): ResultadoTexto
+       protected static function obtenerResultado(): ResultadoTexto
     {
         $nombre='Mi nombre es Composer Update';
         // Devuelve un objeto que sabe cómo renderizarse en HTML
