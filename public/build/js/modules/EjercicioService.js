@@ -1,0 +1,1 @@
+import{HttpClient}from"./HttpClient.js";export class EjercicioService{constructor(t=new HttpClient){this.httpClient=t}async enviar(t,r,i){const e=this.construirUrl(t,r),n=new FormData(i);return await this.httpClient.post(e,n)}construirUrl(t,r){return`/api/tema${t}/ejercicio${r}`}}//# sourceMappingURL=EjercicioService.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"02-debounce.js","names":["debounce","callback","delay","timer","clearTimeout","setTimeout"],"sources":["02-debounce.js"],"mappings":"OAKO,SAASA,SAASC,EAAUC,GAC/B,IAAIC,EAAQ,KAEZ,OAAO,WACHC,aAAaD,GACbA,EAAQE,WAAWJ,EAAUC,EACjC,CACJ","ignoreList":[]}

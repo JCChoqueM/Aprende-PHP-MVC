@@ -1,0 +1,1 @@
+export class RutaParser{static PATRON=/tema(\d+)\/ejercicio(\d+)/;static obtenerParametros(t=window.location.pathname){const a=t.match(this.PATRON);return a?{tema:Number(a[1]),ejercicio:Number(a[2])}:null}static esRutaValida(t=window.location.pathname){return this.PATRON.test(t)}}//# sourceMappingURL=rutaParser.js.map

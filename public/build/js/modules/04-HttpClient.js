@@ -1,0 +1,1 @@
+import{NetworkError}from"./01-errors.js";export class HttpClient{async post(r,o){try{const t=await fetch(r,{method:"POST",body:o});return await t.json()}catch(r){throw new NetworkError("No se pudo conectar con el servidor",r)}}}//# sourceMappingURL=04-HttpClient.js.map

@@ -8,42 +8,80 @@ class Ejercicio5 extends EjercicioBase
 {
     public static function procesar(): array
     {
-        $data = $_POST;
-
-        $errores = self::validar($data);
-
-        if (!empty($errores)) {
+        // Validar entrada
+        $validacion = self::validarEntrada();
+        if (!$validacion['valido']) {
+            http_response_code(400);
             return [
                 'error' => true,
-                'mensaje' => $errores,
+                'mensaje' => implode('<br>', $validacion['errores'])
             ];
         }
 
-        // Ya sabemos que existen y son numéricos
-        $base   = (float) $data['campo1'];
-        $altura = (float) $data['campo2'];
+        $base = $validacion['datos']['base'];
+        $altura = $validacion['datos']['altura'];
 
+        // Calcular área
         $area = $base * $altura;
 
+        // Retornar mensaje formateado
+        http_response_code(200);
         return [
             'error' => false,
-            'mensaje' => "El área del rectángulo es {$area} metros²"
+            'mensaje' => "El área del rectángulo con base {$base}m y altura {$altura}m es: {$area}m²"
         ];
     }
 
-    public static function validar(array $data): array
+    private static function validarEntrada(): array
     {
         $errores = [];
 
-        if (!isset($data['campo1']) || !is_numeric($data['campo1']) || (float)$data['campo1'] <= 0) {
-            $errores[] = 'Base inválida.';
+        // Validar que existan los campos
+        if (!isset($_POST['campo1']) || !isset($_POST['campo2'])) {
+            $errores[] = 'Los campos base y altura son requeridos';
+            return ['valido' => false, 'errores' => $errores];
         }
 
-        if (!isset($data['campo2']) || !is_numeric($data['campo2']) || (float)$data['campo2'] <= 0) {
-            $errores[] = 'Altura inválida.';
+        // Validar que no estén vacíos
+        if (trim($_POST['campo1']) === '' || trim($_POST['campo2']) === '') {
+            $errores[] = 'Los campos no pueden estar vacíos';
+            return ['valido' => false, 'errores' => $errores];
         }
 
-        return $errores;
+        // Validar que sean numéricos
+        if (!is_numeric($_POST['campo1'])) {
+            $errores[] = 'La base debe ser un valor numérico';
+        }
+        if (!is_numeric($_POST['campo2'])) {
+            $errores[] = 'La altura debe ser un valor numérico';
+        }
+
+        if (!empty($errores)) {
+            return ['valido' => false, 'errores' => $errores];
+        }
+
+        $base = floatval($_POST['campo1']);
+        $altura = floatval($_POST['campo2']);
+
+        // Validar que sean positivos
+        if ($base <= 0) {
+            $errores[] = 'La base debe ser mayor que 0';
+        }
+        if ($altura <= 0) {
+            $errores[] = 'La altura debe ser mayor que 0';
+        }
+
+        if (!empty($errores)) {
+            return ['valido' => false, 'errores' => $errores];
+        }
+
+        return [
+            'valido' => true,
+            'datos' => [
+                'base' => $base,
+                'altura' => $altura
+            ]
+        ];
     }
 
     protected static function obtenerConfiguracionFormulario(): array
@@ -51,9 +89,9 @@ class Ejercicio5 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base',
+            'dato1' => 'Base (metros)',
             'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura',
+            'dato2' => 'Altura (metros)',
             'placeholder2' => 'Ingrese la altura del rectángulo',
         ];
     }

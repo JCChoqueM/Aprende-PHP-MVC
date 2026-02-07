@@ -1,1 +1,1 @@
-export async function enviarEjercicio(r,e){const{tema:o,ejercicio:t}=r,i=`/api/tema${o}/ejercicio${t}`,a=await fetch(i,{method:"POST",body:new FormData(e)});if(!a.ok)throw new Error(`Error HTTP: ${a.status}`);return a.json()}//# sourceMappingURL=api.js.map
+export async function enviarEjercicio(e,a){const{tema:i,ejercicio:t}=e,c=`/api/tema${i}/ejercicio${t}`,o=await fetch(c,{method:"POST",body:new FormData(a)});return await o.json()}//# sourceMappingURL=api.js.map

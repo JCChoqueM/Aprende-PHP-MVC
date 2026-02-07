@@ -1,0 +1,1 @@
+{"version":3,"file":"01-errors.js","names":["NetworkError","Error","constructor","message","originalError","super","this","name"],"sources":["01-errors.js"],"mappings":"OAKO,MAAMA,qBAAqBC,MAC9B,WAAAC,CAAYC,EAASC,GACjBC,MAAMF,GACNG,KAAKC,KAAO,eACZD,KAAKF,cAAgBA,CACzB","ignoreList":[]}
