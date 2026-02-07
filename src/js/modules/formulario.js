@@ -49,7 +49,7 @@ export class FormularioEjercicio {
 
     mostrarMensaje(mensaje) {
         if (this.elementoResultado) {
-            this.elementoResultado.textContent = mensaje || "Sin respuesta";
+            this.elementoResultado.innerHTML= mensaje || "Sin respuesta";
         }
     }
 
