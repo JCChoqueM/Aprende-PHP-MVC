@@ -98,6 +98,6 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Muestra los números múltiplos de 5 de 0 a 100 utilizando un bucle while.';
     }
 }

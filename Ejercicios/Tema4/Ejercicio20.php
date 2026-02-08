@@ -98,6 +98,6 @@ class Ejercicio20 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Igual que el ejercicio anterior pero esta vez se debe pintar una pirámide hueca.';
     }
 }

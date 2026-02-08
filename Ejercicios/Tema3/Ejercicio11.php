@@ -98,6 +98,7 @@ class Ejercicio11 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que dada una hora determinada (horas y minutos), calcule los segundos que
+faltan para llegar a la medianoche.';
     }
 }

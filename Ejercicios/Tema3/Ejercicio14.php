@@ -98,6 +98,6 @@ class Ejercicio14 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que diga si un número introducido por teclado es par y/o divisible entre 5.';
     }
 }

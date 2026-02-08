@@ -98,6 +98,6 @@ class Ejercicio25 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que pida un número por teclado y que luego muestre ese número al revés.';
     }
 }

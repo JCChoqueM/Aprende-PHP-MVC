@@ -98,6 +98,6 @@ class Ejercicio10 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que nos diga el horóscopo a partir del día y el mes de nacimiento.';
     }
 }

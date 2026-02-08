@@ -98,6 +98,6 @@ class Ejercicio13 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que ordene tres números enteros introducidos por teclado.';
     }
 }

@@ -98,6 +98,7 @@ class Ejercicio6 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que pida 8 números enteros y que luego muestre esos números de colores, los
+pares de un color y los impares de otro.';
     }
 }

@@ -98,6 +98,7 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que pida 10 números por teclado y que luego muestre los números introducidos
+junto con las palabras “máximo” y “mínimo” al lado del máximo y del mínimo respectivamente.';
     }
 }

@@ -98,6 +98,8 @@ class Ejercicio5 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que pida la temperatura media que ha hecho en cada mes de un determinado
+año y que muestre a continuación un diagrama de barras horizontales con esos datos. Las barras
+del diagrama se pueden dibujar a base de la concatenación de una imagen.';
     }
 }

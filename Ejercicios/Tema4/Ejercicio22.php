@@ -98,6 +98,6 @@ class Ejercicio22 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Muestra por pantalla todos los números primos entre 2 y 100, ambos incluidos.';
     }
 }

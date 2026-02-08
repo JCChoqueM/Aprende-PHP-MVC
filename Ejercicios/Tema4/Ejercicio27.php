@@ -98,6 +98,7 @@ class Ejercicio27 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que muestre, cuente y sume los múltiplos de 3 que hay entre 1 y un número
+leído por teclado.';
     }
 }

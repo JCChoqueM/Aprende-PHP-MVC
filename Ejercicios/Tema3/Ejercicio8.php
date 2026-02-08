@@ -98,6 +98,7 @@ class Ejercicio8 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Amplía el programa anterior para que diga la nota del boletín (insuficiente, suficiente, bien, notable
+o sobresaliente).';
     }
 }

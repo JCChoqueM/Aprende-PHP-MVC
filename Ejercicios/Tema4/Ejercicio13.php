@@ -98,6 +98,7 @@ class Ejercicio13 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que lea una lista de diez números y determine cuántos son positivos, y cuántos
+son negativos.';
     }
 }

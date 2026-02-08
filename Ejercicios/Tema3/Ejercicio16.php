@@ -98,6 +98,6 @@ class Ejercicio16 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que diga cuál es la última cifra de un número entero introducido por teclado.';
     }
 }

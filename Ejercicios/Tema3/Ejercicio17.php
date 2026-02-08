@@ -98,6 +98,7 @@ class Ejercicio17 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que diga cuál es la primera cifra de un número entero introducido por teclado.
+Se permiten números de hasta 5 cifras.';
     }
 }

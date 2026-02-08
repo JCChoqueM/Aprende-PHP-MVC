@@ -98,6 +98,7 @@ class Ejercicio1 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Actualiza el blog realizado anteriormente de tal forma que todas las vistas estén implementadas en
+Twig.';
     }
 }

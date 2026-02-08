@@ -98,6 +98,8 @@ class Ejercicio26 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que pida primero un número y a continuación un dígito. El programa nos debe
+dar la posición (o posiciones) contando de izquierda a derecha que ocupa ese dígito en el número
+introducido.';
     }
 }

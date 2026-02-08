@@ -98,6 +98,7 @@ class Ejercicio3 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Crea un servicio web para pasar de euros a pesetas y de pesetas a euros. Si se pasa por la URL una
+cantidad en euros, el programa lo debe convertir en pesetas y viceversa.';
     }
 }

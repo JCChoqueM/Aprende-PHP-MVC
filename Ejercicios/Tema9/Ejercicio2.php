@@ -98,6 +98,17 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Crea la clase Vehiculo, así como las clases Bicicleta y Coche como subclases de la primera. Para la
+clase Vehiculo, crea los métodos de clase getVehiculosCreados() y getKmTotales(); así como el
+método de instancia getKmRecorridos(). Crea también algún método específico para cada una de
+las subclases. Prueba las clases creadas mediante una aplicación que realice, al menos, las siguientes
+acciones:
+• Anda con la bicicleta
+• Haz el caballito con la bicicleta
+• Anda con el coche
+• Quema rueda con el coche
+• Ver kilometraje de la bicicleta
+• Ver kilometraje del coche
+• Ver kilometraje total';
     }
 }

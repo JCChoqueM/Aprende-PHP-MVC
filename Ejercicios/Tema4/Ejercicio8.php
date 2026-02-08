@@ -98,6 +98,7 @@ class Ejercicio8 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Muestra la tabla de multiplicar de un número introducido por teclado. El resultado se debe mostrar
+en una tabla (<table> en HTML).';
     }
 }

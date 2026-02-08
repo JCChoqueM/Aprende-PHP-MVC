@@ -98,6 +98,8 @@ class Ejercicio11 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Crea un mini-diccionario español-inglés que contenga, al menos, 20 palabras (con su traducción).
+Utiliza un array asociativo para almacenar las parejas de palabras. El programa pedirá una palabra
+en español y dará la correspondiente traducción en inglés.';
     }
 }

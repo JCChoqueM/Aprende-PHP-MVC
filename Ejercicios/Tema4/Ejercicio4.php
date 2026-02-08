@@ -98,6 +98,6 @@ class Ejercicio4 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle for.';
     }
 }

@@ -98,6 +98,7 @@ class Ejercicio1 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que pida por teclado un día de la semana y que diga qué asignatura toca a
+primera hora ese día.';
     }
 }

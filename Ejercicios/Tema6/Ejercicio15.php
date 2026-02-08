@@ -98,6 +98,6 @@ class Ejercicio15 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Muestra los números primos que hay entre 1 y 1000.';
     }
 }

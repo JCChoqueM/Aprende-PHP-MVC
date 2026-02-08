@@ -98,6 +98,12 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Modifica el programa anterior añadiendo las siguientes mejoras:
+• El listado debe aparecer paginado en caso de que haya muchos clientes.
+• Al hacer un alta, se debe comprobar que no exista ningún cliente con el DNI introducido en
+el formulario.
+• La opción de borrado debe pedir confirmación.
+• Cuando se realice la modificación de los datos de un cliente, los campos que no se han
+cambiado deberán permanecer inalterados en la base de datos.';
     }
 }

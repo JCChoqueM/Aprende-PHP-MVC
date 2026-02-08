@@ -98,6 +98,6 @@ class Ejercicio5 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que resuelva una ecuación de primer grado (del tipo ax + b = 0).';
     }
 }

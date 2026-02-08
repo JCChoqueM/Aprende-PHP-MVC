@@ -98,6 +98,7 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Mejora el ejercicio anterior incorporando la herencia en las plantillas para no repetir código de la
+cabecera, el pie de página, etc.';
     }
 }

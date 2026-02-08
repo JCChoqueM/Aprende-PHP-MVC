@@ -98,6 +98,7 @@ class Ejercicio7 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que guarde en una cookie el color de fondo (propiedad background-color) de
+una página. Esta página debe tener únicamente algo de texto y un formulario para cambiar el color.';
     }
 }

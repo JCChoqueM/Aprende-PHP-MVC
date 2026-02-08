@@ -98,6 +98,6 @@ class Ejercicio9 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza un programa que resuelva una ecuación de segundo grado (del tipo ax2 + bx + c = 0).';
     }
 }

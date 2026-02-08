@@ -98,6 +98,8 @@ class Ejercicio24 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Escribe un programa que lea un número N e imprima una pirámide de números con N filas como
+en la siguiente figura. Recuerda utilizar un tipo de letra de ancho fijo como por ejemplo Courier
+para que los espacios tengan la misma anchura que los números. 1';
     }
 }

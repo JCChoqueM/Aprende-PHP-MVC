@@ -98,6 +98,7 @@ class Ejercicio2 extends EjercicioBase
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.';
+        return 'Realiza una aplicación que obtenga información de usuarios de alguna red social como LinkedIn,
+Facebook, Instagram o alguna otra.';
     }
 }
