@@ -17,3 +17,14 @@ export function jsModules() {
         .pipe(terser())
         .pipe(dest('./public/build/js/modules', { sourcemaps: '.' }));
 }
+
+export function jsTemplates() {
+    return src(paths.jstemplates, { sourcemaps: true })
+        .pipe(terser())
+        .pipe(dest('./public/build/js/templates', { sourcemaps: '.' }));
+}
+export function jsRenderers() {
+    return src(paths.jsrenderers, { sourcemaps: true })
+        .pipe(terser())
+        .pipe(dest('./public/build/js/renderers', { sourcemaps: '.' }));
+}

@@ -4,6 +4,9 @@ namespace Ejercicios\Resultado;
 
 use Ejercicios\Contracts\RenderableInterface;
 
+
+
+
 class ResultadoHorario implements RenderableInterface
 {
     public function __construct(

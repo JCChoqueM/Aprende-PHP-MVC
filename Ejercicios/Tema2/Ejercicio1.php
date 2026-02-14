@@ -2,10 +2,8 @@
 
 namespace Ejercicios\Tema2;
 
-use MVC\Router;
 use Ejercicios\EjercicioBase;
-use Ejercicios\Resultado\ResultadoTexto;
-use Ejercicios\Contracts\EjercicioInterface;
+use Ejercicios\Resultado\Resultado_Scalar;
 
 class Ejercicio1 extends EjercicioBase
 {
@@ -13,25 +11,33 @@ class Ejercicio1 extends EjercicioBase
     {
         return 'Realiza un programa que pida dos números y luego muestre el resultado de su multiplicación.';
     }
+
     protected static function obtenerConfiguracionFormulario(): array
     {
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario2',
-            'dato1' => 'multiplicando',
-            'placeholder1' => 'Ingrese el primer numero',
-            'dato2' => 'multiplicador',
-            'placeholder2' => 'ingrese el segundo numero',
+            'dato1' => 'Multiplicando',
+            'placeholder1' => 'Ingrese el primer número',
+            'dato2' => 'Multiplicador',
+            'placeholder2' => 'Ingrese el segundo número',
         ];
     }
-    public static function procesar(): array
-    {
-        $multiplicando = $_POST['campo1'] ?? 0;
-        $multiplicador = $_POST['campo2'] ?? 0;
-        $producto = $multiplicando * $multiplicador;
-        $contenido = "El producto de: $multiplicando x $multiplicador = $producto";
-        return [
-            'mensaje' => $contenido,
-        ];
-    }
+
+   
+public static function procesar(): array
+{
+    $a = (float) ($_POST['campo1'] ?? 0);
+    $b = (float) ($_POST['campo2'] ?? 0);
+
+    $resultado = new Resultado_Scalar(
+        'Resultado de la multiplicación',
+        $a * $b
+    );
+
+    return [
+        'ok' => true
+    ] + $resultado->toArray();
+}
+
 }

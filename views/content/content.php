@@ -12,8 +12,8 @@
 
     <?php include_once __DIR__ . '/resultados/resultados.php'; ?>
 
-    <?php include_once __DIR__ . '/ver/verCodigoPHP.php'; ?>
+    <!-- <?php include_once __DIR__ . '/ver/verCodigoPHP.php'; ?>
     <?php include_once __DIR__ . '/ver/verCodigoJS.php'; ?>
-    <?php include_once __DIR__ . '/ver/verDiagrama.php'; ?>
+    <?php include_once __DIR__ . '/ver/verDiagrama.php'; ?> -->
 
 </main>

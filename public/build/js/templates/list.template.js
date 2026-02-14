@@ -1,0 +1,1 @@
+export function renderList(r){if(!Array.isArray(r))return"";return`\n        <ul class="resultado-lista">\n            ${r.map(r=>`<li>${r}</li>`).join("")}\n        </ul>\n    `}//# sourceMappingURL=list.template.js.map

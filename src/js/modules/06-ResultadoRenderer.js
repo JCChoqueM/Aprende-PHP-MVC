@@ -1,37 +1,47 @@
 // ============================================
-// 06-ResultadoRenderer.js - Renderizado de resultados
-// NIVEL: Intermedio - No depende de nadie
+// 06-ResultadoRenderer.js
+// Renderiza respuestas del backend
 // ============================================
 
 export class ResultadoRenderer {
+
     constructor(elementoResultado) {
         this.elemento = elementoResultado;
     }
 
-    mostrarExito(mensaje) {
-        if (!this.elemento) return;
-        
-        this.elemento.innerHTML = this.crearHtml('exito', mensaje);
-    }
+    render(respuesta) {
 
-    mostrarError(mensaje) {
-        if (!this.elemento) return;
-        
-        this.elemento.innerHTML = this.crearHtml('error', mensaje);
-    }
+        if (!this.elemento || !respuesta) return;
 
-    limpiar() {
-        if (this.elemento) {
-            this.elemento.innerHTML = '';
+        let html = '';
+
+        switch (respuesta.type) {
+
+            case 'result':
+                html = `
+                    <div class="resultado-exito">
+                        <strong>${respuesta.data.label}:</strong>
+                        ${respuesta.data.value}
+                    </div>
+                `;
+                break;
+
+            case 'evaluation':
+                const clase = respuesta.data.ok
+                    ? 'resultado-exito'
+                    : 'resultado-error';
+
+                html = `
+                    <div class="${clase}">
+                        ${respuesta.data.message}
+                    </div>
+                `;
+                break;
+
+            default:
+                html = '<div>Tipo de resultado no soportado</div>';
         }
-    }
 
-    crearHtml(tipo, mensaje) {
-        const clase = tipo === 'exito' ? 'resultado-exito' : 'resultado-error';
-        return `<div class="${clase}">${mensaje || this.getMensajeDefault(tipo)}</div>`;
-    }
-
-    getMensajeDefault(tipo) {
-        return tipo === 'exito' ? 'Operación exitosa' : 'Error al procesar';
+        this.elemento.innerHTML = html;
     }
 }

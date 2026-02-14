@@ -3,13 +3,20 @@
 namespace Ejercicios\Tema2;
 
 use Ejercicios\EjercicioBase;
+use Ejercicios\Validacion\ValidadorFactory;
 
 class Ejercicio7 extends EjercicioBase
 {
     public static function procesar(): array
     {
-        // Validar entrada
-        $validacion = self::validarEntrada();
+        // Usar el Factory para validación
+        $validador = ValidadorFactory::numericoPositivo([
+            'campo1' => 'Compra',
+            'campo2' => 'Base Imponible'
+        ]);
+
+        $validacion = $validador->validar($_POST);
+
         if (!$validacion['valido']) {
             http_response_code(400);
             return [
@@ -18,69 +25,16 @@ class Ejercicio7 extends EjercicioBase
             ];
         }
 
-        $base = $validacion['datos']['base'];
-        $altura = $validacion['datos']['altura'];
-
-        // Calcular área
-        $area = $base * $altura;
-
-        // Retornar mensaje formateado
+        $compra = $validacion['datos']['campo1'];
+        $baseImponible = $validacion['datos']['campo2'] / 100;
+        $factura = $compra * $baseImponible;
+        $total = $compra + $factura;
+        // error_log('Tipo compra: ' . gettype($_POST['campo1']));
+        // error_log('Tipo compra: ' . gettype($_POST['campo2']));
         http_response_code(200);
         return [
             'error' => false,
-            'mensaje' => "El área del rectángulo con base {$base}m y altura {$altura}m es: {$area}m²"
-        ];
-    }
-
-    private static function validarEntrada(): array
-    {
-        $errores = [];
-
-        // Validar que existan los campos
-        if (!isset($_POST['campo1']) || !isset($_POST['campo2'])) {
-            $errores[] = 'Los campos base y altura son requeridos';
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        // Validar que no estén vacíos
-        if (trim($_POST['campo1']) === '' || trim($_POST['campo2']) === '') {
-            $errores[] = 'Los campos no pueden estar vacíos';
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        // Validar que sean numéricos
-        if (!is_numeric($_POST['campo1'])) {
-            $errores[] = 'La base debe ser un valor numérico';
-        }
-        if (!is_numeric($_POST['campo2'])) {
-            $errores[] = 'La altura debe ser un valor numérico';
-        }
-
-        if (!empty($errores)) {
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        $base = floatval($_POST['campo1']);
-        $altura = floatval($_POST['campo2']);
-
-        // Validar que sean positivos
-        if ($base <= 0) {
-            $errores[] = 'La base debe ser mayor que 0';
-        }
-        if ($altura <= 0) {
-            $errores[] = 'La altura debe ser mayor que 0';
-        }
-
-        if (!empty($errores)) {
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        return [
-            'valido' => true,
-            'datos' => [
-                'base' => $base,
-                'altura' => $altura
-            ]
+            'mensaje' => "El precio de compra es:   {$compra} Bs.<br> Su factura total es de: {$total} Bs."
         ];
     }
 
@@ -89,10 +43,11 @@ class Ejercicio7 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base (metros)',
-            'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura (metros)',
-            'placeholder2' => 'Ingrese la altura del rectángulo',
+            'dato1' => 'Precio de compra',
+            'placeholder1' => 'Ingrese el precio de la compra',
+            'dato2' => 'Base imponible %',
+            'placeholder2' => 'Ingrese el valor de la base imponible',
+            'valor2' => '10',
         ];
     }
 

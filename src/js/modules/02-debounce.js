@@ -1,13 +1,20 @@
 // ============================================
-// 02-debounce.js - Utilidad de debounce
-// NIVEL: Base - No depende de nadie
+// 02-debounce.js
+// Utilidad robusta de debounce
 // ============================================
 
-export function debounce(callback, delay) {
-    let timer = null;
-    
-    return function ejecutar() {
-        clearTimeout(timer);
-        timer = setTimeout(callback, delay);
+export function debounce(func, delay) {
+
+    let timeoutId;
+
+    return function (...args) {
+
+        const context = this;
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+            func.apply(context, args);
+        }, delay);
     };
 }

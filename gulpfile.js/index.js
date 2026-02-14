@@ -13,7 +13,7 @@
 import { watch, series } from 'gulp';
 import { paths } from './config/paths.js';
 import { css } from './tasks/css.js';
-import { js, jsModules } from './tasks/js.js';
+import { js, jsModules, jsTemplates, jsRenderers } from './tasks/js.js';
 import { imagenes } from './tasks/imagenes.js';
 import { servidor } from './tasks/servidor.js';
 
@@ -22,13 +22,15 @@ export function dev() {
     watch(paths.scss, css);
     watch(paths.js, js);
     watch(paths.jsmodules, jsModules);
+    watch(paths.jstemplates, jsTemplates);
+    watch(paths.jsrenderers, jsRenderers);
     watch('src/img/**/*.{png,jpg}', imagenes);
 }
 
 // Exportar tareas individuales
-export { css, js, jsModules, imagenes, servidor };
+export { css, js, jsModules, jsTemplates, jsRenderers, imagenes, servidor };
 
 // Tareas compuestas
 export const imagen = series(imagenes);
-export const build = series(css, js, jsModules);
-export default series(css, js, jsModules, imagenes, dev);
+export const build = series(css, js, jsModules, jsTemplates, jsRenderers);
+export default series(css, js, jsModules, jsTemplates, jsRenderers, imagenes, dev);

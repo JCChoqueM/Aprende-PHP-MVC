@@ -44,6 +44,7 @@
     <script src="<?= BASE_URL ?>build/js/bundle.js"></script>
 
     <script type="module" src="<?= BASE_URL ?>build/js/modules/app.js"></script>
+    <script type="module" src="<?= BASE_URL ?>build/js/renderers/ResultadoRenderer.js"></script>
 
 
 
