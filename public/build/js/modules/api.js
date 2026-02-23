@@ -1,1 +1,0 @@
-export async function enviarEjercicio(e,a){const{tema:i,ejercicio:t}=e,c=`/api/tema${i}/ejercicio${t}`,o=await fetch(c,{method:"POST",body:new FormData(a)});return await o.json()}//# sourceMappingURL=api.js.map

@@ -1,8 +1,6 @@
 export const paths = {
     scss: 'src/scss/**/*.scss',
-    js: 'src/js/*.js',                    // Solo archivos en raíz de js/
-    jsmodules: 'src/js/modules/**/*.js',  // Archivos en modules/
-    jstemplates: 'src/js/templates/**/*.js',  // Archivos en templates/
-    jsrenderers: 'src/js/renderers/**/*.js',  // Archivos en templates/
+    js: './src/js/*.js',              // solo los .js directamente en /js → bundle.js
+    jssubfolders: './src/js/*/**/*.js', // solo los .js dentro de subcarpetas → se replican
     imagenes: 'src/img/**/*'
 };
