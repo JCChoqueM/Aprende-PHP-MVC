@@ -22,21 +22,4 @@ introducir por teclado.';
         ];
     }
 
-    // obtenerResultado() retorna '' por defecto de la clase base
-    // porque el resultado vendrá de la API
-
-    /**
-     * Este método lo llama la API cuando se procesa el formulario
-     */
-    public static function procesar(): array
-    {
-        $dolar = 6.96;
-        $boliviano = $_POST['campo1'] ?? 0;
-        $convertido=round($boliviano/$dolar,2);
-        $contenido = $boliviano . " bolivianos = " . $convertido . " dolares";
-        
-        return [
-            'mensaje' => $contenido,
-        ];
-    }
 }

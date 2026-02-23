@@ -21,20 +21,5 @@ class Ejercicio2 extends EjercicioBase
         ];
     }
 
-    // obtenerResultado() retorna '' por defecto de la clase base
-    // porque el resultado vendrá de la API
 
-    /**
-     * Este método lo llama la API cuando se procesa el formulario
-     */
-    public static function procesar(): array
-    {
-        $boliviano = 6.96;
-        $dolar = $_POST['campo1'] ?? 0;
-        $contenido = $dolar . " dolares = " . ($dolar * $boliviano) . " bolivianos";
-        
-        return [
-            'mensaje' => $contenido,
-        ];
-    }
 }
