@@ -1,9 +1,9 @@
 <?php
 // 04_CampoRequerido.php
 // Validacion/Reglas/CampoRequerido.php
-namespace Ejercicios\Validacion\Reglas;
+namespace API\Validacion\Reglas;
 
-use Ejercicios\Validacion\Interfaces\ReglasValidacionInterface;
+use API\Validacion\Interfaces\ReglasValidacionInterface;
 
 class CampoRequerido implements ReglasValidacionInterface
 {

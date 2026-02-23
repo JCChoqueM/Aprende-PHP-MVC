@@ -1,7 +1,7 @@
 <?php
 // 02_ValidadorInterface.php
 // Validacion/Interfaces/ValidadorInterface.php
-namespace Ejercicios\Validacion\Interfaces;
+namespace API\Validacion\Interfaces;
 
 interface ValidadorInterface
 {
@@ -9,4 +9,3 @@ interface ValidadorInterface
     public function agregarRegla(string $campo, ReglasValidacionInterface $regla): self;
     public function agregarError(string $error): void;
 }
-?>

@@ -1,9 +1,9 @@
 <?php
 // 05_CampoNoVacio.php
 // Validacion/Reglas/CampoNoVacio.php
-namespace Ejercicios\Validacion\Reglas;
+namespace API\Validacion\Reglas;
 
-use Ejercicios\Validacion\Interfaces\ReglasValidacionInterface;
+use API\Validacion\Interfaces\ReglasValidacionInterface;
 
 class CampoNoVacio implements ReglasValidacionInterface
 {

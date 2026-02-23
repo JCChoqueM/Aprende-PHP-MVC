@@ -1,9 +1,9 @@
 <?php
 // 06_CampoNumerico.php
 // Validacion/Reglas/CampoNumerico.php
-namespace Ejercicios\Validacion\Reglas;
+namespace API\Validacion\Reglas;
 
-use Ejercicios\Validacion\Interfaces\ReglasValidacionInterface;
+use API\Validacion\Interfaces\ReglasValidacionInterface;
 
 class CampoNumerico implements ReglasValidacionInterface
 {

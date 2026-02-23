@@ -2,7 +2,7 @@
 
 namespace Ejercicios;
 
-abstract class EjercicioBase 
+abstract class EjercicioBase
 {
     /**
      * Template method que construye la data completa

@@ -1,10 +1,10 @@
 <?php
 // 10_Validador.php
 // Validacion/Validador.php
-namespace Ejercicios\Validacion;
+namespace API\Validacion;
 
-use Ejercicios\Validacion\Interfaces\ValidadorInterface;
-use Ejercicios\Validacion\Interfaces\ReglasValidacionInterface;
+use API\Validacion\Interfaces\ValidadorInterface;
+use API\Validacion\Interfaces\ReglasValidacionInterface;
 
 class Validador implements ValidadorInterface
 {

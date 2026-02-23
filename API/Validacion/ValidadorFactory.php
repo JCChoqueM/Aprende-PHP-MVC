@@ -1,9 +1,9 @@
 <?php
 // 11_ValidadorFactory.php
 // Validacion/ValidadorFactory.php
-namespace Ejercicios\Validacion;
+namespace API\Validacion;
 
-use Ejercicios\Validacion\Reglas\{
+use API\Validacion\Reglas\{
     CampoRequerido,
     CampoNoVacio,
     CampoNumerico,

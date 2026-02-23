@@ -1,9 +1,9 @@
 <?php
 // 08_RangoValor.php
 // Validacion/Reglas/RangoValor.php
-namespace Ejercicios\Validacion\Reglas;
+namespace API\Validacion\Reglas;
 
-use Ejercicios\Validacion\Interfaces\ReglasValidacionInterface;
+use API\Validacion\Interfaces\ReglasValidacionInterface;
 
 class RangoValor implements ReglasValidacionInterface
 {

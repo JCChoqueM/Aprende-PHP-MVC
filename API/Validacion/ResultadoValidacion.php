@@ -1,7 +1,7 @@
 <?php
 // 03_ResultadoValidacion.php
 // Validacion/ResultadoValidacion.php
-namespace Ejercicios\Validacion;
+namespace API\Validacion;
 
 class ResultadoValidacion
 {

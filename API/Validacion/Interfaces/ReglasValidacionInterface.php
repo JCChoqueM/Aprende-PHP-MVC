@@ -1,7 +1,7 @@
 <?php
 // 01_ReglasValidacionInterface.php
 // Validacion/Interfaces/ReglasValidacionInterface.php
-namespace Ejercicios\Validacion\Interfaces;
+namespace API\Validacion\Interfaces;
 
 interface ReglasValidacionInterface
 {

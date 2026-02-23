@@ -1,11 +1,11 @@
 <?php
 
-namespace Ejercicios\Tema2;
+namespace API\Tema2;
 
-use Ejercicios\EjercicioBase;
-use Ejercicios\Validacion\ValidadorFactory;
 
-class Ejercicio7 extends EjercicioBase
+use API\Validacion\ValidadorFactory;
+
+class Ejercicio7 
 {
     public static function procesar(): array
     {
@@ -36,23 +36,5 @@ class Ejercicio7 extends EjercicioBase
             'error' => false,
             'mensaje' => "El precio de compra es:   {$compra} Bs.<br> Su factura total es de: {$total} Bs."
         ];
-    }
-
-    protected static function obtenerConfiguracionFormulario(): array
-    {
-        return [
-            'formularioBool' => true,
-            'nombreFormulario' => 'formulario2',
-            'dato1' => 'Precio de compra',
-            'placeholder1' => 'Ingrese el precio de la compra',
-            'dato2' => 'Base imponible %',
-            'placeholder2' => 'Ingrese el valor de la base imponible',
-            'valor2' => '10',
-        ];
-    }
-
-    protected static function enunciado(): string
-    {
-        return 'Escribe un programa que calcule el total de una factura a partir de la base imponible.';
     }
 }
