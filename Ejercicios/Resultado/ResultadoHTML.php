@@ -2,9 +2,7 @@
 
 namespace Ejercicios\Resultado;
 
-use Ejercicios\Contracts\RenderableInterface;
-
-class ResultadoHTML implements RenderableInterface
+class ResultadoHTML 
 {
     private string $contenido;
 

@@ -2,9 +2,7 @@
 
 namespace Ejercicios;
 
-use Ejercicios\Contracts\EjercicioInterface;
-
-abstract class EjercicioBase implements EjercicioInterface
+abstract class EjercicioBase 
 {
     /**
      * Template method que construye la data completa

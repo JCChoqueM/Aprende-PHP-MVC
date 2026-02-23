@@ -1,10 +1,7 @@
 <?php
 
 namespace Ejercicios\Resultado;
-
-use Ejercicios\Contracts\RenderableInterface;
-
-class ResultadoTexto implements RenderableInterface
+class ResultadoTexto
 {
     public function __construct(
         private string $contenido

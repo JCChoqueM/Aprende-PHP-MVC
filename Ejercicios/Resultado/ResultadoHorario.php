@@ -2,12 +2,7 @@
 
 namespace Ejercicios\Resultado;
 
-use Ejercicios\Contracts\RenderableInterface;
-
-
-
-
-class ResultadoHorario implements RenderableInterface
+class ResultadoHorario 
 {
     public function __construct(
         private string $titulo,

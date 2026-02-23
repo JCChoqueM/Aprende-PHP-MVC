@@ -1,10 +1,7 @@
 <?php
 
 namespace Ejercicios\Resultado;
-
-use Ejercicios\Contracts\RenderableInterface;
-
-class ResultadoTabla implements RenderableInterface
+class ResultadoTabla 
 {
     public function __construct(
         private array $datos,             // datos de la tabla

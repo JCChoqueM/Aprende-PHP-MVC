@@ -5,7 +5,6 @@ namespace Ejercicios\Tema1;
 use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoHorario;
 use Ejercicios\Resultado\ResultadoMultiple;
-use Ejercicios\Contracts\EjercicioInterface;
 
 class Ejercicio4 extends EjercicioBase
 {

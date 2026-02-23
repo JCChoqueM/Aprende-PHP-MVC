@@ -4,8 +4,6 @@ namespace Ejercicios\Tema1;
 
 use Ejercicios\EjercicioBase;
 use Ejercicios\Resultado\ResultadoTexto;
-use Ejercicios\Contracts\EjercicioInterface;
-
 class Ejercicio8 extends EjercicioBase
 {
        protected static function obtenerResultado(): ResultadoTexto

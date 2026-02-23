@@ -19,7 +19,8 @@
       "MVC\\": "./",
       "Controllers\\": "./controllers",
       "View\\": "./views",
-      "Ejercicios\\": "./Ejercicios"
+      "Ejercicios\\": "./Ejercicios",
+      "API\\": "./API"
     }
   },
   "require-dev": {

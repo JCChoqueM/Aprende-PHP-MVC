@@ -3,7 +3,6 @@
 namespace Ejercicios\Tema1;
 
 use Ejercicios\EjercicioBase;
-use Ejercicios\Resultado\ResultadoTexto;
 use Ejercicios\Resultado\ResultadoHTML;
 
 class Ejercicio2 extends EjercicioBase

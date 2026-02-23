@@ -1,14 +1,11 @@
 <?php
 
 namespace Ejercicios\Resultado;
-
-use Ejercicios\Contracts\RenderableInterface;
-
-class ResultadoMultiple implements RenderableInterface
+class ResultadoMultiple 
 {
     private array $resultados = [];
 
-    public function __construct(RenderableInterface ...$resultados)
+    public function __construct(...$resultados)
     {
         $this->resultados = $resultados;
     }

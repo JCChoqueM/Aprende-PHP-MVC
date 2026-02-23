@@ -3,7 +3,6 @@
 namespace Ejercicios\Tema2;
 
 use Ejercicios\EjercicioBase;
-use Ejercicios\Resultado\Resultado_Scalar;
 
 class Ejercicio1 extends EjercicioBase
 {
@@ -23,21 +22,4 @@ class Ejercicio1 extends EjercicioBase
             'placeholder2' => 'Ingrese el segundo número',
         ];
     }
-
-   
-public static function procesar(): array
-{
-    $a = (float) ($_POST['campo1'] ?? 0);
-    $b = (float) ($_POST['campo2'] ?? 0);
-
-    $resultado = new Resultado_Scalar(
-        'Resultado de la multiplicación',
-        $a * $b
-    );
-
-    return [
-        'ok' => true
-    ] + $resultado->toArray();
-}
-
 }

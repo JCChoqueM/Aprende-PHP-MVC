@@ -1,5 +1,5 @@
 <?php
-namespace Ejercicios\Resultado;
+namespace API\Resultado;
 
 class Resultado_Lista implements Resultado_Interface
 {
