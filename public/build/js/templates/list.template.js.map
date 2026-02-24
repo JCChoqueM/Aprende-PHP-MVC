@@ -1,1 +1,0 @@
-{"version":3,"file":"templates/list.template.js","names":["renderList","items","Array","isArray","map","item","join"],"sources":["templates/list.template.js"],"mappings":"OAEO,SAASA,WAAWC,GACvB,IAAKC,MAAMC,QAAQF,GAAQ,MAAO,GAIlC,MAAO,uDAFSA,EAAMG,IAAIC,GAAQ,OAAOA,UAAaC,KAAK,0BAO/D","ignoreList":[]}

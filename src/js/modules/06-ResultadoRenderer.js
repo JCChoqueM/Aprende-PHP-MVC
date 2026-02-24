@@ -39,7 +39,7 @@ export class ResultadoRenderer {
                 break;
 
             default:
-                html = '<div>Tipo de resultado no soportado</div>';
+                html = '<div>Tipo de resultado no soportad32o</div>';
         }
 
         this.elemento.innerHTML = html;

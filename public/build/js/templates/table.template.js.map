@@ -1,1 +1,0 @@
-{"version":3,"file":"templates/table.template.js","names":["renderTable","headers","rows","map","h","join","row","cell"],"sources":["templates/table.template.js"],"mappings":"OACO,SAASA,YAAYC,EAASC,GACjC,IAAKD,IAAYC,EAAM,MAAO,GAQ9B,MAAO,uFANOD,EAAQE,IAAIC,GAAK,OAAOA,UAAUC,KAAK,wEAEvCH,EAAKC,IAAIG,GACnB,OAAOA,EAAIH,IAAII,GAAQ,OAAOA,UAAaF,KAAK,YAClDA,KAAK,mDAYX","ignoreList":[]}

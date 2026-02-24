@@ -4,11 +4,11 @@
 namespace API\Validacion;
 
 use API\Validacion\Reglas\{
-    CampoRequerido,
     CampoNoVacio,
     CampoNumerico,
-    ValorPositivo,
-    RangoValor
+    CampoRequerido,
+    RangoValor,
+    ValorPositivo
 };
 
 class ValidadorFactory
@@ -65,4 +65,3 @@ class ValidadorFactory
         return $validador;
     }
 }
-?>
