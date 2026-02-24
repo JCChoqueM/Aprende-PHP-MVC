@@ -12,8 +12,8 @@ class Ejercicio1
     {
         // Validar entrada
         $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'Número A',
-            'campo2' => 'Número B'
+            'campo1' => 'multiplicando',
+            'campo2' => 'multiplicador'
         ]);
 
         $validacion = $validador->validar($_POST);
