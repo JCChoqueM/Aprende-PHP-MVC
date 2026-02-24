@@ -28,10 +28,11 @@ class Ejercicio2
         $convertido = $dolar * $boliviano;
 
         // Retornar SOLO los datos calculados
-        $respuesta = new Resultado_JSON('conversion', [
-            'cantidad' => $dolar,
-            'resultado' => round($convertido, 2)
-        ]);
+        $respuesta = new Resultado_JSON(
+            'tema2_ejercicio2',
+            ['cantidad' => $dolar],
+            ['resultado' => round($convertido, 2)]
+        );
 
         return $respuesta->toArray();
     }

@@ -29,12 +29,11 @@ class Ejercicio7
         $total = $compra + $iva;
 
         // Retornar SOLO los datos calculados
-        $resultado = new Resultado_JSON('factura', [
-            'precioBase' => round($compra, 2),
-            'porcentajeIVA' => $porcentajeIVA,
-            'montoIVA' => round($iva, 2),
-            'total' => round($total, 2)
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio7',
+            ['precioBase' => round($compra, 2), 'porcentajeIVA' => $porcentajeIVA],
+            ['montoIVA' => round($iva, 2), 'total' => round($total, 2)]
+        );
 
         return $resultado->toArray();
     }

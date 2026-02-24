@@ -29,11 +29,11 @@ class Ejercicio9
         $volumen = round($pi * $radio * $radio * $altura, 2);
 
         // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON('volumen', [
-            'radio' => $radio,
-            'altura' => $altura,
-            'volumen' => $volumen
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio9',
+            ['radio' => $radio, 'altura' => $altura],
+            ['volumen' => $volumen]
+        );
 
         return $resultado->toArray();
     }

@@ -28,11 +28,11 @@ class Ejercicio1
         $b = $validacion['datos']['campo2'];
 
         // Retornar SOLO los datos necesarios
-        $resultado = new Resultado_JSON('multiplicacion', [
-            'a' => $a,
-            'b' => $b,
-            'resultado' => $a * $b
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio1',
+            ['a' => $a, 'b' => $b],
+            ['resultado' => $a * $b]
+        );
 
         return $resultado->toArray();
     }

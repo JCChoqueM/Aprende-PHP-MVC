@@ -27,10 +27,11 @@ class Ejercicio11
         $area = round($pi * $radio * $radio, 2);
 
         // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON('area_circulo', [
-            'radio' => $radio,
-            'area' => $area
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio11',
+            ['radio' => $radio],
+            ['area' => $area]
+        );
 
         return $resultado->toArray();
     }

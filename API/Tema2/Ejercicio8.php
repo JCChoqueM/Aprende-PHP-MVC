@@ -28,11 +28,11 @@ class Ejercicio8
         $area = $base * $altura;
 
         // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON('area', [
-            'base' => $base,
-            'altura' => $altura,
-            'area' => $area
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio8',
+            ['base' => $base, 'altura' => $altura],
+            ['area' => $area]
+        );
 
         return $resultado->toArray();
     }

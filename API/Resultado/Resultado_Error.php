@@ -23,10 +23,8 @@ class Resultado_Error
     {
         return [
             'type' => 'error',
-            'data' => [
-                'ok' => false,
-                'errores' => $this->errores
-            ]
+            'ok' => false,
+            'errores' => $this->errores
         ];
     }
 }

@@ -28,11 +28,11 @@ class Ejercicio6
         $area = ($base * $altura) / 2;
 
         // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON('area_triangulo', [
-            'base' => $base,
-            'altura' => $altura,
-            'area' => $area
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio6',
+            ['base' => $base, 'altura' => $altura],
+            ['area' => $area]
+        );
 
         return $resultado->toArray();
     }

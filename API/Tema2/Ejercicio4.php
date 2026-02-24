@@ -26,15 +26,19 @@ class Ejercicio4
         $a = $validacion['datos']['campo1'];
         $b = $validacion['datos']['campo2'];
 
-        // Retornar SOLO los resultados calculados
-        $resultado = new Resultado_JSON('operaciones', [
-            'a' => $a,
-            'b' => $b,
-            'suma' => $a + $b,
-            'resta' => $a - $b,
-            'multiplicacion' => $a * $b,
-            'division' => $b == 0 ? null : round($a / $b, 4)
-        ]);
+        // Retornar operaciones como array de {formula, valor}
+        $operaciones = [
+            ['formula' => "$a + $b = " . ($a + $b)],
+            ['formula' => "$a - $b = " . ($a - $b)],
+            ['formula' => "$a × $b = " . ($a * $b)],
+            ['formula' => $b == 0 ? "$a ÷ $b = No definida" : "$a ÷ $b = " . round($a / $b, 4)]
+        ];
+
+        $resultado = new Resultado_JSON(
+            'operaciones',
+            ['a' => $a, 'b' => $b],
+            $operaciones
+        );
 
         return $resultado->toArray();
     }

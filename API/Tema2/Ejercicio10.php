@@ -26,10 +26,11 @@ class Ejercicio10
         $area = $lado * $lado;
 
         // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON('area_cuadrado', [
-            'lado' => $lado,
-            'area' => $area
-        ]);
+        $resultado = new Resultado_JSON(
+            'tema2_ejercicio10',
+            ['lado' => $lado],
+            ['area' => $area]
+        );
 
         return $resultado->toArray();
     }
