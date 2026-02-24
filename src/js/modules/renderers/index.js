@@ -14,7 +14,9 @@ import { tema2_ejercicio7 } from './tema2/Ejercicio7.js';
 import { tema2_ejercicio8 } from './tema2/Ejercicio8.js';
 import { tema2_ejercicio9 } from './tema2/Ejercicio9.js';
 import { tema2_ejercicio10 } from './tema2/Ejercicio10.js';
+
 import { tema2_ejercicio11 } from './tema2/Ejercicio11.js';
+import { error } from './error.js';
 
 /**
  * Map de todos los renderizadores
@@ -36,4 +38,5 @@ export const renderizadores = {
     tema2_ejercicio9,
     tema2_ejercicio10,
     tema2_ejercicio11,
+    error,
 };

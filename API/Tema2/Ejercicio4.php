@@ -35,7 +35,7 @@ class Ejercicio4
         ];
 
         $resultado = new Resultado_JSON(
-            'operaciones',
+            'tema2_ejercicio4',
             ['a' => $a, 'b' => $b],
             $operaciones
         );
