@@ -1,87 +1,39 @@
 <?php
 
-namespace Ejercicios\Tema2;
+namespace API\Tema2;
 
+use API\Resultado\Resultado_Scalar;
+use API\Validacion\ValidadorFactory;
 
-
-class Ejercicio10 
+class Ejercicio10
 {
     public static function procesar(): array
     {
         // Validar entrada
-        $validacion = self::validarEntrada();
+        $validador = ValidadorFactory::numericoPositivo([
+            'campo1' => 'Lado del Cuadrado'
+        ]);
+
+        $validacion = $validador->validar($_POST);
+
         if (!$validacion['valido']) {
-            http_response_code(400);
             return [
-                'error' => true,
-                'mensaje' => implode('<br>', $validacion['errores'])
+                'type' => 'evaluation',
+                'data' => [
+                    'ok' => false,
+                    'message' => implode('<br>', $validacion['errores'])
+                ]
             ];
         }
 
-        $base = $validacion['datos']['base'];
-        $altura = $validacion['datos']['altura'];
+        $lado = $validacion['datos']['campo1'];
+        $area = $lado * $lado;
 
-        // Calcular área
-        $area = $base * $altura;
+        $resultado = new Resultado_Scalar(
+            'Área del Cuadrado',
+            $area . " m²"
+        );
 
-        // Retornar mensaje formateado
-        http_response_code(200);
-        return [
-            'error' => false,
-            'mensaje' => "El área del rectángulo con base {$base}m y altura {$altura}m es: {$area}m²"
-        ];
+        return $resultado->toArray();
     }
-
-    private static function validarEntrada(): array
-    {
-        $errores = [];
-
-        // Validar que existan los campos
-        if (!isset($_POST['campo1']) || !isset($_POST['campo2'])) {
-            $errores[] = 'Los campos base y altura son requeridos';
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        // Validar que no estén vacíos
-        if (trim($_POST['campo1']) === '' || trim($_POST['campo2']) === '') {
-            $errores[] = 'Los campos no pueden estar vacíos';
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        // Validar que sean numéricos
-        if (!is_numeric($_POST['campo1'])) {
-            $errores[] = 'La base debe ser un valor numérico';
-        }
-        if (!is_numeric($_POST['campo2'])) {
-            $errores[] = 'La altura debe ser un valor numérico';
-        }
-
-        if (!empty($errores)) {
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        $base = floatval($_POST['campo1']);
-        $altura = floatval($_POST['campo2']);
-
-        // Validar que sean positivos
-        if ($base <= 0) {
-            $errores[] = 'La base debe ser mayor que 0';
-        }
-        if ($altura <= 0) {
-            $errores[] = 'La altura debe ser mayor que 0';
-        }
-
-        if (!empty($errores)) {
-            return ['valido' => false, 'errores' => $errores];
-        }
-
-        return [
-            'valido' => true,
-            'datos' => [
-                'base' => $base,
-                'altura' => $altura
-            ]
-        ];
-    }
-
 }

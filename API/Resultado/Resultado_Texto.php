@@ -1,5 +1,7 @@
 <?php
+
 namespace API\Resultado;
+
 class Resultado_Texto implements Resultado_Interface
 {
     private string $tipo;
@@ -10,7 +12,8 @@ class Resultado_Texto implements Resultado_Interface
         $this->tipo = 'result';
         $this->data = [
             'label' => $label,
-            'value' => $value
+            'value' => $value,
+            'ok' => true
         ];
     }
 

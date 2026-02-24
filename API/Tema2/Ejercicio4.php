@@ -1,74 +1,52 @@
 <?php
 
 namespace API\Tema2;
-class Ejercicio4 
+
+use API\Resultado\Resultado_Texto;
+use API\Validacion\ValidadorFactory;
+
+class Ejercicio4
 {
     public static function procesar(): array
     {
-        // 1. Validar entrada
-        $validacion = self::validarEntrada();
+        // Validar entrada - permite números negativos (para resta, división)
+        $validador = ValidadorFactory::numericoNoNegativo([
+            'campo1' => 'Número A',
+            'campo2' => 'Número B'
+        ]);
+
+        $validacion = $validador->validar($_POST);
+
         if (!$validacion['valido']) {
-            http_response_code(400);
             return [
-                'error' => true,
-                'mensaje' => $validacion['mensaje']
+                'type' => 'evaluation',
+                'data' => [
+                    'ok' => false,
+                    'message' => implode('<br>', $validacion['errores'])
+                ]
             ];
         }
 
-        $a = $validacion['datos']['a'];
-        $b = $validacion['datos']['b'];
+        $a = $validacion['datos']['campo1'];
+        $b = $validacion['datos']['campo2'];
 
-        // 2. Generar mensajes listos para mostrar
+        // Generar resultados
         $mensajes = [];
-        $mensajes[] = "La suma de {$a} más {$b} es: " . ($a + $b);
-        $mensajes[] = "La resta de {$a} menos {$b} es: " . ($a - $b);
-        $mensajes[] = "La multiplicación de {$a} por {$b} es: " . ($a * $b);
-        
+        $mensajes[] = "Suma: {$a} + {$b} = " . ($a + $b);
+        $mensajes[] = "Resta: {$a} - {$b} = " . ($a - $b);
+        $mensajes[] = "Multiplicación: {$a} × {$b} = " . ($a * $b);
+
         if ($b == 0) {
-            $mensajes[] = "La división entre 0 no es posible";
+            $mensajes[] = "División: No se puede dividir entre 0";
         } else {
-            $mensajes[] = "La división de {$a} entre {$b} es: " . ($a / $b);
+            $mensajes[] = "División: {$a} ÷ {$b} = " . ($a / $b);
         }
 
-        // 3. Retornar mensajes listos
-        http_response_code(200);
-        return [
-            'error' => false,
-            'mensaje' => implode('<br><br>', $mensajes)
-        ];
+        $resultado = new Resultado_Texto(
+            'Operaciones Matemáticas',
+            implode('<br><br>', $mensajes)
+        );
+
+        return $resultado->toArray();
     }
-
-    private static function validarEntrada(): array
-    {
-        if (!isset($_POST['campo1']) || !isset($_POST['campo2'])) {
-            return [
-                'valido' => false,
-                'mensaje' => 'Los campos campo1 y campo2 son requeridos'
-            ];
-        }
-
-        if (trim($_POST['campo1']) === '' || trim($_POST['campo2']) === '') {
-            return [
-                'valido' => false,
-                'mensaje' => 'Los campos no pueden estar vacíos'
-            ];
-        }
-
-        if (!is_numeric($_POST['campo1']) || !is_numeric($_POST['campo2'])) {
-            return [
-                'valido' => false,
-                'mensaje' => 'Los valores deben ser numéricos'
-            ];
-        }
-
-        return [
-            'valido' => true,
-            'datos' => [
-                'a' => floatval($_POST['campo1']),
-                'b' => floatval($_POST['campo2'])
-            ]
-        ];
-    }
-
- 
 }

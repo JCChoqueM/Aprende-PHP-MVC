@@ -1,5 +1,7 @@
 <?php
+
 namespace API\Resultado;
+
 class Resultado_Tabla implements Resultado_Interface
 {
     private array $headers;
@@ -17,7 +19,8 @@ class Resultado_Tabla implements Resultado_Interface
             'type' => 'table',
             'data' => [
                 'headers' => $this->headers,
-                'rows' => $this->rows
+                'rows' => $this->rows,
+                'ok' => true
             ]
         ];
     }

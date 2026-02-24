@@ -1,4 +1,5 @@
 <?php
+
 namespace API\Resultado;
 
 class Resultado_Lista implements Resultado_Interface
@@ -18,7 +19,8 @@ class Resultado_Lista implements Resultado_Interface
             'type' => 'list',
             'data' => [
                 'descripcion' => $this->descripcion,
-                'valores' => $this->valores
+                'valores' => $this->valores,
+                'ok' => true
             ]
         ];
     }

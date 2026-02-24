@@ -3,6 +3,15 @@
 // Controlador del formulario
 // Responsable de coordinar envío y renderizado
 // ============================================
+// 
+// ORQUESTADOR DEL FLUJO:
+// 1. Usuario interactúa con formulario
+// 2. FormularioEjercicio detecta cambios
+// 3. Llama a EjercicioService.enviar()
+// 4. EjercicioService hace POST a /api/tema{X}/ejercicio{Y}
+// 5. APIController recibe y ejecuta \API\TemaX\EjercicioY::procesar()
+// 6. Backend responde con JSON
+// 7. ResultadoRenderer convierte respuesta en HTML visual
 
 import { debounce } from './02-debounce.js';
 
@@ -16,19 +25,19 @@ export class FormularioEjercicio {
      */
     constructor(formulario, parametrosRuta, ejercicioService, resultadoRenderer) {
 
-    if (!resultadoRenderer || typeof resultadoRenderer.render !== 'function') {
-        throw new Error('ResultadoRenderer inválido: no tiene método render()');
-    }
+        if (!resultadoRenderer || typeof resultadoRenderer.render !== 'function') {
+            throw new Error('ResultadoRenderer inválido: no tiene método render()');
+        }
 
-    this.formulario = formulario;
-    this.parametrosRuta = parametrosRuta;
-    this.ejercicioService = ejercicioService;
-    this.renderer = resultadoRenderer;
-     this.enviarConRetraso = debounce(
+        this.formulario = formulario;
+        this.parametrosRuta = parametrosRuta;
+        this.ejercicioService = ejercicioService;
+        this.renderer = resultadoRenderer;
+        this.enviarConRetraso = debounce(
             this.enviar.bind(this),
             4000
         );
-}
+    }
 
 
     /**

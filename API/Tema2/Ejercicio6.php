@@ -1,10 +1,8 @@
 <?php
-// 12_Ejercicio6.php (MODIFICADO)
-// Tema 2/Ejercicios/ejercicio6 área de un triangulo/Ejercicio6.php
 
 namespace API\Tema2;
 
-
+use API\Resultado\Resultado_Texto;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio6
@@ -20,10 +18,12 @@ class Ejercicio6
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            http_response_code(400);
             return [
-                'error' => true,
-                'mensaje' => implode('<br>', $validacion['errores'])
+                'type' => 'evaluation',
+                'data' => [
+                    'ok' => false,
+                    'message' => implode('<br>', $validacion['errores'])
+                ]
             ];
         }
 
@@ -31,10 +31,11 @@ class Ejercicio6
         $altura = $validacion['datos']['campo2'];
         $area = ($base * $altura) / 2;
 
-        http_response_code(200);
-        return [
-            'error' => false,
-            'mensaje' => "El área del Triángulo con base {$base}m y altura {$altura}m es: {$area}m²"
-        ];
+        $resultado = new Resultado_Texto(
+            'Área del Triángulo',
+            "Base: {$base}m | Altura: {$altura}m | Área: {$area}m²"
+        );
+
+        return $resultado->toArray();
     }
 }

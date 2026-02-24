@@ -17,7 +17,8 @@ class Resultado_Scalar implements Resultado_Interface
             'type' => 'result',
             'data' => [
                 'label' => $this->label,
-                'value' => $this->value
+                'value' => $this->value,
+                'ok' => true
             ]
         ];
     }
