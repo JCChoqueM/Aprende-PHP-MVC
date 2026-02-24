@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Texto;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio7
@@ -18,24 +19,22 @@ class Ejercicio7
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $compra = $validacion['datos']['campo1'];
-        $porcentajeIVA = $validacion['datos']['campo2'] / 100;
-        $iva = $compra * $porcentajeIVA;
+        $porcentajeIVA = $validacion['datos']['campo2'];
+        $iva = $compra * ($porcentajeIVA / 100);
         $total = $compra + $iva;
 
-        $resultado = new Resultado_Texto(
-            'Cálculo de Factura',
-            "Precio base: {$compra} Bs.<br>IVA: {$iva} Bs.<br>Total: {$total} Bs."
-        );
+        // Retornar SOLO los datos calculados
+        $resultado = new Resultado_JSON('factura', [
+            'precioBase' => round($compra, 2),
+            'porcentajeIVA' => $porcentajeIVA,
+            'montoIVA' => round($iva, 2),
+            'total' => round($total, 2)
+        ]);
 
         return $resultado->toArray();
     }

@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Texto;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio4
@@ -18,34 +19,22 @@ class Ejercicio4
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $a = $validacion['datos']['campo1'];
         $b = $validacion['datos']['campo2'];
 
-        // Generar resultados
-        $mensajes = [];
-        $mensajes[] = "Suma: {$a} + {$b} = " . ($a + $b);
-        $mensajes[] = "Resta: {$a} - {$b} = " . ($a - $b);
-        $mensajes[] = "Multiplicación: {$a} × {$b} = " . ($a * $b);
-
-        if ($b == 0) {
-            $mensajes[] = "División: No se puede dividir entre 0";
-        } else {
-            $mensajes[] = "División: {$a} ÷ {$b} = " . ($a / $b);
-        }
-
-        $resultado = new Resultado_Texto(
-            'Operaciones Matemáticas',
-            implode('<br><br>', $mensajes)
-        );
+        // Retornar SOLO los resultados calculados
+        $resultado = new Resultado_JSON('operaciones', [
+            'a' => $a,
+            'b' => $b,
+            'suma' => $a + $b,
+            'resta' => $a - $b,
+            'multiplicacion' => $a * $b,
+            'division' => $b == 0 ? null : round($a / $b, 4)
+        ]);
 
         return $resultado->toArray();
     }

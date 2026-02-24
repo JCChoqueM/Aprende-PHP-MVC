@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Texto;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio6
@@ -18,23 +19,20 @@ class Ejercicio6
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $base = $validacion['datos']['campo1'];
         $altura = $validacion['datos']['campo2'];
         $area = ($base * $altura) / 2;
 
-        $resultado = new Resultado_Texto(
-            'Área del Triángulo',
-            "Base: {$base}m | Altura: {$altura}m | Área: {$area}m²"
-        );
+        // Retornar SOLO datos calculados
+        $resultado = new Resultado_JSON('area_triangulo', [
+            'base' => $base,
+            'altura' => $altura,
+            'area' => $area
+        ]);
 
         return $resultado->toArray();
     }

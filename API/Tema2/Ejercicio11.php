@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Scalar;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio11
@@ -17,23 +18,19 @@ class Ejercicio11
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $radio = $validacion['datos']['campo1'];
         $pi = 3.14159265359;
         $area = round($pi * $radio * $radio, 2);
 
-        $resultado = new Resultado_Scalar(
-            'Área del Círculo',
-            $area . " m²"
-        );
+        // Retornar SOLO datos calculados
+        $resultado = new Resultado_JSON('area_circulo', [
+            'radio' => $radio,
+            'area' => $area
+        ]);
 
         return $resultado->toArray();
     }

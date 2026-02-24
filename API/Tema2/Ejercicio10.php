@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Scalar;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio10
@@ -17,22 +18,18 @@ class Ejercicio10
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $lado = $validacion['datos']['campo1'];
         $area = $lado * $lado;
 
-        $resultado = new Resultado_Scalar(
-            'Área del Cuadrado',
-            $area . " m²"
-        );
+        // Retornar SOLO datos calculados
+        $resultado = new Resultado_JSON('area_cuadrado', [
+            'lado' => $lado,
+            'area' => $area
+        ]);
 
         return $resultado->toArray();
     }

@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Scalar;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio1
@@ -12,29 +13,26 @@ class Ejercicio1
     {
         // Validar entrada
         $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'multiplicando',
-            'campo2' => 'multiplicador'
+            'campo1' => 'Multiplicando',
+            'campo2' => 'Multiplicador'
         ]);
 
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $a = $validacion['datos']['campo1'];
         $b = $validacion['datos']['campo2'];
 
-        $resultado = new Resultado_Scalar(
-            'Resultado de la multiplicación',
-            $a * $b
-        );
+        // Retornar SOLO los datos necesarios
+        $resultado = new Resultado_JSON('multiplicacion', [
+            'a' => $a,
+            'b' => $b,
+            'resultado' => $a * $b
+        ]);
 
         return $resultado->toArray();
     }

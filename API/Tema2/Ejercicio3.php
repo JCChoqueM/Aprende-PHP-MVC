@@ -2,7 +2,8 @@
 
 namespace API\Tema2;
 
-use API\Resultado\Resultado_Texto;
+use API\Resultado\Resultado_JSON;
+use API\Resultado\Resultado_Error;
 use API\Validacion\ValidadorFactory;
 
 class Ejercicio3
@@ -17,23 +18,19 @@ class Ejercicio3
         $validacion = $validador->validar($_POST);
 
         if (!$validacion['valido']) {
-            return [
-                'type' => 'evaluation',
-                'data' => [
-                    'ok' => false,
-                    'message' => implode('<br>', $validacion['errores'])
-                ]
-            ];
+            $resultado = new Resultado_Error($validacion['errores']);
+            return $resultado->toArray();
         }
 
         $dolar = 6.96;
         $boliviano = $validacion['datos']['campo1'];
         $convertido = round($boliviano / $dolar, 2);
 
-        $resultado = new Resultado_Texto(
-            'Conversión de bolivianos a dólares',
-            $boliviano . " bolivianos = " . $convertido . " dólares"
-        );
+        // Retornar SOLO datos calculados
+        $resultado = new Resultado_JSON('conversion_bol', [
+            'cantidad' => $boliviano,
+            'resultado' => $convertido
+        ]);
 
         return $resultado->toArray();
     }
