@@ -8,7 +8,7 @@ class APIController
 {
     public static function ejercicioAPI(Router $router, $URL, $tema, $ejercicio)
     {
-        $class = "\\API\\Tema{$tema}\\Ejercicio{$ejercicio}";
+        $class = "\\Application\\Tema{$tema}\\Ejercicio{$ejercicio}";
 
         // Validar clase
         if (!class_exists($class)) {

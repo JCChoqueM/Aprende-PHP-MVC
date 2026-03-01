@@ -1,6 +1,6 @@
 <?php
 
-namespace API\Validacion\Reglas;
+namespace Application\Validacion\Reglas;
 
 class EsNumero
 {

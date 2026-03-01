@@ -1,8 +1,8 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Validacion\ValidacionGeneral;
+use Application\Validacion\ValidacionGeneral;
 
 class Ejercicio2
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace API\Validacion;
+namespace Application\Validacion;
 
-use API\Validacion\Reglas\EsNumero;
-use API\Validacion\Reglas\NoVacio;
+use Application\Validacion\Reglas\EsNumero;
+use Application\Validacion\Reglas\NoVacio;
 
 class ValidacionGeneral
 {

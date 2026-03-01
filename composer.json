@@ -20,7 +20,7 @@
       "Controllers\\": "./controllers",
       "View\\": "./views",
       "Ejercicios\\": "./Ejercicios",
-      "API\\": "./API"
+      "Application\\": "./Application"
     }
   },
   "require-dev": {

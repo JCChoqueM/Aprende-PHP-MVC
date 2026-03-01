@@ -1,10 +1,10 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Resultado\Resultado_JSON;
-use API\Resultado\Resultado_Error;
-use API\Validacion\ValidadorFactory;
+use Application\Resultado\Resultado_JSON;
+use Application\Resultado\Resultado_Error;
+use Application\Validacion\ValidadorFactory;
 
 class Ejercicio3
 {
