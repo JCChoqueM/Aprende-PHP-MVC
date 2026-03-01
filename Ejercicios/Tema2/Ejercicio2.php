@@ -16,7 +16,7 @@ class Ejercicio2 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
-            'dato1' => 'Convertir',
+            'dato1' => 'Dolar $',
             'placeholder1' => 'Ingrese el valor de Dolares que desea convertir',
         ];
     }
