@@ -20,7 +20,7 @@ class ValidacionGeneral
 
             foreach ($this->reglas as $regla) {
                 if (!$regla::validar($value)) {
-                    $this->errors[$inputName][] = $regla::mensaje($label);
+                    $this->errors[$inputName] = $regla::mensaje($label);
                 }
             }
         }
