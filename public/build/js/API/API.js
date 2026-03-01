@@ -1,0 +1,1 @@
+document.getElementById("btnResolver").addEventListener("click",async function(e){e.preventDefault();const t=window.location.pathname,n=`/api${t}`,a=new FormData(document.querySelector("form")),o=await fetch(n,{method:"POST",body:a}),r=await o.json();(await import(`./renders${t}.js`)).render(r)});//# sourceMappingURL=API.js.map

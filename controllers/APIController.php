@@ -25,7 +25,7 @@ class APIController
         // Ejecutar lógica del ejercicio
         $resultado = $class::procesar($router);
 
-        echo json_encode($resultado);
+        echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
     }
 
     private static function jsonError(string $mensaje): void

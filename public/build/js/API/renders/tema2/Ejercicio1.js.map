@@ -1,0 +1,1 @@
+{"version":3,"file":"API/renders/tema2/Ejercicio1.js","names":["render","data","document","getElementById","innerHTML","campo1","campo2","resultado"],"sources":["API/renders/tema2/Ejercicio1.js"],"mappings":"OAEO,SAASA,OAAOC,GACnBC,SAASC,eAAe,aAAaC,UAAY,yBAC/BH,EAAKI,mCACLJ,EAAKK,qCACHL,EAAKM,qBAE7B","ignoreList":[]}

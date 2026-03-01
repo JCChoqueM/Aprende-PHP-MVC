@@ -1,0 +1,1 @@
+{"version":3,"file":"API/renders/tema2/ejercicio2.js","names":["render","data","document","getElementById","innerHTML","dolar","resultado"],"sources":["API/renders/tema2/ejercicio2.js"],"mappings":"OAEO,SAASA,OAAOC,GAGnBC,SAASC,eAAe,aAAaC,UAAY,oEACYH,EAAKI,yGACYJ,EAAKK,oCAGvF","ignoreList":[]}
