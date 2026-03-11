@@ -4,9 +4,9 @@ namespace Application\Validacion\Reglas;
 
 class NoVacio
 {
-    public static function validar($value): bool
+    public static function validar(mixed $value): bool
     {
-        return $value !== null && trim((string)$value) !== '';
+        return $value !== null && $value !== '';
     }
 
     public static function mensaje(string $field): string

@@ -43,7 +43,7 @@
 
     <script src="<?= BASE_URL ?>build/js/bundle.js"></script>
 
-    <script type="module" src="<?= BASE_URL ?>build/js/API/API.js"></script>
+    <script type="module" src="<?= BASE_URL ?>build/js/app/main.js"></script>
 
 
 

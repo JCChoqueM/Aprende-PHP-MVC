@@ -2,30 +2,28 @@
 
 namespace Application\Tema2;
 
-use Application\Validacion\ValidacionGeneral;
+use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio2
 {
-
     public static function procesar(): array
     {
-$result = (new ValidacionGeneral())->procesar(
-            ['campo1'=>'dolar'],      
+
+        $validador = (new ValidacionNumero())->agregarRegla(NoNegativo::class);
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['Dolar'],
         );
 
-        if (!$result['success']) {
-            return $result;
-        }
-        $dolar = $result['campo1'];
+        if (!$result['success']) return $result;
+
+        $campo1 = $result['input']['Dolar'];
         $boliviano = 6.96;
-       
+        $resultado = round($boliviano * $campo1, 2);
 
-        $resultado = $dolar * $boliviano;
+        $result['respuesta'] = $resultado;
 
-        return ([
-            'success'   => true,
-            'dolar'    => $dolar,
-            'resultado' => $resultado,
-        ]);
+        return $result;
     }
 }

@@ -2,15 +2,16 @@
 
 namespace Application\Validacion\Reglas;
 
-class EsNumero
+class NoNegativo
 {
     public static function validar(mixed $value): bool
     {
-        return is_numeric($value);
+        if (!is_numeric($value)) return true; // no es su responsabilidad
+        return $value >= 0;
     }
 
     public static function mensaje(string $field): string
     {
-        return "'$field' debe ser un número";
+        return "'$field' no puede ser negativo";
     }
 }

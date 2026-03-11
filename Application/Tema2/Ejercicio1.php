@@ -2,28 +2,26 @@
 
 namespace Application\Tema2;
 
-use Application\Validacion\ValidacionGeneral;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio1
 {
     public static function procesar(): array
     {
-        $result = (new ValidacionGeneral())->procesar(
-            ['campo1'=>'Multiplicando',
-             'campo2'=>'Multiplicador'],      
+        $validador = (new ValidacionNumero());
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['Multiplicando', 'Multiplicador'],
         );
 
-        if (!$result['success']) {
-            return $result;
-        }
-        $campo1 = $result['campo1'];
-        $campo2 = $result['campo2'];
+        if (!$result['success']) return $result;
 
-        return [
-            'success'   => true,
-            'campo1'    => $campo1,
-            'campo2'    => $campo2,
-            'resultado' => $campo1 * $campo2,
-        ];
+        $campo1 = $result['input']['Multiplicando'];
+        $campo2 = $result['input']['Multiplicador'];
+        $resultado = round($campo1 * $campo2, 2);
+
+        $result['respuesta'] = $resultado;
+
+        return $result;
     }
 }
