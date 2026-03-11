@@ -1,6 +1,7 @@
-// js/temas/Tema2/Ejercicio1.js
+// js/app/ui/renders/tema2/ejercicio1.js
+import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    document.getElementById('phpResult').innerHTML =
-        `<p>${data.input.Multiplicando} x ${data.input.Multiplicador} = ${data.respuesta}</p>`;
+    const { Multiplicando, Multiplicador } = data.input;
+    mostrarResultado(`${Multiplicando} x ${Multiplicador} = ${data.respuesta}`);
 }

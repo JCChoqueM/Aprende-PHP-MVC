@@ -13,7 +13,7 @@ class Ejercicio3
         $validador = (new ValidacionNumero())->agregarRegla(NoNegativo::class);
         $result = $validador->ValidacionNumero(
             $_POST,
-            ['Boliviano'],
+            ['Bolivianos'],
         );
 
         if (!$result['success']) return $result;

@@ -1,1 +1,0 @@
-import{renderizadores}from"./renderers/index.js";export class ResultadoRenderer{constructor(e){this.elemento=e,Object.entries(renderizadores).forEach(([e,t])=>{this[e]=t})}render(e){if(this.elemento&&e&&e.type&&"function"==typeof this[e.type]){const t=this[e.type](e);this.elemento.innerHTML=t}}}//# sourceMappingURL=06-ResultadoRenderer.js.map

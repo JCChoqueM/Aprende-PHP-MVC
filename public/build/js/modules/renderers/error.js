@@ -1,1 +1,0 @@
-export function error(r){const{errores:n}=r;if(!n||!n.length)return"";return`\n        <div class="resultado-error">\n            <h4>Errores de validación:</h4>\n            <ul class="error-list">${n.map(r=>`<li>${r}</li>`).join("")}</ul>\n        </div>\n    `}//# sourceMappingURL=error.js.map

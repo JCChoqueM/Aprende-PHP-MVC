@@ -1,39 +1,26 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Resultado\Resultado_JSON;
-use API\Resultado\Resultado_Error;
-use API\Validacion\ValidadorFactory;
+use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio5
 {
     public static function procesar(): array
     {
-        // Validar entrada
-        $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'Base',
-            'campo2' => 'Altura'
-        ]);
 
-        $validacion = $validador->validar($_POST);
-
-        if (!$validacion['valido']) {
-            $resultado = new Resultado_Error($validacion['errores']);
-            return $resultado->toArray();
-        }
-
-        $base = $validacion['datos']['campo1'];
-        $altura = $validacion['datos']['campo2'];
-        $area = $base * $altura;
-
-        // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON(
-            'tema2_ejercicio5',
-            ['base' => $base, 'altura' => $altura],
-            ['area' => $area]
+        $validador = (new ValidacionNumero())->agregarRegla(NoNegativo::class);
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['Base', 'Altura'],
         );
 
-        return $resultado->toArray();
+        if (!$result['success']) return $result;
+        ['Base' => $Base, 'Altura' => $Altura] = $result['input'];
+
+        $area = $Base * $Altura;
+        $result['respuesta'] = $area;
+        return $result;
     }
 }

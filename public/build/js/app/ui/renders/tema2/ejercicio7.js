@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Compra:o,baseImponible:t}=r.input,{iva:e,total:a}=r.respuesta;mostrarResultado(`\n        Compra: ${o} <br>\n        IVA (${t}%): ${e} <br>\n        Total: ${a}\n    `)}//# sourceMappingURL=ejercicio7.js.map

@@ -1,6 +1,7 @@
 import { post } from './http/apiClient.js';
 import { renderErrores } from './ui/renderErrores.js';
 
+
 document
     .getElementById('btnResolver')
     .addEventListener('click', async (event) => {

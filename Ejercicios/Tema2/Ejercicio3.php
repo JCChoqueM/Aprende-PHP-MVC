@@ -17,7 +17,7 @@ introducir por teclado.';
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
-            'dato1' => 'Convertir',
+            'dato1' => 'Bolivianos',
             'placeholder1' => 'Ingrese el valor de Bolivianos que desea convertir',
         ];
     }

@@ -2,5 +2,5 @@
 import { mostrarResultado } from '../renderResult.js';
 
 export function render(data) {
-    mostrarResultado(`${data.input.Dolar} $. = ${data.respuesta}`);
+    mostrarResultado(`${data.input.Boliviano} Bs. = ${data.respuesta}`);
 }

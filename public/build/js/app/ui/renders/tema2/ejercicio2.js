@@ -1,1 +1,1 @@
-export function render(e){document.getElementById("phpResult").innerHTML=`<p>${e.input.Multiplicando} x ${e.input.Multiplicador} = ${e.respuesta}</p>`}//# sourceMappingURL=ejercicio2.js.map
+import{mostrarResultado}from"../renderResult.js";export function render(r){mostrarResultado(`${r.input.Dolar} $. = ${r.respuesta}`)}//# sourceMappingURL=ejercicio2.js.map

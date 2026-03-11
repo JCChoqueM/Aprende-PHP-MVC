@@ -1,40 +1,29 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Resultado\Resultado_JSON;
-use API\Resultado\Resultado_Error;
-use API\Validacion\ValidadorFactory;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio9
 {
     public static function procesar(): array
     {
-        // Validar entrada
-        $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'Radio',
-            'campo2' => 'Altura'
-        ]);
-
-        $validacion = $validador->validar($_POST);
-
-        if (!$validacion['valido']) {
-            $resultado = new Resultado_Error($validacion['errores']);
-            return $resultado->toArray();
-        }
-
-        $radio = $validacion['datos']['campo1'];
-        $altura = $validacion['datos']['campo2'];
-        $pi = 3.14159265359;
-        $volumen = round($pi * $radio * $radio * $altura, 2);
-
-        // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON(
-            'tema2_ejercicio9',
-            ['radio' => $radio, 'altura' => $altura],
-            ['volumen' => $volumen]
+        $validador = (new ValidacionNumero());
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['radio', 'altura'],
         );
 
-        return $resultado->toArray();
+        if (!$result['success']) return $result;
+        ['radio' => $radio, 'altura' => $altura] = $result['input'];
+
+        // V = (1/3) * π * r² * h
+        $volumen = round((1/3) * M_PI * pow($radio, 2) * $altura, 2);
+
+        $result['respuesta'] = [
+            'volumen' => $volumen,
+        ];
+
+        return $result;
     }
 }

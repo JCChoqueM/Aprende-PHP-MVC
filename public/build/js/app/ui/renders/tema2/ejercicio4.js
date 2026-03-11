@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{primerNumero:e,segundoNumero:n}=r.input,{suma:o,resta:s,multiplicacion:t,division:$}=r.respuesta;mostrarResultado(`\n        ${e} + ${n} = ${o} <br>\n        ${e} - ${n} = ${s} <br>\n        ${e} x ${n} = ${t} <br>\n        ${e} ÷ ${n} = ${$}\n    `)}//# sourceMappingURL=ejercicio4.js.map

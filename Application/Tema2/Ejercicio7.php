@@ -1,40 +1,33 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Resultado\Resultado_JSON;
-use API\Resultado\Resultado_Error;
-use API\Validacion\ValidadorFactory;
+use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio7
 {
     public static function procesar(): array
     {
-        // Usar el Factory para validación
-        $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'Precio de compra',
-            'campo2' => 'Porcentaje IVA'
-        ]);
 
-        $validacion = $validador->validar($_POST);
-
-        if (!$validacion['valido']) {
-            $resultado = new Resultado_Error($validacion['errores']);
-            return $resultado->toArray();
-        }
-
-        $compra = $validacion['datos']['campo1'];
-        $porcentajeIVA = $validacion['datos']['campo2'];
-        $iva = $compra * ($porcentajeIVA / 100);
-        $total = $compra + $iva;
-
-        // Retornar SOLO los datos calculados
-        $resultado = new Resultado_JSON(
-            'tema2_ejercicio7',
-            ['precioBase' => round($compra, 2), 'porcentajeIVA' => $porcentajeIVA],
-            ['montoIVA' => round($iva, 2), 'total' => round($total, 2)]
+        $validador = (new ValidacionNumero())->agregarRegla(NoNegativo::class);
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['Compra', 'baseImponible'],
         );
 
-        return $resultado->toArray();
+        if (!$result['success']) return $result;
+        ['Compra' => $Compra, 'baseImponible' => $baseImponible] = $result['input'];
+
+
+        $iva        = round($Compra * ($baseImponible / 100), 2);
+        $total      = round($Compra + $iva, 2);
+
+        $result['respuesta'] = [
+            'iva'   => $iva,
+            'total' => $total,
+        ];
+
+        return $result;
     }
 }

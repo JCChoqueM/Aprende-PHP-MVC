@@ -1,39 +1,31 @@
 <?php
 
-namespace API\Tema2;
+namespace Application\Tema2;
 
-use API\Resultado\Resultado_JSON;
-use API\Resultado\Resultado_Error;
-use API\Validacion\ValidadorFactory;
+use Application\Validacion\ValidacionNumero;
 
 class Ejercicio8
 {
+    private const PRECIO_HORA = 12;
+
     public static function procesar(): array
     {
-        // Validar entrada
-        $validador = ValidadorFactory::numericoPositivo([
-            'campo1' => 'Base',
-            'campo2' => 'Altura'
-        ]);
-
-        $validacion = $validador->validar($_POST);
-
-        if (!$validacion['valido']) {
-            $resultado = new Resultado_Error($validacion['errores']);
-            return $resultado->toArray();
-        }
-
-        $base = $validacion['datos']['campo1'];
-        $altura = $validacion['datos']['campo2'];
-        $area = $base * $altura;
-
-        // Retornar SOLO datos calculados
-        $resultado = new Resultado_JSON(
-            'tema2_ejercicio8',
-            ['base' => $base, 'altura' => $altura],
-            ['area' => $area]
+        $validador = (new ValidacionNumero());
+        $result = $validador->ValidacionNumero(
+            $_POST,
+            ['horasTrabajadas'],
         );
 
-        return $resultado->toArray();
+        if (!$result['success']) return $result;
+        ['horasTrabajadas' => $horas] = $result['input'];
+
+        $salario = round($horas * self::PRECIO_HORA, 2);
+
+        $result['respuesta'] = [
+            'precioHora' => self::PRECIO_HORA,
+            'salario'    => $salario,
+        ];
+
+        return $result;
     }
 }
