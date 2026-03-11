@@ -2,25 +2,18 @@
 
 namespace Application\Tema2;
 
-use Application\Validacion\ValidacionNumero;
+use Application\AbstractEjercicio;
 
-class Ejercicio1
+class Ejercicio1 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $validador = (new ValidacionNumero());
-        $result = $validador->ValidacionNumero(
-            $_POST,
-            ['Multiplicando', 'Multiplicador'],
-        );
-
+        $result = self::validar(['Multiplicando', 'Multiplicador']);
         if (!$result['success']) return $result;
 
-        $campo1 = $result['input']['Multiplicando'];
-        $campo2 = $result['input']['Multiplicador'];
-        $resultado = round($campo1 * $campo2, 2);
+        ['Multiplicando' => $multiplicando, 'Multiplicador' => $multiplicador] = $result['input'];
 
-        $result['respuesta'] = $resultado;
+        $result['respuesta'] = round($multiplicando * $multiplicador, 2);
 
         return $result;
     }

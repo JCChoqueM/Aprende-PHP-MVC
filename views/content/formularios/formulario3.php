@@ -31,9 +31,6 @@
                     </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn btn-success" id="btnResolver">▶️ Ejecutar</button>
-                    <button type="button" class="btn btn-error" onclick="clearForm()">🗑️ Limpiar</button>
-                </div>
+                 <?php include_once __DIR__ . '/botones.php'; ?>
             </form>
         </div>

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Horas Trabajadas":a}=r.input,{precioHora:o,salario:s}=r.respuesta;mostrarResultado(`\n        Horas trabajadas: ${a} <br>\n        Precio por hora: ${o}€ <br>\n        Salario semanal: ${s}€\n    `)}//# sourceMappingURL=ejercicio8.js.map

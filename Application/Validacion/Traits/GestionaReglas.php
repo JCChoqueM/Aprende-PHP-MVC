@@ -4,7 +4,7 @@ namespace Application\Validacion\Traits;
 
 trait GestionaReglas
 {
-    public function agregarRegla(string $regla): self
+    public function agregarRegla(string|object $regla): self
     {
         $this->reglas[] = $regla;
         return $this;

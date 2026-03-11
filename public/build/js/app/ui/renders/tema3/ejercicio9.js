@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(o){const{Radio:r,Altura:e}=o.input,{volumen:t}=o.respuesta;mostrarResultado(`\n        Radio: ${r}m, Altura: ${e}m <br>\n        Volumen del cono: ${t} m³\n    `)}//# sourceMappingURL=ejercicio9.js.map

@@ -2,27 +2,21 @@
 
 namespace Application\Tema2;
 
+use Application\AbstractEjercicio;
 use Application\Validacion\Reglas\NoNegativo;
-use Application\Validacion\ValidacionNumero;
 
-class Ejercicio3
+class Ejercicio3 extends AbstractEjercicio
 {
+    private const TIPO_CAMBIO = 6.96;
+
     public static function procesar(): array
     {
-
-        $validador = (new ValidacionNumero())->agregarRegla(NoNegativo::class);
-        $result = $validador->ValidacionNumero(
-            $_POST,
-            ['Bolivianos'],
-        );
+        $result = self::validar(['Bolivianos'], [NoNegativo::class]);
 
         if (!$result['success']) return $result;
+        ['Bolivianos' => $bolivianos] = $result['input'];
 
-        $valorIngresado = $result['input']['Boliviano'];
-   
-        $resultado = round($valorIngresado / 6.96, 2);
-
-        $result['respuesta'] = $resultado;
+        $result['respuesta'] = round($bolivianos / self::TIPO_CAMBIO, 2);
 
         return $result;
     }

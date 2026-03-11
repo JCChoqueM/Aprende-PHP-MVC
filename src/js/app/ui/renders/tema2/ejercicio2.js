@@ -1,6 +1,7 @@
-// js/app/ui/renders/tema2/ejercicio2.js
-import { mostrarResultado } from '../renderResult.js';
+import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    mostrarResultado(`${data.input.Dolar} $. = ${data.respuesta}`);
+    const { 'Dolar $': dolar } = data.input;
+
+    mostrarResultado(`${dolar} $ = ${data.respuesta} Bs.`);
 }

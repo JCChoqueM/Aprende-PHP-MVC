@@ -9,8 +9,15 @@ trait ValidaCampo
         $errores = [];
 
         foreach ($this->reglas as $regla) {
-            if (!$regla::validar($value)) {
-                $errores[] = $regla::mensaje($label);
+            // instancia (new Rango(1,7)) o clase estática (NoNegativo::class)
+            if (is_object($regla)) {
+                if (!$regla->validar($value)) {
+                    $errores[] = $regla->mensaje($label);
+                }
+            } else {
+                if (!$regla::validar($value)) {
+                    $errores[] = $regla::mensaje($label);
+                }
             }
         }
 

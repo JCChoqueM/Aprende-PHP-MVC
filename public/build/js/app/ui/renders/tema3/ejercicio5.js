@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Base:e,Altura:t}=r.input;mostrarResultado(`Área del rectángulo: ${e} x ${t} = ${r.respuesta} m²`)}//# sourceMappingURL=ejercicio5.js.map

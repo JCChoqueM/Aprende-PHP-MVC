@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número del día":r}=e.input;mostrarResultado(`El día ${r} es: ${e.respuesta}`)}//# sourceMappingURL=ejercicio3.js.map
