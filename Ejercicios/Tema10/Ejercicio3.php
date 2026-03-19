@@ -6,22 +6,20 @@ use Ejercicios\EjercicioBase;
 
 class Ejercicio3 extends EjercicioBase
 {
-
-
     protected static function obtenerConfiguracionFormulario(): array
     {
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base (metros)',
+            'dato1' => 'Base',
             'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura (metros)',
+            'dato2' => 'Altura',
             'placeholder2' => 'Ingrese la altura del rectángulo',
         ];
     }
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que calcule el área de un rectángulo.Añade estilos a la aplicación para hacerla más atractiva.';
+        return 'Escribe un programa que calcule el área de un rectángulo. Añade estilos a la aplicación para hacerla más atractiva.';
     }
 }
