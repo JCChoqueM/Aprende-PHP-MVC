@@ -6,23 +6,22 @@ use Ejercicios\EjercicioBase;
 
 class Ejercicio8 extends EjercicioBase
 {
-
-
     protected static function obtenerConfiguracionFormulario(): array
     {
         return [
             'formularioBool' => true,
-            'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base (metros)',
-            'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura (metros)',
-            'placeholder2' => 'Ingrese la altura del rectángulo',
+            'nombreFormulario' => 'formulario3',
+            'dato1' => 'Nota 1',
+            'placeholder1' => 'Ingrese la primera nota',
+            'dato2' => 'Nota 2',
+            'placeholder2' => 'Ingrese la segunda nota',
+            'dato3' => 'Nota 3',
+            'placeholder3' => 'Ingrese la tercera nota',
         ];
     }
 
     protected static function enunciado(): string
     {
-        return 'Amplía el programa anterior para que diga la nota del boletín (insuficiente, suficiente, bien, notable
-o sobresaliente).';
+        return 'Amplía el programa anterior para que diga la nota del boletín (insuficiente, suficiente, bien, notable o sobresaliente).';
     }
 }

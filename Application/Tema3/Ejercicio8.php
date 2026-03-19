@@ -1,25 +1,28 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\Reglas\Rango;
 
 class Ejercicio8 extends AbstractEjercicio
 {
-    private const PRECIO_HORA = 12;
-
     public static function procesar(): array
     {
-        $result = self::validar(['Horas Trabajadas'], [NoNegativo::class]);
-
+        $result = self::validar(['Nota 1', 'Nota 2', 'Nota 3'], [new Rango(0, 10)]);
         if (!$result['success']) return $result;
-        ['Horas Trabajadas' => $horas] = $result['input'];
 
-        $result['respuesta'] = [
-            'precioHora' => self::PRECIO_HORA,
-            'salario'    => round($horas * self::PRECIO_HORA, 2),
-        ];
+        ['Nota 1' => $nota1, 'Nota 2' => $nota2, 'Nota 3' => $nota3] = $result['input'];
+
+        // El render esperará:
+        // data.input['Nota 1'] → primera nota
+        // data.input['Nota 2'] → segunda nota
+        // data.input['Nota 3'] → tercera nota
+        // data.respuesta.media      → media de las tres notas
+        // data.respuesta.calificacion → insuficiente, suficiente, bien, notable o sobresaliente
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

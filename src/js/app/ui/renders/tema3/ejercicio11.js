@@ -1,8 +1,7 @@
 import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    const { Kilobytes: kb } = data.input;
-    const { megabytes } = data.respuesta;
+    const { Horas: horas, Minutos: minutos } = data.input;
 
-    mostrarResultado(`${kb} KB = ${megabytes} MB`);
+    mostrarResultado(`Hora: ${horas}:${minutos} → Segundos para medianoche: ${data.respuesta}`);
 }

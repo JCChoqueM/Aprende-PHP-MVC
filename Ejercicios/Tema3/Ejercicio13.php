@@ -6,17 +6,17 @@ use Ejercicios\EjercicioBase;
 
 class Ejercicio13 extends EjercicioBase
 {
-
-
     protected static function obtenerConfiguracionFormulario(): array
     {
         return [
             'formularioBool' => true,
-            'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base (metros)',
-            'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura (metros)',
-            'placeholder2' => 'Ingrese la altura del rectángulo',
+            'nombreFormulario' => 'formulario3',
+            'dato1' => 'Número 1',
+            'placeholder1' => 'Ingrese el primer número',
+            'dato2' => 'Número 2',
+            'placeholder2' => 'Ingrese el segundo número',
+            'dato3' => 'Número 3',
+            'placeholder3' => 'Ingrese el tercer número',
         ];
     }
 

@@ -1,24 +1,26 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\Reglas\Rango;
 
 class Ejercicio11 extends AbstractEjercicio
 {
-    private const KB_A_MB = 1024;
-
     public static function procesar(): array
     {
-        $result = self::validar(['Kilobytes'], [NoNegativo::class]);
-
+        $result = self::validar(['Horas', 'Minutos'], [new Rango(0, 59)]);
         if (!$result['success']) return $result;
-        ['Kilobytes' => $kb] = $result['input'];
 
-        $result['respuesta'] = [
-            'megabytes' => round($kb / self::KB_A_MB, 4),
-        ];
+        ['Horas' => $horas, 'Minutos' => $minutos] = $result['input'];
+
+        // El render esperará:
+        // data.input.Horas    → horas (0-23)
+        // data.input.Minutos  → minutos (0-59)
+        // data.respuesta      → segundos que faltan para medianoche
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

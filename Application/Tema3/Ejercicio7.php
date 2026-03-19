@@ -1,26 +1,27 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\Reglas\Rango;
 
 class Ejercicio7 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Compra', 'baseImponible'], [NoNegativo::class]);
-
+        $result = self::validar(['Nota 1', 'Nota 2', 'Nota 3'], [new Rango(0, 10)]);
         if (!$result['success']) return $result;
-        ['Compra' => $compra, 'baseImponible' => $baseImponible] = $result['input'];
 
-        $iva   = round($compra * ($baseImponible / 100), 2);
-        $total = round($compra + $iva, 2);
+        ['Nota 1' => $nota1, 'Nota 2' => $nota2, 'Nota 3' => $nota3] = $result['input'];
 
-        $result['respuesta'] = [
-            'iva'   => $iva,
-            'total' => $total,
-        ];
+        // El render esperará:
+        // data.input['Nota 1'] → primera nota
+        // data.input['Nota 2'] → segunda nota
+        // data.input['Nota 3'] → tercera nota
+        // data.respuesta       → media de las tres notas
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

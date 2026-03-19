@@ -1,11 +1,7 @@
 import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    const { Radio: radio, Altura: altura } = data.input;
-    const { volumen } = data.respuesta;
+    const { a, b, c } = data.input;
 
-    mostrarResultado(`
-        Radio: ${radio}m, Altura: ${altura}m <br>
-        Volumen del cono: ${volumen} m³
-    `);
+    mostrarResultado(`${a}x² + ${b}x + ${c} = 0 → ${data.respuesta}`);
 }

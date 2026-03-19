@@ -1,20 +1,25 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
 
 class Ejercicio5 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Base', 'Altura'], [NoNegativo::class]);
-
+        $result = self::validar(['a', 'b']);
         if (!$result['success']) return $result;
-        ['Base' => $base, 'Altura' => $altura] = $result['input'];
 
-        $result['respuesta'] = round($base * $altura, 2);
+        ['a' => $a, 'b' => $b] = $result['input'];
+
+        // El render esperará:
+        // data.input.a       → coeficiente a
+        // data.input.b       → coeficiente b
+        // data.respuesta     → solución x o mensaje de error si a = 0
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

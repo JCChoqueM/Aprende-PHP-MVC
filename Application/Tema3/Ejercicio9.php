@@ -1,22 +1,26 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
 
 class Ejercicio9 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Radio', 'Altura'], [NoNegativo::class]);
-
+        $result = self::validar(['a', 'b', 'c']);
         if (!$result['success']) return $result;
-        ['Radio' => $radio, 'Altura' => $altura] = $result['input'];
 
-        $result['respuesta'] = [
-            'volumen' => round((1/3) * M_PI * pow($radio, 2) * $altura, 2),
-        ];
+        ['a' => $a, 'b' => $b, 'c' => $c] = $result['input'];
+
+        // El render esperará:
+        // data.input.a           → coeficiente a
+        // data.input.b           → coeficiente b
+        // data.input.c           → coeficiente c
+        // data.respuesta         → soluciones x1, x2 o mensaje (sin solución, solución doble)
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

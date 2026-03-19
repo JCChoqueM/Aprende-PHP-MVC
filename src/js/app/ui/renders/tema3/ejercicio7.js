@@ -1,13 +1,7 @@
-// js/app/ui/renders/tema2/ejercicio6.js
 import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    const { Compra, baseImponible } = data.input;
-    const { iva, total } = data.respuesta;
+    const { 'Nota 1': nota1, 'Nota 2': nota2, 'Nota 3': nota3 } = data.input;
 
-    mostrarResultado(`
-        Compra: ${Compra} <br>
-        IVA (${baseImponible}%): ${iva} <br>
-        Total: ${total}
-    `);
+    mostrarResultado(`Notas: ${nota1}, ${nota2}, ${nota3} → Media: ${data.respuesta}`);
 }

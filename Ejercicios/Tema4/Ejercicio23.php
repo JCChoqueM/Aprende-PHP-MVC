@@ -6,24 +6,15 @@ use Ejercicios\EjercicioBase;
 
 class Ejercicio23 extends EjercicioBase
 {
-
+    // PENDIENTE: requiere input dinámico (hasta suma > 10000)
 
     protected static function obtenerConfiguracionFormulario(): array
     {
-        return [
-            'formularioBool' => true,
-            'nombreFormulario' => 'formulario2',
-            'dato1' => 'Base (metros)',
-            'placeholder1' => 'Ingrese la base del rectángulo',
-            'dato2' => 'Altura (metros)',
-            'placeholder2' => 'Ingrese la altura del rectángulo',
-        ];
+        return ['formularioBool' => false];
     }
 
     protected static function enunciado(): string
     {
-        return 'Escribe un programa que permita ir introduciendo una serie indeterminada de números hasta que la
-suma de ellos supere el valor 10000. Cuando esto último ocurra, se debe mostrar el total acumulado,
-el contador de los números introducidos y la media.';
+        return 'Escribe un programa que permita ir introduciendo una serie indeterminada de números hasta que la suma de ellos supere el valor 10000. Cuando esto último ocurra, se debe mostrar el total acumulado, el contador de los números introducidos y la media.';
     }
 }

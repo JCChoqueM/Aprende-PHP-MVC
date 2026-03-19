@@ -1,24 +1,26 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\NoNegativo;
+use Application\Validacion\Reglas\Rango;
 
 class Ejercicio10 extends AbstractEjercicio
 {
-    private const MB_A_KB = 1024;
-
     public static function procesar(): array
     {
-        $result = self::validar(['Megabytes'], [NoNegativo::class]);
-
+        $result = self::validar(['Día', 'Mes'], [new Rango(1, 31)]);
         if (!$result['success']) return $result;
-        ['Megabytes' => $mb] = $result['input'];
 
-        $result['respuesta'] = [
-            'kilobytes' => $mb * self::MB_A_KB,
-        ];
+        ['Día' => $dia, 'Mes' => $mes] = $result['input'];
+
+        // El render esperará:
+        // data.input.Día     → día de nacimiento
+        // data.input.Mes     → mes de nacimiento
+        // data.respuesta     → signo del horóscopo
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

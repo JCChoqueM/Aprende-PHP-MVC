@@ -1,24 +1,25 @@
 <?php
 
-namespace Application\Tema2;
+namespace Application\Tema3;
 
 use Application\AbstractEjercicio;
+use Application\Validacion\Reglas\NoNegativo;
 
 class Ejercicio4 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Primer Número', 'Segundo Número']);
-
+        $result = self::validar(['Horas Trabajadas'], [NoNegativo::class]);
         if (!$result['success']) return $result;
-        ['Primer Número' => $a, 'Segundo Número' => $b] = $result['input'];
 
-        $result['respuesta'] = [
-            'suma'           => round($a + $b, 2),
-            'resta'          => round($a - $b, 2),
-            'multiplicacion' => round($a * $b, 2),
-            'division'       => $b != 0 ? round($a / $b, 2) : 'No se puede dividir por 0',
-        ];
+        ['Horas Trabajadas' => $horas] = $result['input'];
+
+        // El render esperará:
+        // data.input['Horas Trabajadas'] → horas trabajadas
+        // data.respuesta                 → salario semanal
+
+        // Tu lógica aquí
+        // $result['respuesta'] = ...
 
         return $result;
     }

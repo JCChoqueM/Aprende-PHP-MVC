@@ -1,8 +1,7 @@
 import { mostrarResultado } from '../../renderResult.js';
 
 export function render(data) {
-    const { Megabytes: mb } = data.input;
-    const { kilobytes } = data.respuesta;
+    const { Día: dia, Mes: mes } = data.input;
 
-    mostrarResultado(`${mb} MB = ${kilobytes} KB`);
+    mostrarResultado(`Fecha: ${dia}/${mes} → Horóscopo: ${data.respuesta}`);
 }
