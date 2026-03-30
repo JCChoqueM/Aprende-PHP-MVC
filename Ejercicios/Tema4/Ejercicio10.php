@@ -10,7 +10,12 @@ class Ejercicio10 extends EjercicioBase
 
     protected static function obtenerConfiguracionFormulario(): array
     {
-        return ['formularioBool' => false];
+       return [
+            'formularioBool' => true,
+            'nombreFormulario' => 'formulario1',
+            'dato1' => 'Número',
+            'placeholder1' => 'Ingrese un número entero',
+        ];
     }
 
     protected static function enunciado(): string

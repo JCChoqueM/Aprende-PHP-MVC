@@ -8,6 +8,7 @@ export function render(data) {
     ).join('');
 
     mostrarResultado(`
+        <h3>Tablas de multiplicar del número ${numero}</h3>
         <table border="1">
             <thead><tr><th>Operación</th><th>Resultado</th></tr></thead>
             <tbody>${filas}</tbody>

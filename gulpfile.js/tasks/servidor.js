@@ -15,9 +15,9 @@ export function servidor(done) {
 
         // Archivos a observar
         files: [
-            'public/build/**/*.css',
-            'public/build/**/*.js',
-            'public/build/img/**/*',
+           //!RULES 'public/build/**/*.css',
+           //!RULES 'public/build/**/*.js',
+           //!RULES 'public/build/img/**/*',
             'views/**/*.php',
             'src/**/*.php',
             'controllers/**/*.php',
