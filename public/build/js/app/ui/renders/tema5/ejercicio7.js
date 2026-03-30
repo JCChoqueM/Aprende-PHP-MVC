@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{original:o,ordenado:e}=r.respuesta;mostrarResultado(`\n        Array original: ${o.join(", ")} <br><br>\n        Array ordenado (pares primero): ${e.join(", ")}\n    `)}//# sourceMappingURL=ejercicio7.js.map

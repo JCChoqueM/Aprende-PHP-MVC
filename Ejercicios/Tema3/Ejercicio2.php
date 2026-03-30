@@ -11,7 +11,7 @@ class Ejercicio2 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
-            'dato1' => 'Hora',
+            'dato1' => 'Introduzca una hora del día (0 - 23):',
             'placeholder1' => 'Ingrese la hora (0-23)',
         ];
     }

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":t,Cantidad:o}=r.input;mostrarResultado(`${t} quitando ${o} dígito(s) por detrás → ${r.respuesta}`)}//# sourceMappingURL=ejercicio9.js.map

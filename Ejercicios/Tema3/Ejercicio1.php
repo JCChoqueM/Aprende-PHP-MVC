@@ -11,7 +11,8 @@ class Ejercicio1 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
-            'dato1' => 'Día de la semana',
+            'dato1' => 'Por favor, introduzca un día de la semana  (en minúsculas) y le diré
+        qué asignatura toca a primera hora ese día:',
             'placeholder1' => 'Ingrese un número del 1 (Lunes) al 7 (Domingo)',
         ];
     }

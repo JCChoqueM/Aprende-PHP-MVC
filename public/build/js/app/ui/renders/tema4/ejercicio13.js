@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(o){const{positivos:s,negativos:r}=o.respuesta;mostrarResultado(`\n        Números positivos: ${s} <br>\n        Números negativos: ${r}\n    `)}//# sourceMappingURL=ejercicio13.js.map

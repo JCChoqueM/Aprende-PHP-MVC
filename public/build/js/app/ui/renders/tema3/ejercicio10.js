@@ -1,1 +1,1 @@
-import{mostrarResultado}from"../../renderResult.js";export function render(e){const{Megabytes:t}=e.input,{kilobytes:r}=e.respuesta;mostrarResultado(`${t} MB = ${r} KB`)}//# sourceMappingURL=ejercicio10.js.map
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Día":e,Mes:o}=r.input;mostrarResultado(`Fecha: ${e}/${o} → Horóscopo: ${r.respuesta}`)}//# sourceMappingURL=ejercicio10.js.map

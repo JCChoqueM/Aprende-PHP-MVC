@@ -7,20 +7,18 @@ use Application\Validacion\Reglas\NoNegativo;
 
 class Ejercicio6 extends AbstractEjercicio
 {
+    private const gravedad = 9.81;
     public static function procesar(): array
     {
         $result = self::validar(['Altura (metros)'], [NoNegativo::class]);
         if (!$result['success']) return $result;
 
         ['Altura (metros)' => $altura] = $result['input'];
+        $dividendo = 2 * $altura;
+        $tiempo = sqrt($dividendo / self::gravedad);
 
-        // El render esperará:
-        // data.input['Altura (metros)'] → altura en metros
-        // data.respuesta                → tiempo en segundos
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
-
+        $result['respuesta'] = round($tiempo, 2);
         return $result;
     }
 }

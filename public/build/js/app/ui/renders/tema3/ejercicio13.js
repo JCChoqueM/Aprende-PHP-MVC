@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número 1":e,"Número 2":o,"Número 3":s}=r.input;mostrarResultado(`Números: ${e}, ${o}, ${s} → Ordenados: ${r.respuesta}`)}//# sourceMappingURL=ejercicio13.js.map

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":r}=e.input;mostrarResultado(`El número ${r} ${e.respuesta?"es capicúa":"no es capicúa"}`)}//# sourceMappingURL=ejercicio1.js.map

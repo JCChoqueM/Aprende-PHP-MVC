@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input,{array:t,estaEn:n}=r.respuesta;mostrarResultado(`\n        Array: ${t.join(", ")} <br>\n        ¿Está el ${e} en el array? → ${n?"Sí":"No"}\n    `)}//# sourceMappingURL=ejercicio24.js.map

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":r,"Dígito":o}=e.input,t=e.respuesta.length>0?e.respuesta.join(", "):"no aparece";mostrarResultado(`El dígito ${o} en el número ${r} aparece en la(s) posición(es): ${t}`)}//# sourceMappingURL=ejercicio26.js.map

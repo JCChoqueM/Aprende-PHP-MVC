@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número 1":r,"Número 2":o}=e.input;mostrarResultado(`Números entre ${r} y ${o} de 7 en 7: ${e.respuesta.join(", ")}`)}//# sourceMappingURL=ejercicio18.js.map

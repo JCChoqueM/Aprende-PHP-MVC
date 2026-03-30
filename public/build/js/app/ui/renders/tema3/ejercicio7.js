@@ -1,1 +1,1 @@
-import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Compra:o,baseImponible:t}=r.input,{iva:e,total:a}=r.respuesta;mostrarResultado(`\n        Compra: ${o} <br>\n        IVA (${t}%): ${e} <br>\n        Total: ${a}\n    `)}//# sourceMappingURL=ejercicio7.js.map
+import{mostrarResultado}from"../../renderResult.js";export function render(t){const{"Nota 1":o,"Nota 2":r,"Nota 3":e}=t.input;mostrarResultado(`Notas: ${o}, ${r}, ${e} → Media: ${t.respuesta}`)}//# sourceMappingURL=ejercicio7.js.map

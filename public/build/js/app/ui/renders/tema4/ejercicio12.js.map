@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema4/ejercicio12.js","names":["mostrarResultado","render","data","terminos","input","respuesta","join"],"sources":["app/ui/renders/tema4/ejercicio12.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQ,WAAUC,GAAaD,EAAKE,MAEpCJ,iBAAiB,OAAOG,qCAA4CD,EAAKG,UAAUC,KAAK,QAC5F","ignoreList":[]}

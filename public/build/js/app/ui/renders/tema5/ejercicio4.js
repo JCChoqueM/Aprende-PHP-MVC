@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Valor a reemplazar":o,"Nuevo valor":a}=r.input,e=r.respuesta.map(r=>r.cambiado?`<span style="color: red; font-weight: bold;">${r.valor}</span>`:`${r.valor}`).join(" ");mostrarResultado(`\n        Reemplazando ${o} por ${a}: <br><br>\n        ${e}\n    `)}//# sourceMappingURL=ejercicio4.js.map

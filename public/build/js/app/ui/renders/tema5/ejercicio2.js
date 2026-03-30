@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(t){const r=t.respuesta.map(t=>`<tr><td>${t.valor}</td><td>${t.etiqueta}</td></tr>`).join("");mostrarResultado(`\n        <table border="1">\n            <thead><tr><th>Número</th><th></th></tr></thead>\n            <tbody>${r}</tbody>\n        </table>\n    `)}//# sourceMappingURL=ejercicio2.js.map

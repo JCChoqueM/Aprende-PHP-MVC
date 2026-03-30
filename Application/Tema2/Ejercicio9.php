@@ -13,9 +13,10 @@ class Ejercicio9 extends AbstractEjercicio
 
         if (!$result['success']) return $result;
         ['Radio' => $radio, 'Altura' => $altura] = $result['input'];
-
+        $volumenDividendo = M_PI * pow($radio, 2) * $altura;
+        $volumen = round($volumenDividendo / 3, 2);
         $result['respuesta'] = [
-            'volumen' => round((1/3) * M_PI * pow($radio, 2) * $altura, 2),
+            'volumen' => $volumen
         ];
 
         return $result;

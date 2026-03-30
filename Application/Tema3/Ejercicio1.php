@@ -19,7 +19,29 @@ class Ejercicio1 extends AbstractEjercicio
         // data.respuesta                 → nombre de la asignatura
 
         // Tu lógica aquí
-        // $result['respuesta'] = ...
+       switch ($dia) {
+           case 1:
+             $result['respuesta'] = 'Matematica';
+               break;
+           case 2:
+             $result['respuesta'] = 'Ingles';
+               break;
+           case 3:
+             $result['respuesta'] = 'Frances';
+               break;
+           case 4:
+             $result['respuesta'] = 'Fisica';
+               break;
+           case 5:
+               $result['respuesta'] = 'Quimica';
+               break;
+           case 6:
+             $result['respuesta'] = 'Historia';
+               break;
+           case 7:
+               $result['respuesta'] = 'Dia libre';
+               break;
+       }
 
         return $result;
     }

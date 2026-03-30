@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{array:e,media:a}=r.respuesta;mostrarResultado(`Array: ${e.join(", ")} <br> Media → ${a}`)}//# sourceMappingURL=ejercicio23.js.map

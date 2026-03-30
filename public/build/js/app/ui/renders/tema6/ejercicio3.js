@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input;mostrarResultado(`El siguiente primo mayor a ${e} es: ${r.respuesta}`)}//# sourceMappingURL=ejercicio3.js.map

@@ -17,8 +17,11 @@ class Ejercicio14 extends AbstractEjercicio
         // data.input.Número  → número entero
         // data.respuesta     → mensaje indicando si es par y/o divisible entre 5
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        // Tu lógica aqui
+        $result['respuesta'] = $numero % 2 == 0 ? 'Es par' : 'No es par';
+        if ($numero % 5 == 0) {
+            $result['respuesta'] .= ' y es divisible entre 5';
+        }
 
         return $result;
     }

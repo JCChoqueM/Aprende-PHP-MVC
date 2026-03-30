@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(t){const{Altura:e,"Símbolo":o}=t.input,r=t.respuesta.map(t=>`<div>${t}</div>`).join("");mostrarResultado(`<div style="font-family: monospace; text-align: center;">${r}</div>`)}//# sourceMappingURL=ejercicio20.js.map

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":o,"Posición":r}=e.input;mostrarResultado(`El dígito en la posición ${r} del número ${o} es: ${e.respuesta}`)}//# sourceMappingURL=ejercicio7.js.map

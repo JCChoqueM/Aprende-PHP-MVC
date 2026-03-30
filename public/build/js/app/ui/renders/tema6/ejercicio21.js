@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{array:o,minimo:e}=r.respuesta;mostrarResultado(`Array: ${o.join(", ")} <br> Mínimo → ${e}`)}//# sourceMappingURL=ejercicio21.js.map

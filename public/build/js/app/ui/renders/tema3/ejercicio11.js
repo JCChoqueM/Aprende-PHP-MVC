@@ -1,1 +1,1 @@
-import{mostrarResultado}from"../../renderResult.js";export function render(e){const{Kilobytes:t}=e.input,{megabytes:r}=e.respuesta;mostrarResultado(`${t} KB = ${r} MB`)}//# sourceMappingURL=ejercicio11.js.map
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Horas:o,Minutos:e}=r.input;mostrarResultado(`Hora: ${o}:${e} → Segundos para medianoche: ${r.respuesta}`)}//# sourceMappingURL=ejercicio11.js.map

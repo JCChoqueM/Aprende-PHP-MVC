@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input;mostrarResultado(`El número ${e} al revés es: ${r.respuesta}`)}//# sourceMappingURL=ejercicio25.js.map

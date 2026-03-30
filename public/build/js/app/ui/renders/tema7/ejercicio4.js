@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{acceso:s,mensaje:n}=e.respuesta;mostrarResultado(`\n        <span style="color: ${s?"#2ecc71":"#e74c3c"}; font-size: 1.2em;">\n            ${n}\n        </span>\n    `)}//# sourceMappingURL=ejercicio4.js.map

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Binario:e}=r.input;mostrarResultado(`${e} (binario) = ${r.respuesta} (decimal)`)}//# sourceMappingURL=ejercicio17.js.map

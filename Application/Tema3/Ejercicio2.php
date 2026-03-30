@@ -18,8 +18,15 @@ class Ejercicio2 extends AbstractEjercicio
         // data.input.Hora    → hora del 0 al 23
         // data.respuesta     → 'Buenos días', 'Buenas tardes' o 'Buenas noches'
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        // Tu lógica aqui
+
+        if ($hora >= 6 && $hora <= 12) {
+            $result['respuesta'] = 'Buenos días';
+        } elseif ($hora >= 13 && $hora <= 20) {
+            $result['respuesta'] = 'Buenas tardes';
+        } else {
+            $result['respuesta'] = 'Buenas noches';
+        }
 
         return $result;
     }

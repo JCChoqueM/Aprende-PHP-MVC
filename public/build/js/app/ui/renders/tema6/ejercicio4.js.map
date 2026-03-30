@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema6/ejercicio4.js","names":["mostrarResultado","render","data","Base","base","Exponente","exp","input","respuesta"],"sources":["app/ui/renders/tema6/ejercicio4.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQC,KAAMC,EAAMC,UAAWC,GAAQJ,EAAKK,MAE5CP,iBAAiB,GAAGI,OAAUE,OAASJ,EAAKM,YAChD","ignoreList":[]}

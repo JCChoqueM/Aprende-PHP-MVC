@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema6/ejercicio20.js","names":["mostrarResultado","render","data","n","min","max","input","respuesta","join"],"sources":["app/ui/renders/tema6/ejercicio20.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQ,SAAQC,EAAG,SAAQC,EAAK,SAAQC,GAAQH,EAAKI,MAErDN,iBAAiB,YAAYG,mBAAmBC,OAASC,MAAQH,EAAKK,UAAUC,KAAK,QACzF","ignoreList":[]}

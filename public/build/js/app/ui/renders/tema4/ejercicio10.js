@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{cantidad:e,media:o}=r.respuesta;mostrarResultado(`\n        Números introducidos: ${e} <br>\n        Media: ${o}\n    `)}//# sourceMappingURL=ejercicio10.js.map

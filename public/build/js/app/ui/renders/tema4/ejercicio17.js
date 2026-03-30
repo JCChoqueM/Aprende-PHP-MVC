@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":r}=e.input;mostrarResultado(`Suma de los 100 números siguientes a ${r}: ${e.respuesta}`)}//# sourceMappingURL=ejercicio17.js.map

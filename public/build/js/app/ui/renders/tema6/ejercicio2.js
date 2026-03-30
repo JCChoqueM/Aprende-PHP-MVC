@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input;mostrarResultado(`El número ${e} ${r.respuesta?"es primo":"no es primo"}`)}//# sourceMappingURL=ejercicio2.js.map

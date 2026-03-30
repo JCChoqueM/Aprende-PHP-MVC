@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(o){const{Posiciones:r}=o.input,{original:i,rotado:n}=o.respuesta;mostrarResultado(`\n        Array original: ${i.join(", ")} <br>\n        Rotado ${r} posición(es) a la izquierda: ${n.join(", ")}\n    `)}//# sourceMappingURL=ejercicio28.js.map

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{Filas:t}=e.input,r=e.respuesta.map(e=>`<div>${e}</div>`).join("");mostrarResultado(`<div style="font-family: Courier, monospace; text-align: center;">${r}</div>`)}//# sourceMappingURL=ejercicio24.js.map

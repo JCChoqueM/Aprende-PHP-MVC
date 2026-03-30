@@ -11,7 +11,7 @@ class Ejercicio3 extends EjercicioBase
         return [
             'formularioBool' => true,
             'nombreFormulario' => 'formulario1',
-            'dato1' => 'Número del día',
+            'dato1' => 'Introduzca un número del 1 al 7:',
             'placeholder1' => 'Ingrese un número del 1 (Lunes) al 7 (Domingo)',
         ];
     }

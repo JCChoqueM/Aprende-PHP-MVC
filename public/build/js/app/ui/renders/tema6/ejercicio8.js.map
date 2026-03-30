@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema6/ejercicio8.js","names":["mostrarResultado","render","data","n","digito","input","pos","respuesta"],"sources":["app/ui/renders/tema6/ejercicio8.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQ,SAAQC,EAAG,SAAQC,GAAWF,EAAKG,MAErCC,GAA0B,IAApBJ,EAAKK,UACX,kBACA,uBAAuBL,EAAKK,YAElCP,iBAAiB,aAAaI,kBAAuBD,KAAKG,IAC9D","ignoreList":[]}

@@ -1,1 +1,1 @@
-import{mostrarResultado}from"../../renderResult.js";export function render(r){const{Base:e,Altura:t}=r.input;mostrarResultado(`Área del triángulo: (${e} x ${t}) / 2 = ${r.respuesta} m²`)}//# sourceMappingURL=ejercicio6.js.map
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Altura (metros)":t}=r.input;mostrarResultado(`Altura: ${t}m → Tiempo de caída: ${r.respuesta} s`)}//# sourceMappingURL=ejercicio6.js.map

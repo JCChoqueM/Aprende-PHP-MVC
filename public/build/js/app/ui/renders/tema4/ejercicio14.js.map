@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema4/ejercicio14.js","names":["mostrarResultado","render","data","Base","base","Exponente","exponente","input","respuesta"],"sources":["app/ui/renders/tema4/ejercicio14.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQC,KAAMC,EAAMC,UAAWC,GAAcJ,EAAKK,MAElDP,iBAAiB,GAAGI,OAAUE,OAAeJ,EAAKM,YACtD","ignoreList":[]}

@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input;mostrarResultado(`La primera cifra de ${e} es: ${r.respuesta}`)}//# sourceMappingURL=ejercicio17.js.map

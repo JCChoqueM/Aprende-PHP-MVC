@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número 1":e,"Número 2":o}=r.input;mostrarResultado(`${e} + ${o} juntos → ${r.respuesta}`)}//# sourceMappingURL=ejercicio14.js.map

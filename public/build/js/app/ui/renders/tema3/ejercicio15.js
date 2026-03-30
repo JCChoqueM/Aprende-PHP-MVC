@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{Kilobytes:t}=e.input,{megabytes:r}=e.respuesta;mostrarResultado(`${t} KB = ${r} MB`)}//# sourceMappingURL=ejercicio15.js.map

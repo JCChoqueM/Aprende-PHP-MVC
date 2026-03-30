@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Tamaño":e,"Mínimo":o,"Máximo":t}=r.input;mostrarResultado(`Array de ${e} números entre ${o} y ${t}: ${r.respuesta.join(", ")}`)}//# sourceMappingURL=ejercicio20.js.map

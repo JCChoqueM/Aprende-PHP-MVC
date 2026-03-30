@@ -19,7 +19,29 @@ class Ejercicio3 extends AbstractEjercicio
         // data.respuesta               → nombre del día de la semana
 
         // Tu lógica aquí
-        // $result['respuesta'] = ...
+        switch ($numero) {
+            case 1:
+                $result['respuesta'] = 'Lunes';
+                break;
+            case 2:
+                $result['respuesta'] = 'Martes';
+                break;
+            case 3:
+                $result['respuesta'] = 'Miercoles';
+                break;
+            case 4:
+                $result['respuesta'] = 'Jueves';
+                break;
+            case 5:
+                $result['respuesta'] = 'Viernes';
+                break;
+            case 6:
+                $result['respuesta'] = 'Sabado';
+                break;
+            case 7:
+                $result['respuesta'] = 'Domingo';
+                break;
+        }
 
         return $result;
     }

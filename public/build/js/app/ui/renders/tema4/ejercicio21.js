@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{cantidad:e,mediaImpares:o,mayorPar:s}=r.respuesta;mostrarResultado(`\n        Números introducidos: ${e} <br>\n        Media de los impares: ${o} <br>\n        Mayor de los pares: ${s}\n    `)}//# sourceMappingURL=ejercicio21.js.map

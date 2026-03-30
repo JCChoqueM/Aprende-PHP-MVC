@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Combinación":e}=r.input,{mensaje:n}=r.respuesta;mostrarResultado(`Combinación introducida: ${e} <br> ${n}`)}//# sourceMappingURL=ejercicio7.js.map

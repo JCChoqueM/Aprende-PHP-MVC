@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{color:o,mensaje:e}=r.respuesta;mostrarResultado(`\n        <div style="background-color: ${o}; padding: 30px; border-radius: 8px;">\n            <p style="font-size:1.2em;">${e}</p>\n            <p>Color guardado: <b>${o}</b></p>\n        </div>\n    `)}//# sourceMappingURL=ejercicio7.js.map

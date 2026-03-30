@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":r}=e.input;mostrarResultado(`El número ${r} tiene ${e.respuesta} dígitos`)}//# sourceMappingURL=ejercicio9.js.map

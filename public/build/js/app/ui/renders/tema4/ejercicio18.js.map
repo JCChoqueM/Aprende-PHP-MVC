@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema4/ejercicio18.js","names":["mostrarResultado","render","data","n1","n2","input","respuesta","join"],"sources":["app/ui/renders/tema4/ejercicio18.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQ,WAAYC,EAAI,WAAYC,GAAOF,EAAKG,MAEhDL,iBAAiB,iBAAiBG,OAAQC,gBAAiBF,EAAKI,UAAUC,KAAK,QACnF","ignoreList":[]}

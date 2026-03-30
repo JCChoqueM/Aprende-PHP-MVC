@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{array:o,maximo:e}=r.respuesta;mostrarResultado(`Array: ${o.join(", ")} <br> Máximo → ${e}`)}//# sourceMappingURL=ejercicio22.js.map

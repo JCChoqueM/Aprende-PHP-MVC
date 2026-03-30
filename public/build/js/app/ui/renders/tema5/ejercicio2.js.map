@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema5/ejercicio2.js","names":["mostrarResultado","render","data","filas","respuesta","map","fila","valor","etiqueta","join"],"sources":["app/ui/renders/tema5/ejercicio2.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAMC,EAAQD,EAAKE,UAAUC,IAAIC,GAC7B,WAAWA,EAAKC,iBAAiBD,EAAKE,sBACxCC,KAAK,IAEPT,iBAAiB,kHAGAG,oCAGrB","ignoreList":[]}

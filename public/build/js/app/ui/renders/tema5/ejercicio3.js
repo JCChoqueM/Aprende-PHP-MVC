@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{original:o,rotado:n}=r.respuesta;mostrarResultado(`\n        Array original: ${o.join(", ")} <br>\n        Array rotado: ${n.join(", ")}\n    `)}//# sourceMappingURL=ejercicio3.js.map

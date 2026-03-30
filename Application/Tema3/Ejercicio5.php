@@ -13,13 +13,14 @@ class Ejercicio5 extends AbstractEjercicio
 
         ['a' => $a, 'b' => $b] = $result['input'];
 
-        // El render esperará:
-        // data.input.a       → coeficiente a
-        // data.input.b       → coeficiente b
-        // data.respuesta     → solución x o mensaje de error si a = 0
+        if ($a == 0) {
+            $result['respuesta'] = 'No tiene solución: a no puede ser 0';
+            return $result;
+        }
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $result['respuesta'] = round(-$b / $a, 2);
+
+        return $result;
 
         return $result;
     }

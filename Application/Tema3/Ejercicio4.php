@@ -18,8 +18,12 @@ class Ejercicio4 extends AbstractEjercicio
         // data.input['Horas Trabajadas'] → horas trabajadas
         // data.respuesta                 → salario semanal
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        // Tu lógica aqui
+       if ($horas <= 40) {
+            $result['respuesta'] = $horas * 12;
+        } else {
+            $result['respuesta'] = 40 * 12 + ($horas - 40) * 16;
+        }
 
         return $result;
     }

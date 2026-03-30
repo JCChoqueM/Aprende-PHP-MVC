@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(o){const{"Número":r,"Posición inicial":e,"Posición final":i}=o.input;mostrarResultado(`Trozo del número ${r} entre posición ${e} y ${i} → ${o.respuesta}`)}//# sourceMappingURL=ejercicio13.js.map

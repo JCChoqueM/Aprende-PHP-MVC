@@ -1,0 +1,1 @@
+{"version":3,"file":"app/ui/renders/tema6/ejercicio10.js","names":["mostrarResultado","render","data","n","Cantidad","cantidad","input","respuesta"],"sources":["app/ui/renders/tema6/ejercicio10.js"],"mappings":"OAASA,qBAAwB,+BAE1B,SAASC,OAAOC,GACnB,MAAQ,SAAQC,EAAGC,SAAUC,GAAaH,EAAKI,MAE/CN,iBAAiB,GAAGG,cAAcE,6BAAoCH,EAAKK,YAC/E","ignoreList":[]}

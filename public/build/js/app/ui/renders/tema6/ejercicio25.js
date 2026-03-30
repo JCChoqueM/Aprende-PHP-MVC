@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input,{array:o,posicion:n}=r.respuesta,s=-1===n?`El ${e} no se encuentra en el array`:`El ${e} está en la posición ${n}`;mostrarResultado(`Array: ${o.join(", ")} <br> ${s}`)}//# sourceMappingURL=ejercicio25.js.map

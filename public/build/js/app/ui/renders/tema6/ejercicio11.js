@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":o,"Dígito":e}=r.input;mostrarResultado(`${o} con ${e} pegado por detrás → ${r.respuesta}`)}//# sourceMappingURL=ejercicio11.js.map

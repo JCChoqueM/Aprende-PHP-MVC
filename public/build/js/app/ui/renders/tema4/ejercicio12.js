@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Términos":o}=r.input;mostrarResultado(`Los ${o} primeros términos de Fibonacci: ${r.respuesta.join(", ")}`)}//# sourceMappingURL=ejercicio12.js.map

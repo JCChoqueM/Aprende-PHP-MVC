@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número":r,"Dígito":t}=e.input,o=-1===e.respuesta?"no se encuentra":`está en la posición ${e.respuesta}`;mostrarResultado(`El dígito ${t} en el número ${r} ${o}`)}//# sourceMappingURL=ejercicio8.js.map

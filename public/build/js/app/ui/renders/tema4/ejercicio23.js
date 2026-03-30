@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{total:o,cantidad:t,media:a}=r.respuesta;mostrarResultado(`\n        Total acumulado: ${o} <br>\n        Números introducidos: ${t} <br>\n        Media: ${a}\n    `)}//# sourceMappingURL=ejercicio23.js.map

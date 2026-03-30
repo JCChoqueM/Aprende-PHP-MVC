@@ -1,0 +1,1 @@
+import{mostrarResultado}from"../../renderResult.js";export function render(r){const{"Número":e}=r.input;mostrarResultado(`La última cifra de ${e} es: ${r.respuesta}`)}//# sourceMappingURL=ejercicio16.js.map
