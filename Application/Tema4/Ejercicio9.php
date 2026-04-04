@@ -13,12 +13,15 @@ class Ejercicio9 extends AbstractEjercicio
 
         ['Número' => $numero] = $result['input'];
 
-        // El render esperará:
-        // data.input.Número  → el número introducido
-        // data.respuesta     → cantidad de dígitos del número
+        // Convertir a string y quitar signo negativo si existe
+        $numeroStr = ltrim((string) $numero, '-');
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        // Si puede venir con decimales, opcional:
+        $numeroStr = str_replace('.', '', $numeroStr);
+
+        $cantidadDigitos = strlen($numeroStr);
+
+        $result['respuesta'] = $cantidadDigitos;
 
         return $result;
     }

@@ -14,12 +14,18 @@ class Ejercicio12 extends AbstractEjercicio
 
         ['Términos' => $n] = $result['input'];
 
-        // El render esperará:
-        // data.input.Términos → número de términos
-        // data.respuesta      → array con los términos de Fibonacci
+        $n = (int) $n;
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $fibonacci = [];
+
+        if ($n >= 1) $fibonacci[] = 0;
+        if ($n >= 2) $fibonacci[] = 1;
+
+        for ($i = 2; $i < $n; $i++) {
+            $fibonacci[] = $fibonacci[$i - 1] + $fibonacci[$i - 2];
+        }
+
+        $result['respuesta'] = $fibonacci;
 
         return $result;
     }

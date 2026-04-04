@@ -13,12 +13,21 @@ class Ejercicio11 extends AbstractEjercicio
 
         ['Número inicial' => $inicio] = $result['input'];
 
-        // El render esperará:
-        // data.input['Número inicial'] → número inicial
-        // data.respuesta               → array con [['numero' => n, 'cuadrado' => n², 'cubo' => n³], ...]
+        $inicio = (int) $inicio;
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $filas = [];
+
+        for ($i = 0; $i < 5; $i++) {
+            $n = $inicio + $i;
+
+            $filas[] = [
+                'numero'    => $n,
+                'cuadrado'  => $n ** 2,
+                'cubo'      => $n ** 3,
+            ];
+        }
+
+        $result['respuesta'] = $filas;
 
         return $result;
     }
