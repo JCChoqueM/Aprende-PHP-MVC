@@ -16,14 +16,15 @@ class Ejercicio12 extends AbstractEjercicio
 
         $n = (int) $n;
 
-        $fibonacci = [];
+       $actual = 0;
+       $siguiente = 1;
+       $fibonacci = [];
 
-        if ($n >= 1) $fibonacci[] = 0;
-        if ($n >= 2) $fibonacci[] = 1;
-
-        for ($i = 2; $i < $n; $i++) {
-            $fibonacci[] = $fibonacci[$i - 1] + $fibonacci[$i - 2];
-        }
+       for ($i = 0; $i < $n; $i++) {
+           $fibonacci[] = $actual;
+           $siguiente += $actual;
+           $actual = $siguiente - $actual;
+       }
 
         $result['respuesta'] = $fibonacci;
 
