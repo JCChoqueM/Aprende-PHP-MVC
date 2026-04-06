@@ -13,15 +13,15 @@ class Ejercicio9 extends AbstractEjercicio
 
         ['Número' => $numero] = $result['input'];
 
-        // Convertir a string y quitar signo negativo si existe
-        $numeroStr = ltrim((string) $numero, '-');
+        $numero = abs($numero);
+        $contador = 0;
 
-        // Si puede venir con decimales, opcional:
-        $numeroStr = str_replace('.', '', $numeroStr);
+        while ($numero > 0) {
+            $numero = (int) ($numero / 10);
+            $contador++;
+        }
 
-        $cantidadDigitos = strlen($numeroStr);
-
-        $result['respuesta'] = $cantidadDigitos;
+        $result['respuesta'] = $contador;
 
         return $result;
     }

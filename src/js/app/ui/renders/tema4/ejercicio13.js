@@ -1,12 +1,28 @@
 import { mostrarResultado } from '../../renderResult.js';
 
-// PENDIENTE: requiere input dinámico
-
 export function render(data) {
-    const { positivos, negativos } = data.respuesta;
+    const { estado, positivos, negativos, intento, restantes, mensaje } = data.respuesta;
 
+    if (estado === 'fin') {
+        mostrarResultado(`
+            <strong>Resultado final</strong><br><br>
+            Números positivos: ${positivos}<br>
+            Números negativos: ${negativos}
+        `);
+        return;
+    }
+
+    if (estado === 'reseteado') {
+        mostrarResultado(`<p>${mensaje}</p>`);
+        return;
+    }
+
+    // continuar
     mostrarResultado(`
-        Números positivos: ${positivos} <br>
-        Números negativos: ${negativos}
+        <strong>Procesando...</strong><br><br>
+        Positivos: ${positivos}<br>
+        Negativos: ${negativos}<br><br>
+        Intentos: ${intento} de 10<br>
+        Restantes: ${restantes}
     `);
 }
