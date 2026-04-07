@@ -14,13 +14,22 @@ class Ejercicio15 extends AbstractEjercicio
 
         ['Base' => $base, 'Exponente' => $exponente] = $result['input'];
 
-        // El render esperará:
-        // data.input.Base      → la base
-        // data.input.Exponente → el exponente máximo
-        // data.respuesta       → array con [['exponente' => n, 'resultado' => base^n], ...]
+        $base = (float) $base;
+        $exponente = (int) $exponente;
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $respuesta = [];
+        $acumulado = 1;
+
+        for ($i = 1; $i <= $exponente; $i++) {
+            $acumulado *= $base;
+
+            $respuesta[] = [
+                'exponente' => $i,
+                'resultado' => $acumulado
+            ];
+        }
+
+        $result['respuesta'] = $respuesta;
 
         return $result;
     }

@@ -20,8 +20,11 @@ class Ejercicio14 extends AbstractEjercicio
         // data.respuesta       → resultado de la potencia
 
         // Tu lógica aquí
-        // $result['respuesta'] = ...
-
+        $potencia = 1;
+        for ($i = 1; $i <= $exponente; $i++) {
+            $potencia *= $base;
+        }
+        $result['respuesta'] = $potencia;
         return $result;
     }
 }

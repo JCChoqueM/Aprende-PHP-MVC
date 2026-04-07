@@ -6,7 +6,7 @@ class EsPositivo
 {
     public static function validar(mixed $value): bool
     {
-        return is_numeric($value) && $value > 0;
+        return is_numeric($value) && $value >= 0;
     }
 
     public static function mensaje(string $field): string

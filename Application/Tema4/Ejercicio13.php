@@ -6,7 +6,7 @@ use Application\AbstractEjercicio;
 
 class Ejercicio13 extends AbstractEjercicio
 {
-    private const MAX_NUMEROS = 10;
+    private const MAX_NUMEROS = 4;
 
     public static function procesar(): array
     {
