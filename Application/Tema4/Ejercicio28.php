@@ -18,8 +18,10 @@ class Ejercicio28 extends AbstractEjercicio
         // data.input.Número  → el número introducido
         // data.respuesta     → el factorial del número
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $result['respuesta'] = 1;
+        for ($i = 1; $i <= $numero; $i++) {
+            $result['respuesta'] *= $i;
+        }
 
         return $result;
     }

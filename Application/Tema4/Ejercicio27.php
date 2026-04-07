@@ -20,8 +20,18 @@ class Ejercicio27 extends AbstractEjercicio
         // data.respuesta.cantidad    → cantidad de múltiplos encontrados
         // data.respuesta.suma        → suma de todos los múltiplos
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $result['respuesta'] = [
+            'multiplos' => [],
+            'cantidad'  => 0,
+            'suma'      => 0,
+        ];
+        for ($i = 1; $i <= $numero; $i++) {
+            if ($i % 3 === 0) {
+                $result['respuesta']['multiplos'][] = $i;
+                $result['respuesta']['cantidad']++;
+                $result['respuesta']['suma'] += $i;
+            }
+        }
 
         return $result;
     }

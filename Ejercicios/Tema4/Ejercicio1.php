@@ -12,20 +12,20 @@ class Ejercicio1 extends EjercicioBase
     {
         return ['formularioBool' => false];
     }
-   protected static function obtenerResultado(): ResultadoHTML
-{
-    $numeros = [];
+    protected static function obtenerResultado(): ResultadoHTML
+    {
+        $numeros = [];
 
-    for ($i = 0; $i <= 100; $i++) {
-        if ($i % 5 == 0) {
-            $numeros[] = $i;
+        for ($i = 0; $i <= 100; $i++) {
+            if ($i % 5 == 0) {
+                $numeros[] = $i;
+            }
         }
+
+        $resultado = implode(', ', $numeros) . '.';
+
+        return new ResultadoHTML($resultado);
     }
-
-    $resultado = implode(', ', $numeros) . '.';
-
-    return new ResultadoHTML($resultado);
-}
     protected static function enunciado(): string
     {
         return 'Muestra los números múltiplos de 5 de 0 a 100 utilizando un bucle for.';

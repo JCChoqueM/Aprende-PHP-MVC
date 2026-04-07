@@ -3,13 +3,13 @@
 namespace Application\Tema4;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\Rango;
+
 
 class Ejercicio26 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Número', 'Dígito'], [new Rango(0, 9)]);
+        $result = self::validar(['Número', 'Dígito']);
         if (!$result['success']) return $result;
 
         ['Número' => $numero, 'Dígito' => $digito] = $result['input'];
@@ -19,8 +19,12 @@ class Ejercicio26 extends AbstractEjercicio
         // data.input.Dígito  → el dígito a buscar
         // data.respuesta     → array con las posiciones donde aparece el dígito
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $result['respuesta'] = [];
+        for ($i = 0; $i < strlen($numero); $i++) {
+            if ($numero[$i] === $digito) {
+                $result['respuesta'][] = $i;
+            }
+        }
 
         return $result;
     }

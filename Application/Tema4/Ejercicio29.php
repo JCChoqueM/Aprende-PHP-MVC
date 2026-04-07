@@ -19,8 +19,12 @@ class Ejercicio29 extends AbstractEjercicio
         // data.input.Divisor          → el divisor
         // data.respuesta              → array con los números no divisibles entre el divisor
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $result['respuesta'] = [];
+        for ($i = 1; $i <= $limite; $i++) {
+            if ($i % $divisor !== 0) {
+                $result['respuesta'][] = $i;
+            }
+        }
 
         return $result;
     }

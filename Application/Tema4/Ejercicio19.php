@@ -3,24 +3,33 @@
 namespace Application\Tema4;
 
 use Application\AbstractEjercicio;
-use Application\Validacion\Reglas\EsPositivo;
+
 
 class Ejercicio19 extends AbstractEjercicio
 {
     public static function procesar(): array
     {
-        $result = self::validar(['Altura', 'Símbolo'], [EsPositivo::class]);
+        $result = self::validar(['Altura', 'Símbolo']);
         if (!$result['success']) return $result;
 
         ['Altura' => $altura, 'Símbolo' => $simbolo] = $result['input'];
 
-        // El render esperará:
-        // data.input.Altura  → altura de la pirámide
-        // data.input.Símbolo → símbolo elegido
-        // data.respuesta     → array de filas de la pirámide
+        $altura = (int) $altura;
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
+        $piramide = [];
+
+        for ($i = 1; $i <= $altura; $i++) {
+
+            // espacios a la izquierda
+            $espacios = str_repeat('&nbsp;', $altura - $i);
+
+            // cantidad de símbolos (impar: 1,3,5,...)
+            $figura = str_repeat($simbolo, 2 * $i - 1);
+
+            $piramide[] = $espacios . $figura;
+        }
+
+        $result['respuesta'] = $piramide;
 
         return $result;
     }

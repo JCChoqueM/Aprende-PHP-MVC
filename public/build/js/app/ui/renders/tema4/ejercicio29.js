@@ -1,1 +1,1 @@
-import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número límite":r,Divisor:o}=e.input;mostrarResultado(`Números menores a ${r} no divisibles entre ${o}: ${e.respuesta.join(", ")}`)}//# sourceMappingURL=ejercicio29.js.map
+import{mostrarResultado}from"../../renderResult.js";export function render(e){const{"Número límite":r,Divisor:o}=e.input;mostrarResultado(`Números menores a ${r} no divisibles entre ${o}:<br> ${e.respuesta.join(", ")}`)}//# sourceMappingURL=ejercicio29.js.map

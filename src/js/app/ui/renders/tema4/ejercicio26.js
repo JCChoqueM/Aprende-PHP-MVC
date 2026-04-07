@@ -7,5 +7,5 @@ export function render(data) {
         ? data.respuesta.join(', ')
         : 'no aparece';
 
-    mostrarResultado(`El dígito ${digito} en el número ${numero} aparece en la(s) posición(es): ${posiciones}`);
+    mostrarResultado(`El dígito ${digito} en el número ${numero} aparece en la(s) posición(es):<br> ${posiciones}`);
 }
