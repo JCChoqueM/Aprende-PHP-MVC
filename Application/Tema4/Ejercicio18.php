@@ -18,9 +18,20 @@ class Ejercicio18 extends AbstractEjercicio
         // data.input['Número 2'] → segundo número
         // data.respuesta         → array con los números entre ambos incrementando de 7 en 7
 
-        // Tu lógica aquí
-        // $result['respuesta'] = ...
-
+        if ($n1 !== $n2) {
+            $menor = min($n1, $n2);
+            /*    $ordenado = range($menor, max($n1, $n2), 7); */
+            $ordenado = [];
+            for ($i = $menor; $i <= max($n1, $n2); $i += 7) {
+                $ordenado[] = $i;
+            }
+        } else {
+            $result['respuesta'] = [
+                'estado' => 'error',
+                'mensaje' => 'Los números deben ser diferentes'
+            ];
+        }
+        $result['respuesta'] = $ordenado;
         return $result;
     }
 }
