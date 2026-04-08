@@ -19,40 +19,22 @@ class Ejercicio1 extends EjercicioBase
 
     protected static function obtenerResultado(): ResultadoTabla
     {
-        $numero = [];
-        $cuadrado = [];
-        $cubo = [];
-
-        // Generación de datos
-        for ($i = 0; $i < 20; $i++) {
-            $valor = rand(0, 100);
-
-            $numero[] = $valor;
-            $cuadrado[] = $valor ** 2;
-            $cubo[] = $valor ** 3;
-        }
-
-        // Construcción de datos para la tabla
         $datos = [];
 
         // Cabecera
         $datos[] = ['Número', 'Cuadrado', 'Cubo'];
 
-        // Filas
         for ($i = 0; $i < 20; $i++) {
+            $valor = rand(0, 100);
             $datos[] = [
-                $numero[$i],
-                $cuadrado[$i],
-                $cubo[$i]
+                $valor,
+                $valor ** 2,
+                $valor ** 3
             ];
         }
 
         return new ResultadoTabla(
             datos: $datos,
-            headerBg: '#1e293b', // opcional
-            tableClass: 'tabla-ejercicio',
-            tdClass: 'celda',
-            tableId: 'tabla-numeros'
         );
     }
 }
